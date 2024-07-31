@@ -15,8 +15,27 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class PendudukController extends CI_Controller
 {
+    public function __construct()
+    {
+        parent::__construct();
+        $this->load->model('Penduduk/PendudukModel');
+    }
+
     public function index()
     {
+        $data_penduduk = $this->PendudukModel->view();
         
+        $data = array(
+            'get_penduduk' => $data_penduduk,
+            'nama_user' => $this->session->userdata('nama_user'),
+            'title' => 'Data Penduduk',
+            'title_content' => 'Penduduk',
+            'link1' => 'Penduduk',
+            'link2' => 'View Penduduk',
+        );
+
+        $this->load->view('Layouts/Header', $data);
+        $this->load->view('Penduduk/ViewPenduduk', $data_penduduk);
+        $this->load->view('Layouts/Footer');
     }
 }

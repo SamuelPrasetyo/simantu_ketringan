@@ -95,7 +95,7 @@
                 <nav class="sidebar-nav">
                     <ul id="sidebarnav">
                         <li>
-                            <a class="waves-effect waves-dark" href="<?= base_url('beranda') ?>" aria-expanded="false">
+                            <a class="waves-effect waves-dark" href="<?=base_url('beranda') ?>" aria-expanded="false">
                                 <i class="fas fa-home text-success"></i><span class="hide-menu"> Beranda</span></a>
                         </li>
 
@@ -103,20 +103,20 @@
                             <li> <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="fas fa-box"></i>
                                     <span class="hide-menu">Data Barang</span></a>
                                 <ul aria-expanded="false" class="collapse">
-                                    <li><a href="<?= base_url('view_iphone') ?>">Iphone</a></li>
-                                    <li><a href="<?= base_url('view_macbook') ?>">Macbook</a></li>
+                                    <li><a href="<?=base_url('view_iphone') ?>">Iphone</a></li>
+                                    <li><a href="<?=base_url('view_macbook') ?>">Macbook</a></li>
                                 </ul>
                             </li>
                         <?php } ?>
 
                         <li>
-                            <a class="waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+                            <a class="waves-effect waves-dark" href="<?=base_url('view_penduduk')?>" aria-expanded="false">
                                 <i class="mdi mdi-account-multiple"></i><span class="hide-menu"> Penduduk</span">
                             </a>
                         </li>
 
                         <li>
-                            <a class="waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+                            <a class="waves-effect waves-dark" href="<?=base_url('view_kelahiran')?>" aria-expanded="false">
                                 <i class="fas fa-child"></i><span class="hide-menu"> Kelahiran</span">
                             </a>
                         </li>
@@ -143,22 +143,22 @@
                                 <span class="hide-menu">Forms</span></a>
                             <ul aria-expanded="false" class="collapse">
                                 <?php if ($this->session->userdata('akses') == 'admin') { ?>
-                                    <li><a href="<?= base_url('entri_barang') ?>">Entri Data Barang</a></li>
+                                    <li><a href="<?=base_url('entri_barang') ?>">Entri Data Barang</a></li>
                                 <?php } ?>
-                                <li><a href="<?= base_url('entri_penjualan') ?>">Entri Penjualan</a></li>
+                                <li><a href="<?=base_url('entri_penjualan') ?>">Entri Penjualan</a></li>
                             </ul>
                         </li>
 
                         <li> <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="ti-files"></i>
                                 <span class="hide-menu">Laporan</span></a>
                             <ul aria-expanded="false" class="collapse">
-                                <li><a href="<?= base_url('laporan_barang') ?>">Laporan Data Barang</a></li>
-                                <li><a href="<?= base_url('laporan_penjualan') ?>">Laporan Penjualan</a></li>
+                                <li><a href="<?=base_url('laporan_barang') ?>">Laporan Data Barang</a></li>
+                                <li><a href="<?=base_url('laporan_penjualan') ?>">Laporan Penjualan</a></li>
                             </ul>
                         </li>
 
                         <li style="margin-top: 100px;">
-                            <a class="waves-effect waves-dark" href="<?= base_url('logout') ?>" aria-expanded="false">
+                            <a class="waves-effect waves-dark" href="<?=base_url('logout') ?>" aria-expanded="false">
                                 <i class="far fa-circle text-success"></i><span class="hide-menu">Log Out</span></a>
                         </li>
                     </ul>

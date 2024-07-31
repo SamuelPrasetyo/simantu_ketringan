@@ -13,19 +13,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  **           berasal dari bagaimana kamu berpikir..."
  */
 
-$route['default_controller'] = 'AuthController';
+class PendudukModel extends CI_Model
+{
+    public function view()
+    {
+        $query = $this->db->
+            query("SELECT nik, nama, no_urut_kk, jenkel, 
+                tmp_lahir, DATE_FORMAT(tgl_lahir, '%d %M %Y') AS tgl_lahir,
+                gol_darah, agama, status_nikah, status_keluarga, pendidikan,
+                pekerjaan, nama_ayah, nama_ibu, no_kk, rt, rw, warga_negara
+                FROM penduduk");
 
-// Routes Authentication
-$route['aksi_login'] = 'AuthController/aksi_login';
-$route['logout'] = 'AuthController/logout';
+        return $query->result();
+    }
 
-// Main Page
-$route['beranda'] = 'Main/HomeController';
-
-// Data Penduduk
-$route['view_penduduk'] = 'Penduduk/PendudukController';
-
-
-
-$route['404_override'] = '';
-$route['translate_uri_dashes'] = FALSE;
+    
+}
