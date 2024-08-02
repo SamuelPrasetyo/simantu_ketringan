@@ -23,7 +23,13 @@ $route['logout'] = 'AuthController/logout';
 $route['beranda'] = 'Main/HomeController';
 
 // Data Penduduk
-$route['view_penduduk'] = 'Penduduk/PendudukController';
+$route['view_penduduk'] = 'Data/PendudukController';
+$route['detail_penduduk/(:any)'] = 'Data/PendudukController/detail_penduduk';
+$route['add_penduduk'] = 'Data/PendudukController/page_add';
+$route['create_penduduk'] = 'Data/PendudukController/create_penduduk';
+$route['edit_penduduk'] = 'Data/PendudukController/page_edit';
+$route['update_penduduk'] = 'Data/PendudukController/update_penduduk';
+$route['delete_penduduk/(:any)'] = 'Data/PendudukController/delete_penduduk';
 
 
 

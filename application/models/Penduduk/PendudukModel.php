@@ -1,5 +1,5 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 /***
  *!       _____                            __
  *!      / ___/____ _____ ___  __  _____  / /
@@ -17,15 +17,41 @@ class PendudukModel extends CI_Model
 {
     public function view()
     {
-        $query = $this->db->
-            query("SELECT nik, nama, no_urut_kk, jenkel, 
+        $query = $this->db->query(
+            "SELECT nik, nama, no_urut_kk, jenkel, 
                 tmp_lahir, DATE_FORMAT(tgl_lahir, '%d %M %Y') AS tgl_lahir,
                 gol_darah, agama, status_nikah, status_keluarga, pendidikan,
                 pekerjaan, nama_ayah, nama_ibu, no_kk, rt, rw, warga_negara
-                FROM penduduk");
+                FROM penduduk"
+        );
 
         return $query->result();
     }
 
-    
+    public function detail($nik)
+    {
+        $this->db->select(
+            'nik, nama, no_urut_kk, jenkel, tmp_lahir, 
+                DATE_FORMAT(tgl_lahir, "%d %M %Y") AS tgl_lahir,
+                gol_darah, agama, status_nikah, status_keluarga, 
+                pendidikan, pekerjaan, nama_ayah, nama_ibu, no_kk, rt, rw, warga_negara'
+        );
+
+        $this->db->from('penduduk');
+        $this->db->where('nik', $nik);
+        $query = $this->db->get();
+
+        return $query->row();
+    }
+
+    public function insert_penduduk($data)
+    {
+        return $this->db->insert('penduduk', $data);
+    }
+
+    public function delete_penduduk($nik)
+    {
+        $this->db->where('nik', $nik);
+        return $this->db->delete('penduduk');
+    }
 }

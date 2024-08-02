@@ -42,7 +42,7 @@ class AuthController extends CI_Controller
 
 				$this->session->set_userdata($data_session);
 
-				if ($cek_level['level'] == 'Admin') {
+				if ($cek_level['level'] == 'admin') {
 					// Akses admin
 					$this->session->set_userdata('masuk', TRUE);
 					$this->session->set_userdata('akses', 'admin');

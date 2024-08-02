@@ -5,6 +5,9 @@
                 <h4 class="card-title">Data Penduduk</h4>
                 <h6 class="card-subtitle">Desa Ketringan</h6>
                 <div class="table-responsive m-t-40">
+                    <a href="<?= base_url('add_penduduk') ?>" class="btn btn-primary">
+                        <i class="mdi mdi-account-plus"></i> Tambah Data
+                    </a>
                     <table id="myTable" class="table table-striped table-bordered" cellspacing="0" width="100%">
                         <thead>
                             <tr>
@@ -65,13 +68,16 @@
                                     <td>
                                         <?php echo $row->no_kk; ?>
                                     </td>
-                                    <td style="width: 9%;">
+                                    <td style="width: 12%;">
+                                        <a class="btn btn-info" href="<?php echo base_url('detail_penduduk/' . $row->nik); ?>">
+                                            <i class="mdi mdi-library-books"></i>
+                                        </a>
                                         <a class="btn btn-warning" href="<?php echo base_url('edit_penduduk/' . $row->nik); ?>">
                                             <i class="far fa-edit"></i>
                                         </a>
-                                        <a class="btn btn-danger" href="<?php echo base_url('delete_penduduk/' . $row->nik); ?>">
+                                        <button class="btn btn-danger" onclick="confirmDelete('<?php echo base_url('delete_penduduk/' . $row->nik); ?>')">
                                             <i class="mdi mdi-delete"></i>
-                                        </a>
+                                        </button>
                                     </td>
                                 </tr>
                             <?php } ?>
