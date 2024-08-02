@@ -73,28 +73,22 @@
         <aside class="left-sidebar">
             <!-- Sidebar scroll-->
             <div class="scroll-sidebar">
-                <!-- User Profile-->
-                <div class="user-profile">
-                    <div class="user-pro-body">
-                        <!-- <a class="nav-link dropdown-toggle waves-effect waves-dark profile-pic" href="" data-toggle="dropdown" 
-                            aria-haspopup="true" aria-expanded="false"><img src="template/assets/images/users/1.jpg" alt="user" class=""> 
-                                <span class="hidden-md-down">Mark &nbsp;<i class="fa fa-angle-down"></i></span> 
-                        </a> -->
-                        <div class="dropdown">
-                            <a href="javascript:void(0)" class="dropdown-toggle u-dropdown link hide-menu" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                <h1 style="color: black;"><?php echo $nama_user; ?></h1> <span class="caret"></span>
-                            </a>
-                            <div class="dropdown-menu animated flipInY">
-                                <a href="javascript:void(0)" class="dropdown-item"><i class="ti-user"></i> My Profile</a>
-                                <div class="dropdown-divider"></div>
-                                <a href="login.html" class="dropdown-item"><i class="fa fa-power-off"></i> Logout</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
                 <!-- Sidebar navigation-->
                 <nav class="sidebar-nav">
                     <ul id="sidebarnav">
+                        <li class="user-pro">
+                            <a href="javascript:void(0)" class="has-arrow waves-effect waves-dark active">
+                                <img src="template/assets/images/users/icon-user.png" alt="user-img" class="img-circle">
+                                <span class="hide-menu"><?php echo $nama_user; ?></span>
+                            </a>
+                            <ul aria-expanded="false" class="collapse in">
+                                <li>
+                                    <a href="javascript:void(0)" class="dropdown-item"><i class="ti-user"></i> My Profile</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a href="logout" class="dropdown-item"><i class="fa fa-power-off"></i> Logout</a>
+                                </li>
+                            </ul>
+                        </li>
                         <li>
                             <a class="waves-effect waves-dark" href="<?= base_url('beranda') ?>" aria-expanded="false">
                                 <i class="fas fa-home text-success"></i><span class="hide-menu"> Beranda</span></a>

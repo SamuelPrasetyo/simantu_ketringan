@@ -34,7 +34,8 @@ class PendudukModel extends CI_Model
             'nik, nama, no_urut_kk, jenkel, tmp_lahir, 
                 DATE_FORMAT(tgl_lahir, "%d %M %Y") AS tgl_lahir,
                 gol_darah, agama, status_nikah, status_keluarga, 
-                pendidikan, pekerjaan, nama_ayah, nama_ibu, no_kk, rt, rw, warga_negara'
+                pendidikan, pekerjaan, nama_ayah, nama_ibu, no_kk, 
+                rt, rw, warga_negara'
         );
 
         $this->db->from('penduduk');
@@ -47,6 +48,28 @@ class PendudukModel extends CI_Model
     public function insert_penduduk($data)
     {
         return $this->db->insert('penduduk', $data);
+    }
+
+    public function get_edit($nik)
+    {
+        $this->db->select(
+            'nik, nama, no_urut_kk, jenkel, tmp_lahir, tgl_lahir,
+                gol_darah, agama, status_nikah, status_keluarga, 
+                pendidikan, pekerjaan, nama_ayah, nama_ibu, no_kk, 
+                rt, rw, warga_negara'
+        );
+
+        $this->db->from('penduduk');
+        $this->db->where('nik', $nik);
+        $query = $this->db->get();
+
+        return $query->row();
+    }
+
+    public function update_penduduk($data)
+    {
+        $this->db->where('nik', $data['nik']);
+        return $this->db->update('penduduk', $data);
     }
 
     public function delete_penduduk($nik)

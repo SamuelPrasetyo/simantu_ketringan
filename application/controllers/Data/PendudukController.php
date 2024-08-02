@@ -18,6 +18,11 @@ class PendudukController extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+        // Memuat library 'auth'
+        $this->load->library('Auth');
+        // Memeriksa otentikasi pengguna
+        $this->auth->check();
+
         $this->load->model('Penduduk/PendudukModel');
         $this->load->helper(array('form', 'validation_form'));
     }
@@ -64,8 +69,8 @@ class PendudukController extends CI_Controller
     {
         $data = array(
             'nama_user' => $this->session->userdata('nama_user'),
-            'title' => 'Tambah Penduduk',
-            'title_content' => 'Tambah Penduduk',
+            'title' => 'Tambah Data Penduduk',
+            'title_content' => 'Tambah Data Penduduk',
             'link1' => 'Penduduk',
             'link2' => 'Add Penduduk'
         );
@@ -82,8 +87,8 @@ class PendudukController extends CI_Controller
         if ($this->form_validation->run() == FALSE) {
             $data = array(
                 'nama_user' => $this->session->userdata('nama_user'),
-                'title' => 'Tambah Penduduk',
-                'title_content' => 'Tambah Penduduk',
+                'title' => 'Tambah Data Penduduk',
+                'title_content' => 'Tambah Data Penduduk',
                 'link1' => 'Penduduk',
                 'link2' => 'Add Penduduk',
             );
@@ -94,19 +99,19 @@ class PendudukController extends CI_Controller
         } else {
             $data = array(
                 'nik' => $this->input->post('nik'),
-                'nama' => $this->input->post('nama'),
+                'nama' => ucwords(strtolower($this->input->post('nama'))),
                 'no_urut_kk' => $this->input->post('no_urut_kk'),
                 'jenkel' => $this->input->post('jenkel'),
-                'tmp_lahir' => $this->input->post('tmp_lahir'),
+                'tmp_lahir' => ucwords(strtolower($this->input->post('tmp_lahir'))),
                 'tgl_lahir' => $this->input->post('tgl_lahir'),
                 'gol_darah' => $this->input->post('gol_darah'),
                 'agama' => $this->input->post('agama'),
                 'status_nikah' => $this->input->post('status_nikah'),
                 'status_keluarga' => $this->input->post('status_keluarga'),
                 'pendidikan' => $this->input->post('pendidikan'),
-                'pekerjaan' => $this->input->post('pekerjaan'),
-                'nama_ayah' => $this->input->post('nama_ayah'),
-                'nama_ibu' => $this->input->post('nama_ibu'),
+                'pekerjaan' => ucwords(strtolower($this->input->post('pekerjaan'))),
+                'nama_ayah' => ucwords(strtolower($this->input->post('nama_ayah'))),
+                'nama_ibu' => ucwords(strtolower($this->input->post('nama_ibu'))),
                 'rt' => $this->input->post('rt'),
                 'rw' => $this->input->post('rw'),
                 'no_kk' => $this->input->post('no_kk'),
@@ -123,12 +128,66 @@ class PendudukController extends CI_Controller
 
     public function page_edit()
     {
-        
+        $data = array(
+            'nama_user' => $this->session->userdata('nama_user'),
+            'title' => 'Edit Data Penduduk',
+            'title_content' => 'Edit Data Penduduk',
+            'link1' => 'Penduduk',
+            'link2' => 'Edit Penduduk',
+        );
+
+        $nik = $this->uri->segment(2);
+        $data_penduduk = $this->PendudukModel->get_edit($nik);
+
+        $this->load->view('Layouts/Header', $data);
+        $this->load->view('Penduduk/EditPenduduk', $data_penduduk);
+        $this->load->view('Layouts/Footer');
     }
 
     public function update_penduduk()
     {
-        
+        $this->form_validation->set_rules(penduduk_validation_rules());
+
+        if ($this->form_validation->run() == FALSE) {
+            $data = array(
+                'nama_user' => $this->session->userdata('nama_user'),
+                'title' => 'Edit Data Penduduk',
+                'title_content' => 'Edit Data Penduduk',
+                'link1' => 'Penduduk',
+                'link2' => 'Edit Penduduk',
+            );
+    
+            $this->load->view('Layouts/Header', $data);
+            $this->load->view('Penduduk/EditPenduduk');
+            $this->load->view('Layouts/Footer');
+        } else {
+            $data = array(
+                'nik' => $this->input->post('nik'),
+                'nama' => ucwords(strtolower($this->input->post('nama'))),
+                'no_urut_kk' => $this->input->post('no_urut_kk'),
+                'jenkel' => $this->input->post('jenkel'),
+                'tmp_lahir' => ucwords(strtolower($this->input->post('tmp_lahir'))),
+                'tgl_lahir' => $this->input->post('tgl_lahir'),
+                'gol_darah' => $this->input->post('gol_darah'),
+                'agama' => $this->input->post('agama'),
+                'status_nikah' => $this->input->post('status_nikah'),
+                'status_keluarga' => $this->input->post('status_keluarga'),
+                'pendidikan' => $this->input->post('pendidikan'),
+                'pekerjaan' => ucwords(strtolower($this->input->post('pekerjaan'))),
+                'nama_ayah' => ucwords(strtolower($this->input->post('nama_ayah'))),
+                'nama_ibu' => ucwords(strtolower($this->input->post('nama_ibu'))),
+                'rt' => $this->input->post('rt'),
+                'rw' => $this->input->post('rw'),
+                'no_kk' => $this->input->post('no_kk'),
+                'warga_negara' => $this->input->post('warga_negara')
+            );
+
+            if ($this->PendudukModel->update_penduduk($data)) {
+                redirect('view_penduduk');
+            } else {
+                redirect('edit_penduduk');
+            }
+        }
     }
 
     public function delete_penduduk()

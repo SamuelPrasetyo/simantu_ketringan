@@ -23,6 +23,7 @@ class LoginModel extends CI_Model
             $row = $query->row();
 
             $result = array(
+                'user_id' => $row->user_id,
                 'username' => $row->username,
                 'password' => $row->password,
                 'nama_pegawai' => $row->nama_pegawai,

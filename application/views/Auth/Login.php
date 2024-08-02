@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <link rel="icon" type="image/png" sizes="16x16" href="<?php base_url() ?>template/assets/images/favicon.png">
     <title>Login</title>
-    
+
     <link href="<?php base_url() ?>template/ecommerce/dist/css/pages/login-register-lock.css" rel="stylesheet">
     <link href="<?php base_url() ?>template/ecommerce/dist/css/style.min.css" rel="stylesheet">
 
@@ -17,6 +18,11 @@
             border-radius: 4px;
             background-color: #dff0d8;
             color: #3c763d;
+        }
+
+        .login-box.card {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            border-radius: 15px;
         }
     </style>
 </head>
@@ -33,28 +39,30 @@
 
 
     <section id="wrapper">
-        <div class="login-register" style="background-image:url(<?php base_url(); ?>template/assets/gambar/bg-login.jpg);">
+        <div class="login-register" style="background-image: url(<?php base_url() ?>'template/assets/gambar/background-login.jpg');">
             <div class="login-box card">
                 <div class="card-body">
-
+                    <center>
+                        <img src="<?php base_url() ?>template\assets\gambar\logo_kabblora.png" alt="Logo" style="width: 40%;">
+                    </center><br>
 
                     <form class="form-horizontal form-material" id="loginform" action="aksi_login" method="post">
                         <h3 class="text-center m-b-20">Sign In</h3>
 
 
-                            <?php if ($this->session->flashdata('msg')): ?>
-                                <p id="flash-msg" class="alert"><?php echo $this->session->flashdata('msg'); ?></p>
-                            <?php endif; ?>
+                        <?php if ($this->session->flashdata('msg')) : ?>
+                            <p id="flash-msg" class="alert"><?php echo $this->session->flashdata('msg'); ?></p>
+                        <?php endif; ?>
 
 
                         <div class="form-group ">
                             <div class="col-xs-12">
-                                <input class="form-control" type="text" name="username" required="" placeholder="Username" autocomplete="off"> 
+                                <input class="form-control" type="text" name="username" required="" placeholder="Username" autocomplete="off">
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-xs-12">
-                                <input class="form-control" type="password" name="password" id="form-control-password" required="" placeholder="Password"> 
+                                <input class="form-control" type="password" name="password" id="form-control-password" required="" placeholder="Password">
                             </div>
                         </div>
                         <div class="form-group row">
@@ -77,11 +85,11 @@
             </div>
         </div>
     </section>
-    
 
 
 
-    
+
+
     <script src="<?php base_url() ?>template/assets/node_modules/jquery/jquery-3.2.1.min.js"></script>
     <script src="<?php base_url() ?>template/assets/node_modules/popper/popper.min.js"></script>
     <script src="<?php base_url() ?>template/assets/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
@@ -107,15 +115,16 @@
         }, 5000);
 
 
-        $(document).ready(function(){
-			$('#cek-password').click(function(){
-				if($(this).is(':checked')){
-					$('#form-control-password').attr('type','text');
-				}else{
-					$('#form-control-password').attr('type','password');
-					}
-				});
-			});
+        $(document).ready(function() {
+            $('#cek-password').click(function() {
+                if ($(this).is(':checked')) {
+                    $('#form-control-password').attr('type', 'text');
+                } else {
+                    $('#form-control-password').attr('type', 'password');
+                }
+            });
+        });
     </script>
 </body>
+
 </html>

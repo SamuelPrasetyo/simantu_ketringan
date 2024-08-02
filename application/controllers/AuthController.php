@@ -36,6 +36,7 @@ class AuthController extends CI_Controller
 		if ($cek_level) {
 			if (password_verify($password, $cek_level['password'])) {
 				$data_session = array(
+                    'user_id' => $cek_level['user_id'],
 					'username' => $cek_level['username'],
 					'nama_user' => $cek_level['nama_pegawai']
 				);
@@ -46,6 +47,7 @@ class AuthController extends CI_Controller
 					// Akses admin
 					$this->session->set_userdata('masuk', TRUE);
 					$this->session->set_userdata('akses', 'admin');
+                    $this->session->set_userdata('user_id', $cek_level['user_id']);
 					$this->session->set_userdata('ses_username', $cek_level['username']);
 					$this->session->set_userdata('ses_nama', $cek_level['nama_pegawai']);
 					redirect('beranda');
@@ -53,6 +55,7 @@ class AuthController extends CI_Controller
 					// Akses Petugas
 					$this->session->set_userdata('masuk', TRUE);
 					$this->session->set_userdata('akses', 'pegawai');
+                    $this->session->set_userdata('user_id', $cek_level['user_id']);
 					$this->session->set_userdata('ses_username', $cek_level['username']);
 					$this->session->set_userdata('ses_nama', $cek_level['nama_pegawai']);
 					redirect('beranda');
