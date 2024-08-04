@@ -22,6 +22,8 @@ class HomeController extends CI_Controller
         $this->load->library('Auth');
         // Memeriksa otentikasi pengguna
         $this->auth->check();
+        
+        $this->load->model('StatistikModel');
     }
 
     public function index()
@@ -34,8 +36,15 @@ class HomeController extends CI_Controller
             'link2' => 'Beranda',
         );
 
+        $statistik = array(
+            'jumlahPenduduk' => $this->StatistikModel->jumlah_penduduk(),
+            'jumlahKeluarga' => $this->StatistikModel->jumlah_keluarga(),
+            'jumlahLakiLaki' => $this->StatistikModel->jumlah_lakilaki(),
+            'jumlahPerempuan' => $this->StatistikModel->jumlah_perempuan(),
+        );
+
         $this->load->view('Layouts/Header', $data);
-        $this->load->view('Dashboard/Home');
+        $this->load->view('Dashboard/Home', $statistik);
         $this->load->view('Layouts/Footer');
     }
 

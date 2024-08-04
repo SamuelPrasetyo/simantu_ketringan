@@ -1,5 +1,5 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 /***
  *!       _____                            __
  *!      / ___/____ _____ ___  __  _____  / /
@@ -13,6 +13,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  **           berasal dari bagaimana kamu berpikir..."
  */
 
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Reader\Xlsx;
+
 class PendudukController extends CI_Controller
 {
     public function __construct()
@@ -23,14 +26,14 @@ class PendudukController extends CI_Controller
         // Memeriksa otentikasi pengguna
         $this->auth->check();
 
-        $this->load->model('Penduduk/PendudukModel');
+        $this->load->model('PendudukModel');
         $this->load->helper(array('form', 'validation_form'));
     }
 
     public function index()
     {
         $data_penduduk = $this->PendudukModel->view();
-        
+
         $data = array(
             'get_penduduk' => $data_penduduk,
             'nama_user' => $this->session->userdata('nama_user'),
@@ -92,7 +95,7 @@ class PendudukController extends CI_Controller
                 'link1' => 'Penduduk',
                 'link2' => 'Add Penduduk',
             );
-    
+
             $this->load->view('Layouts/Header', $data);
             $this->load->view('Penduduk/AddPenduduk');
             $this->load->view('Layouts/Footer');
@@ -156,7 +159,7 @@ class PendudukController extends CI_Controller
                 'link1' => 'Penduduk',
                 'link2' => 'Edit Penduduk',
             );
-    
+
             $this->load->view('Layouts/Header', $data);
             $this->load->view('Penduduk/EditPenduduk');
             $this->load->view('Layouts/Footer');
@@ -199,6 +202,64 @@ class PendudukController extends CI_Controller
             $this->session->set_flashdata('success', 'Data Berhasil Dihapus!');
         } else {
             $this->session->set_flashdata('error', 'Data Gagal Dihapus!');
+        }
+
+        redirect('view_penduduk');
+    }
+
+    public function import_penduduk()
+    {
+        $file_mimes = array('application/vnd.ms-excel', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', 'text/csv');
+
+        if (isset($_FILES['excelFile']['name']) && in_array($_FILES['excelFile']['type'], $file_mimes)) {
+            $arr_file = explode('.', $_FILES['excelFile']['name']);
+            $extension = end($arr_file);
+
+            if ('csv' == $extension) {
+                $reader = new \PhpOffice\PhpSpreadsheet\Reader\Csv();
+            } else {
+                $reader = new \PhpOffice\PhpSpreadsheet\Reader\Xlsx();
+            }
+
+            $spreadsheet = $reader->load($_FILES['excelFile']['tmp_name']);
+            $sheetData = $spreadsheet->getActiveSheet()->toArray();
+
+            $data = array();
+            for ($i = 1; $i < count($sheetData); $i++) {
+                $nik = $sheetData[$i][0];
+                if (!$this->PendudukModel->check_nik_exists($nik)) {
+                    $data[] = array(
+                        'nik' => $nik,
+                        'nama' => ucwords(strtolower($sheetData[$i][1])),
+                        'no_urut_kk' => $sheetData[$i][2],
+                        'jenkel' => $sheetData[$i][3],
+                        'tmp_lahir' => ucwords(strtolower($sheetData[$i][4])),
+                        'tgl_lahir' => $sheetData[$i][5],
+                        'gol_darah' => $sheetData[$i][6],
+                        'agama' => $sheetData[$i][7],
+                        'status_nikah' => $sheetData[$i][8],
+                        'status_keluarga' => $sheetData[$i][9],
+                        'pendidikan' => $sheetData[$i][10],
+                        'pekerjaan' => ucwords(strtolower($sheetData[$i][11])),
+                        'nama_ayah' => ucwords(strtolower($sheetData[$i][12])),
+                        'nama_ibu' => ucwords(strtolower($sheetData[$i][13])),
+                        'no_kk' => $sheetData[$i][14],
+                        'rt' => $sheetData[$i][15],
+                        'rw' => $sheetData[$i][16],
+                        'warga_negara' => $sheetData[$i][17]
+                    );
+                }
+            }
+
+            
+            if (!empty($data)) {
+                $this->PendudukModel->import_penduduk($data);
+                $this->session->set_flashdata('success', 'Data berhasil diimport');
+            } else {
+                $this->session->set_flashdata('error', 'Tidak ada data baru untuk diimport');
+            }
+        } else {
+            $this->session->set_flashdata('error', 'File tidak valid');
         }
 
         redirect('view_penduduk');

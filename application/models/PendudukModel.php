@@ -77,4 +77,16 @@ class PendudukModel extends CI_Model
         $this->db->where('nik', $nik);
         return $this->db->delete('penduduk');
     }
+
+    public function check_nik_exists($nik)
+    {
+        $this->db->where('nik', $nik);
+        $query = $this->db->get('penduduk');
+        return $query->num_rows() > 0;
+    }
+
+    public function import_penduduk($data)
+    {
+        return $this->db->insert_batch('penduduk', $data);
+    }
 }

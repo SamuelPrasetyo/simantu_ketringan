@@ -30,6 +30,7 @@ $route['create_penduduk'] = 'Data/PendudukController/create_penduduk';
 $route['edit_penduduk/(:any)'] = 'Data/PendudukController/page_edit';
 $route['update_penduduk'] = 'Data/PendudukController/update_penduduk';
 $route['delete_penduduk/(:any)'] = 'Data/PendudukController/delete_penduduk';
+$route['import_penduduk'] = 'Data/PendudukController/import_penduduk';
 
 
 

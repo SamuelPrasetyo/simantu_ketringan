@@ -13,6 +13,12 @@
 
     <title><?php echo $title; ?></title>
 
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="<?= base_url() ?>template/assets/node_modules/bootstrap/dist/css/bootstrap.css">
+
+    <!-- Popup CSS -->
+    <link href="<?= base_url() ?>template/assets/node_modules/Magnific-Popup-master/dist/magnific-popup.css" rel="stylesheet">
+
     <!-- chartist CSS -->
     <link href="<?= base_url() ?>template/assets/node_modules/morrisjs/morris.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -24,9 +30,6 @@
     <link href="<?= base_url() ?>template/assets/node_modules/sweetalert2/dist/sweetalert2.min.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="<?= base_url() ?>template/eliteadmin/dist/css/style.min.css" rel="stylesheet">
-
-
-
 
     <link href="<?= base_url() ?>template/assets/node_modules/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css" rel="stylesheet">
     <!-- Page plugins css -->
@@ -40,7 +43,7 @@
     <link href="<?= base_url() ?>template/assets/node_modules/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
 </head>
 
-<body class="skin-default fixed-layout">
+<body class="fixed-layout skin-blue">
     <div class="preloader">
         <div class="loader">
             <div class="loader__figure"></div>
@@ -68,8 +71,6 @@
             </nav>
         </header>
 
-
-
         <aside class="left-sidebar">
             <!-- Sidebar scroll-->
             <div class="scroll-sidebar">
@@ -77,11 +78,11 @@
                 <nav class="sidebar-nav">
                     <ul id="sidebarnav">
                         <li class="user-pro">
-                            <a href="javascript:void(0)" class="has-arrow waves-effect waves-dark active">
+                            <a href="javascript:void(0)" class="has-arrow waves-effect waves-dark">
                                 <img src="template/assets/images/users/icon-user.png" alt="user-img" class="img-circle">
                                 <span class="hide-menu"><?php echo $nama_user; ?></span>
                             </a>
-                            <ul aria-expanded="false" class="collapse in">
+                            <ul aria-expanded="false" class="collapse">
                                 <li>
                                     <a href="javascript:void(0)" class="dropdown-item"><i class="ti-user"></i> My Profile</a>
                                     <div class="dropdown-divider"></div>
@@ -144,10 +145,10 @@
                             </ul>
                         </li>
 
-                        <li style="margin-top: 100px;">
+                        <!-- <li style="margin-top: 100px;">
                             <a class="waves-effect waves-dark" href="<?= base_url('logout') ?>" aria-expanded="false">
                                 <i class="far fa-circle text-success"></i><span class="hide-menu">Log Out</span></a>
-                        </li>
+                        </li> -->
                     </ul>
                 </nav>
                 <!-- End Sidebar navigation -->

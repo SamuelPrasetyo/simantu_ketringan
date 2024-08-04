@@ -5,9 +5,14 @@
 </footer>
 </div>
 
+<!-- Magnific popup Javascript -->
+<script src="<?php echo base_url() ?>template/assets/node_modules/Magnific-Popup-master/dist/jquery.magnific-popup.min.js"></script>
+<script src="<?php echo base_url() ?>template/assets/node_modules/Magnific-Popup-master/dist/jquery.magnific-popup-init.js"></script>
+
 <script src="<?php echo base_url() ?>template/assets/node_modules/jquery/jquery-3.2.1.min.js"></script>
 <!-- Bootstrap tether Core JavaScript -->
 <script src="<?php echo base_url() ?>template/assets/node_modules/popper/popper.min.js"></script>
+<script src="<?php echo base_url() ?>template/assets/node_modules/bootstrap/dist/js/bootstrap.js"></script>
 <script src="<?php echo base_url() ?>template/assets/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 <!-- slimscrollbar scrollbar JavaScript -->
 <script src="<?php echo base_url() ?>template/eliteadmin/dist/js/perfect-scrollbar.jquery.min.js"></script>
@@ -116,13 +121,6 @@
         $('.buttons-copy, .buttons-csv, .buttons-print, .buttons-pdf, .buttons-excel').addClass('btn btn-primary mr-1');
     });
 </script>
-
-
-
-
-
-
-
 
 
 
@@ -336,126 +334,6 @@
             days: 6
         }
     });
-</script>
-<script>
-    var data = <?php echo json_encode($penjualan); ?>;
-    var labels = [];
-    var jumlah = [];
-
-    data.forEach(function(row) {
-        labels.push(row.item_dibeli);
-        jumlah.push(row.jumlah);
-    });
-
-    var ctx = document.getElementById('grafikBatang').getContext('2d');
-    var chart = new Chart(ctx, {
-        type: 'bar',
-        data: {
-            labels: labels, // Menggunakan data labels yang sudah Anda siapkan
-            datasets: [{
-                label: 'Grafik Penjualan Barang', // Label untuk dataset
-                data: jumlah,
-                backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 206, 86, 0.2)',
-                    'rgba(75, 192, 192, 0.2)',
-                    'rgba(153, 102, 255, 0.2)',
-                    'rgba(255, 159, 64, 0.2)'
-                ],
-                borderColor: [
-                    'rgba(255, 99, 132, 1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(153, 102, 255, 1)',
-                    'rgba(255, 159, 64, 1)'
-                ],
-                borderWidth: 1
-            }]
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true,
-                    stepSize: 1
-                }
-            }
-        }
-    });
-</script>
-
-<script>
-    var data = <?php echo json_encode($penjualan); ?>;
-    var labels = [];
-    var jumlah = [];
-
-    data.forEach(function(row) {
-        labels.push(row.item_dibeli);
-        jumlah.push(row.jumlah);
-    });
-
-    var ctx = document.getElementById('grafikLingkaran').getContext('2d');
-    var chart = new Chart(ctx, {
-        type: 'pie',
-        data: {
-            labels: labels,
-            datasets: [{
-                data: jumlah,
-                backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 206, 86, 0.2)',
-                    'rgba(75, 192, 192, 0.2)',
-                    'rgba(153, 102, 255, 0.2)',
-                    'rgba(255, 159, 64, 0.2)'
-                ],
-                borderColor: [
-                    'rgba(255, 99, 132, 1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(153, 102, 255, 1)',
-                    'rgba(255, 159, 64, 1)'
-                ],
-                borderWidth: 1
-            }]
-        },
-        options: {
-            responsive: true,
-            plugins: {
-                legend: {
-                    position: 'top',
-                },
-                title: {
-                    display: true,
-                    text: 'Grafik Jumlah Barang Dibeli'
-                }
-            }
-        }
-    });
-</script>
-<script>
-    function addItemBarang() {
-        var itemBarang = document.getElementById("item_brg");
-        var namaBarang = itemBarang.options[itemBarang.selectedIndex].text;
-        var hargaBarang = document.getElementById("harga_barang").value;
-
-        if (namaBarang !== "" && hargaBarang !== "") {
-            var table = document.getElementById("keranjang").getElementsByTagName("tbody")[0];
-
-            var newRow = table.insertRow(table.rows.length);
-            var namaCell = newRow.insertCell(0);
-            var hargaCell = newRow.insertCell(1);
-
-            namaCell.innerHTML = namaBarang;
-            hargaCell.innerHTML = hargaBarang;
-
-            // Reset input values
-            itemBarang.selectedIndex = 0;
-            document.getElementById("harga_barang").value = "";
-        }
-    }
 </script>
 
 </body>
