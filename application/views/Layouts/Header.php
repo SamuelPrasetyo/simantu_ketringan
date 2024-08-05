@@ -22,12 +22,12 @@
     <!-- chartist CSS -->
     <link href="<?= base_url() ?>template/assets/node_modules/morrisjs/morris.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link href="<?= base_url() ?>template/eliteadmin/dist/css/pages/eliteadmin.css" rel="stylesheet">
     <!-- tables CSS -->
     <link rel="stylesheet" type="text/css" href="<?= base_url() ?>template/assets/node_modules/datatables.net-bs4/css/dataTables.bootstrap4.css">
     <link rel="stylesheet" type="text/css" href="<?= base_url() ?>template/assets/node_modules/datatables.net-bs4/css/responsive.dataTables.min.css">
     <!--alerts CSS -->
-    <link href="<?= base_url() ?>template/assets/node_modules/sweetalert2/dist/sweetalert2.min.css" rel="stylesheet">
+    <!-- <link href="<?= base_url() ?>template/assets/node_modules/sweetalert2/dist/sweetalert2.min.css" rel="stylesheet"> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@latest/dist/sweetalert2.min.css">
     <!-- Custom CSS -->
     <link href="<?= base_url() ?>template/eliteadmin/dist/css/style.min.css" rel="stylesheet">
 
@@ -79,7 +79,7 @@
                     <ul id="sidebarnav">
                         <li class="user-pro">
                             <a href="javascript:void(0)" class="has-arrow waves-effect waves-dark">
-                                <img src="template/assets/images/users/icon-user.png" alt="user-img" class="img-circle">
+                                <img src="<?=base_url()?>template/assets/images/users/icon-user.png" alt="user-img" class="img-circle">
                                 <span class="hide-menu"><?php echo $nama_user; ?></span>
                             </a>
                             <ul aria-expanded="false" class="collapse">
@@ -96,7 +96,7 @@
                         </li>
 
                         <?php if ($this->session->userdata('akses') == 'admin') { ?>
-                            <li>
+                            <li class="">
                                 <a class="waves-effect waves-dark" href="<?= base_url('view_penduduk') ?>" aria-expanded="false">
                                     <i class="mdi mdi-account-multiple"></i><span class="hide-menu"> Penduduk</span">
                                 </a>

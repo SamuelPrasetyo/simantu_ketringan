@@ -122,8 +122,10 @@ class PendudukController extends CI_Controller
             );
 
             if ($this->PendudukModel->insert_penduduk($data)) {
+                $this->session->set_flashdata('success', 'Data berhasil ditambahkan!');
                 redirect('view_penduduk');
             } else {
+                $this->session->set_flashdata('error', 'Data gagal ditambahkan!');
                 redirect('add_penduduk');
             }
         }
@@ -186,8 +188,10 @@ class PendudukController extends CI_Controller
             );
 
             if ($this->PendudukModel->update_penduduk($data)) {
+                $this->session->set_flashdata('success', 'Data berhasil diubah!');
                 redirect('view_penduduk');
             } else {
+                $this->session->set_flashdata('error', 'Data gagal diubah!');
                 redirect('edit_penduduk');
             }
         }
@@ -199,9 +203,9 @@ class PendudukController extends CI_Controller
         $result = $this->PendudukModel->delete_penduduk($nik);
 
         if ($result) {
-            $this->session->set_flashdata('success', 'Data Berhasil Dihapus!');
+            $this->session->set_flashdata('success', 'Data berhasil dihapus!');
         } else {
-            $this->session->set_flashdata('error', 'Data Gagal Dihapus!');
+            $this->session->set_flashdata('error', 'Data gagal dihapus!');
         }
 
         redirect('view_penduduk');
@@ -226,24 +230,24 @@ class PendudukController extends CI_Controller
 
             $data = array();
             for ($i = 1; $i < count($sheetData); $i++) {
-                $nik = $sheetData[$i][0];
-                if (!$this->PendudukModel->check_nik_exists($nik)) {
+                $nik = $sheetData[$i][1];
+                if (!empty($nik) && !$this->PendudukModel->check_nik_exists($nik)) {
                     $data[] = array(
+                        'no_kk' => $sheetData[$i][0],
                         'nik' => $nik,
-                        'nama' => ucwords(strtolower($sheetData[$i][1])),
-                        'no_urut_kk' => $sheetData[$i][2],
-                        'jenkel' => $sheetData[$i][3],
-                        'tmp_lahir' => ucwords(strtolower($sheetData[$i][4])),
-                        'tgl_lahir' => $sheetData[$i][5],
-                        'gol_darah' => $sheetData[$i][6],
-                        'agama' => $sheetData[$i][7],
-                        'status_nikah' => $sheetData[$i][8],
-                        'status_keluarga' => $sheetData[$i][9],
-                        'pendidikan' => $sheetData[$i][10],
-                        'pekerjaan' => ucwords(strtolower($sheetData[$i][11])),
-                        'nama_ayah' => ucwords(strtolower($sheetData[$i][12])),
-                        'nama_ibu' => ucwords(strtolower($sheetData[$i][13])),
-                        'no_kk' => $sheetData[$i][14],
+                        'nama' => ucwords(strtolower($sheetData[$i][2])),
+                        'no_urut_kk' => $sheetData[$i][3],
+                        'jenkel' => $sheetData[$i][4],
+                        'tmp_lahir' => ucwords(strtolower($sheetData[$i][5])),
+                        'tgl_lahir' => $sheetData[$i][6],
+                        'gol_darah' => $sheetData[$i][7],
+                        'agama' => $sheetData[$i][8],
+                        'status_nikah' => ucwords(strtolower($sheetData[$i][9])),
+                        'status_keluarga' => ucwords(strtolower($sheetData[$i][10])),
+                        'pendidikan' => $sheetData[$i][11],
+                        'pekerjaan' => ucwords(strtolower($sheetData[$i][12])),
+                        'nama_ayah' => ucwords(strtolower($sheetData[$i][13])),
+                        'nama_ibu' => ucwords(strtolower($sheetData[$i][14])),
                         'rt' => $sheetData[$i][15],
                         'rw' => $sheetData[$i][16],
                         'warga_negara' => $sheetData[$i][17]

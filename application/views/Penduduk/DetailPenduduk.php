@@ -16,6 +16,10 @@
                         </thead>
                         <tbody>
                             <tr>
+                                <td>No. KK</td>
+                                <td><?= $penduduk->no_kk ?></td>
+                            </tr>
+                            <tr>
                                 <td>NIK</td>
                                 <td><?= $penduduk->nik ?></td>
                             </tr>
@@ -70,10 +74,6 @@
                             <tr>
                                 <td>Nama Ibu</td>
                                 <td><?= $penduduk->nama_ibu ?></td>
-                            </tr>
-                            <tr>
-                                <td>No. KK</td>
-                                <td><?= $penduduk->no_kk ?></td>
                             </tr>
                             <tr>
                                 <td>RT</td>

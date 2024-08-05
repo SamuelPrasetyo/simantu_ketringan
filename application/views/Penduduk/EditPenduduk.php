@@ -44,17 +44,15 @@
                                 <div class="form-group">
                                     <label class="control-label">*Jenis Kelamin</label><br>
                                     <div class="custom-control custom-radio">
-                                        <input type="radio" id="laki-laki" name="jenkel" class="custom-control-input" value="L" 
-                                            <?php if ($jenkel == "L") {
-                                                echo "checked";
-                                            }; ?> required>
+                                        <input type="radio" id="laki-laki" name="jenkel" class="custom-control-input" value="L" <?php if ($jenkel == "L") {
+                                                                                                                                    echo "checked";
+                                                                                                                                }; ?> required>
                                         <label class="custom-control-label" for="laki-laki">Laki-Laki</label>
                                     </div>
                                     <div class="custom-control custom-radio">
-                                        <input type="radio" id="perempuan" name="jenkel" class="custom-control-input" value="P" 
-                                            <?php if ($jenkel == "P") {
-                                                echo "checked";
-                                            }; ?> required>
+                                        <input type="radio" id="perempuan" name="jenkel" class="custom-control-input" value="P" <?php if ($jenkel == "P") {
+                                                                                                                                    echo "checked";
+                                                                                                                                }; ?> required>
                                         <label class="custom-control-label" for="perempuan">Perempuan</label>
                                     </div>
                                 </div>
@@ -86,6 +84,7 @@
                                         <option value="B" <?php echo ($gol_darah == 'B') ? 'selected' : ''; ?>>B</option>
                                         <option value="AB" <?php echo ($gol_darah == 'AB') ? 'selected' : ''; ?>>AB</option>
                                         <option value="O" <?php echo ($gol_darah == 'O') ? 'selected' : ''; ?>>O</option>
+                                        <option value="TIDAK TAHU" <?php echo ($gol_darah == 'TIDAK TAHU') ? 'selected' : ''; ?>>Tidak Tahu</option>
                                     </select>
                                 </div>
                             </div>
@@ -112,12 +111,12 @@
                                     <label class="control-label">*Status Nikah</label>
                                     <select name="status_nikah" class="form-control custom-select" required>
                                         <option value="">Pilih Status Nikah</option>
-                                        <option value="Kawin" <?php echo ($status_nikah == 'Kawin') ? 'selected' : ''; ?>>Kawin</option>
+                                        <option value="Kawin Tercatat" <?php echo ($status_nikah == 'Kawin Tercatat') ? 'selected' : ''; ?>>Kawin Tercatat</option>
+                                        <option value="Kawin Tidak Tercatat" <?php echo ($status_nikah == 'Kawin Tidak Tercatat') ? 'selected' : ''; ?>>Kawin Tidak Tercatat</option>
                                         <option value="Belum Kawin" <?php echo ($status_nikah == 'Belum Kawin') ? 'selected' : ''; ?>>Belum Kawin</option>
-                                        <option value="Cerai Hidup" <?php echo ($status_nikah == 'Cerai Hidup') ? 'selected' : ''; ?>>Cerai Hidup</option>
+                                        <option value="Cerai Hidup Tercatat" <?php echo ($status_nikah == 'Cerai Hidup Tercatat') ? 'selected' : ''; ?>>Cerai Hidup Tercatat</option>
+                                        <option value="Cerai Hidup Tidak Tercatat" <?php echo ($status_nikah == 'Cerai Hidup Tidak Tercatat') ? 'selected' : ''; ?>>Cerai Hidup Tidak Tercatat</option>
                                         <option value="Cerai Mati" <?php echo ($status_nikah == 'Cerai Mati') ? 'selected' : ''; ?>>Cerai Mati</option>
-                                        <option value="Janda" <?php echo ($status_nikah == 'Janda') ? 'selected' : ''; ?>>Janda</option>
-                                        <option value="Duda" <?php echo ($status_nikah == 'Duda') ? 'selected' : ''; ?>>Duda</option>
                                     </select>
                                 </div>
                             </div>
@@ -144,17 +143,18 @@
                                     <label class="control-label">*Pendidikan</label>
                                     <select name="pendidikan" class="form-control custom-select">
                                         <option value="">Pilih Pendidikan</option>
-                                        <option value="PAUD" <?php echo ($pendidikan == 'PAUD') ? 'selected' : ''; ?>>PAUD</option>
-                                        <option value="SD" <?php echo ($pendidikan == 'SD') ? 'selected' : ''; ?>>SD</option>
-                                        <option value="SMP" <?php echo ($pendidikan == 'SMP') ? 'selected' : ''; ?>>SMP</option>
-                                        <option value="SMA/SMK" <?php echo ($pendidikan == 'SMA/SMK') ? 'selected' : ''; ?>>SMA/SMK</option>
-                                        <option value="D1" <?php echo ($pendidikan == 'D1') ? 'selected' : ''; ?>>Diploma 1</option>
-                                        <option value="D2" <?php echo ($pendidikan == 'D2') ? 'selected' : ''; ?>>Diploma 2</option>
-                                        <option value="D3" <?php echo ($pendidikan == 'D3') ? 'selected' : ''; ?>>Diploma 3</option>
-                                        <option value="D4" <?php echo ($pendidikan == 'D4') ? 'selected' : ''; ?>>Diploma 4</option>
-                                        <option value="S1" <?php echo ($pendidikan == 'S1') ? 'selected' : ''; ?>>Sarjana (S1)</option>
-                                        <option value="S2" <?php echo ($pendidikan == 'S2') ? 'selected' : ''; ?>>Magister (S2)</option>
-                                        <option value="S3" <?php echo ($pendidikan == 'S3') ? 'selected' : ''; ?>>Doktor (S3)</option>
+                                        <option value="TIDAK / BELUM SEKOLAH" <?php echo ($pendidikan == 'TIDAK / BELUM SEKOLAH') ? 'selected' : ''; ?>>TIDAK / BELUM SEKOLAH</option>
+                                        <option value="BELUM TAMAT SD / SEDERAJAT" <?php echo ($pendidikan == 'BELUM TAMAT SD / SEDERAJAT') ? 'selected' : ''; ?>>BELUM TAMAT SD / SEDERAJAT</option>
+                                        <option value="TAMAT SD / SEDERAJAT" <?php echo ($pendidikan == 'TAMAT SD / SEDERAJAT') ? 'selected' : ''; ?>>TAMAT SD / SEDERAJAT</option>
+                                        <option value="SLTP / SEDERAJAT" <?php echo ($pendidikan == 'SLTP / SEDERAJAT') ? 'selected' : ''; ?>>SLTP / SEDERAJAT</option>
+                                        <option value="SLTA / SEDERAJAT" <?php echo ($pendidikan == 'SLTA / SEDERAJAT') ? 'selected' : ''; ?>>SLTA / SEDERAJAT</option>
+                                        <option value="DIPLOMA I / II" <?php echo ($pendidikan == 'DIPLOMA I / II') ? 'selected' : ''; ?>>DIPLOMA I / II</option>
+                                        <option value="DIPLOMA III" <?php echo ($pendidikan == 'DIPLOMA III') ? 'selected' : ''; ?>>DIPLOMA III</option>
+                                        <option value="DIPLOMA IV / STRATA I" <?php echo ($pendidikan == 'DIPLOMA IV / STRATA I') ? 'selected' : ''; ?>>DIPLOMA IV / STRATA I</option>
+                                        <option value="STRATA II" <?php echo ($pendidikan == 'STRATA II') ? 'selected' : ''; ?>>STRATA II</option>
+                                        <option value="STRATA III" <?php echo ($pendidikan == 'STRATA III') ? 'selected' : ''; ?>>STRATA III</option>
+                                        <option value="BELUM MENGISI" <?php echo ($pendidikan == 'BELUM MENGISI') ? 'selected' : ''; ?>>BELUM MENGISI</option>
+
                                     </select>
                                 </div>
                             </div>
@@ -230,5 +230,8 @@
 
 
 <script>
-    $('#mdate').bootstrapMaterialDatePicker({ weekStart: 0, time: false });
+    $('#mdate').bootstrapMaterialDatePicker({
+        weekStart: 0,
+        time: false
+    });
 </script>

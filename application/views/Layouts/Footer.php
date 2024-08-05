@@ -21,8 +21,8 @@
 <!--Menu sidebar -->
 <script src="<?php echo base_url() ?>template/eliteadmin/dist/js/sidebarmenu.js"></script>
 <!-- Sweet-Alert  -->
-<script src="<?php echo base_url() ?>template/assets/node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
-<script src="<?php echo base_url() ?>template/assets/node_modules/sweetalert2/sweet-alert.init.js"></script>
+<!-- <script src="<?php echo base_url() ?>template/assets/node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script> -->
+<script src="<?php echo base_url() ?>template/assets/node_modules/sweetalert2/sweetalert2.min.js"></script>
 <!--stickey kit -->
 <script src="<?php echo base_url() ?>template/assets/node_modules/sticky-kit-master/dist/sticky-kit.min.js"></script>
 <script src="<?php echo base_url() ?>template/assets/node_modules/sparkline/jquery.sparkline.min.js"></script>
@@ -37,7 +37,6 @@
 <script src="<?php echo base_url() ?>template/assets/node_modules/morrisjs/morris.min.js"></script>
 <!--Custom JavaScript -->
 <script src="<?php echo base_url() ?>template/eliteadmin/dist/js/custom.min.js"></script>
-<script src="<?php echo base_url() ?>template/eliteadmin/dist/js/ecom-dashboard.js"></script>
 <script src="<?php echo base_url() ?>template/eliteadmin/dist/js/pages/morris-data.js"></script>
 
 

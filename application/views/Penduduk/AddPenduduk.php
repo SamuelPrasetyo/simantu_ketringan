@@ -86,6 +86,7 @@
                                         <option value="B" <?php echo set_select('gol_darah', 'B'); ?>>B</option>
                                         <option value="AB" <?php echo set_select('gol_darah', 'AB'); ?>>AB</option>
                                         <option value="O" <?php echo set_select('gol_darah', 'O'); ?>>O</option>
+                                        <option value="TIDAK TAHU" <?php echo set_select('gol_darah', 'TIDAK TAHU'); ?>>Tidak Tahu</option>
                                     </select>
                                 </div>
                             </div>
@@ -112,12 +113,12 @@
                                     <label class="control-label">*Status Nikah</label>
                                     <select name="status_nikah" class="form-control custom-select" required>
                                         <option value="">Pilih Status Nikah</option>
-                                        <option value="Kawin" <?php echo set_select('status_nikah', 'Kawin'); ?>>Kawin</option>
+                                        <option value="Kawin Tercatat" <?php echo set_select('status_nikah', 'Kawin Tercatat'); ?>>Kawin Tercatat</option>
+                                        <option value="Kawin Tidak Tercatat" <?php echo set_select('status_nikah', 'Kawin Tidak Tercatat'); ?>>Kawin Tidak Tercatat</option>
                                         <option value="Belum Kawin" <?php echo set_select('status_nikah', 'Belum Kawin'); ?>>Belum Kawin</option>
-                                        <option value="Cerai Hidup" <?php echo set_select('status_nikah', 'Cerai Hidup'); ?>>Cerai Hidup</option>
+                                        <option value="Cerai Hidup Tercatat" <?php echo set_select('status_nikah', 'Cerai Hidup Tercatat'); ?>>Cerai Hidup Tercatat</option>
+                                        <option value="Cerai Hidup Tidak Tercatat" <?php echo set_select('status_nikah', 'Cerai Hidup Tidak Tercatat'); ?>>Cerai Hidup Tidak Tercatat</option>
                                         <option value="Cerai Mati" <?php echo set_select('status_nikah', 'Cerai Mati'); ?>>Cerai Mati</option>
-                                        <option value="Janda" <?php echo set_select('status_nikah', 'Janda'); ?>>Janda</option>
-                                        <option value="Duda" <?php echo set_select('status_nikah', 'Duda'); ?>>Duda</option>
                                     </select>
                                 </div>
                             </div>
@@ -132,7 +133,6 @@
                                         <option value="Anak" <?php echo set_select('status_nikah', 'Anak'); ?>>Anak</option>
                                         <option value="Orang Tua" <?php echo set_select('status_nikah', 'Orang Tua'); ?>>Orang Tua</option>
                                         <option value="Famili Lain" <?php echo set_select('status_nikah', 'Famili Lain'); ?>>Famili Lain</option>
-                                        <option value="Pembantu" <?php echo set_select('status_nikah', 'Pembantu'); ?>>Pembantu</option>
                                     </select>
                                 </div>
                             </div>
@@ -144,17 +144,17 @@
                                     <label class="control-label">*Pendidikan</label>
                                     <select name="pendidikan" class="form-control custom-select">
                                         <option value="">Pilih Pendidikan</option>
-                                        <option value="PAUD" <?php echo set_select('pendidikan', 'PAUD'); ?>>PAUD</option>
-                                        <option value="SD" <?php echo set_select('pendidikan', 'SD'); ?>>SD</option>
-                                        <option value="SMP" <?php echo set_select('pendidikan', 'SMP'); ?>>SMP</option>
-                                        <option value="SMA/SMK" <?php echo set_select('pendidikan', 'SMA') ?>>SMA/SMK</option>
-                                        <option value="D1" <?php echo set_select('pendidikan', 'D1') ?>>Diploma 1</option>
-                                        <option value="D2" <?php echo set_select('pendidikan', 'D2') ?>>Diploma 2</option>
-                                        <option value="D3" <?php echo set_select('pendidikan', 'D3') ?>>Diploma 3</option>
-                                        <option value="D4" <?php echo set_select('pendidikan', 'D4') ?>>Diploma 4</option>
-                                        <option value="S1" <?php echo set_select('pendidikan', 'S1') ?>>Sarjana (S1)</option>
-                                        <option value="S2" <?php echo set_select('pendidikan', 'S2') ?>>Magister (S2)</option>
-                                        <option value="S3" <?php echo set_select('pendidikan', 'S3') ?>>Doktor (S3)</option>
+                                        <option value="TIDAK / BELUM SEKOLAH" <?php echo set_select('pendidikan', 'TIDAK / BELUM SEKOLAH'); ?>>TIDAK / BELUM SEKOLAH</option>
+                                        <option value="BELUM TAMAT SD / SEDERAJAT" <?php echo set_select('pendidikan', 'BELUM TAMAT SD / SEDERAJAT'); ?>>BELUM TAMAT SD / SEDERAJAT</option>
+                                        <option value="TAMAT SD / SEDERAJAT" <?php echo set_select('pendidikan', 'TAMAT SD / SEDERAJAT'); ?>>TAMAT SD / SEDERAJAT</option>
+                                        <option value="SLTP / SEDERAJAT" <?php echo set_select('pendidikan', 'SLTP / SEDERAJAT'); ?>>SLTP / SEDERAJAT</option>
+                                        <option value="SLTA / SEDERAJAT" <?php echo set_select('pendidikan', 'SLTA / SEDERAJAT'); ?>>SLTA / SEDERAJAT</option>
+                                        <option value="DIPLOMA I / II" <?php echo set_select('pendidikan', 'DIPLOMA I / II') ?>>DIPLOMA I / II</option>
+                                        <option value="DIPLOMA III" <?php echo set_select('pendidikan', 'DIPLOMA III') ?>>DIPLOMA III</option>
+                                        <option value="DIPLOMA IV / STRATA I" <?php echo set_select('pendidikan', 'DIPLOMA IV / STRATA I') ?>>DIPLOMA IV / STRATA I</option>
+                                        <option value="STRATA II" <?php echo set_select('pendidikan', 'STRATA II') ?>>STRATA II</option>
+                                        <option value="STRATA III" <?php echo set_select('pendidikan', 'STRATA III') ?>>STRATA III</option>
+                                        <option value="BELUM MENGISI" <?php echo set_select('pendidikan', 'BELUM MENGISI') ?>>BELUM MENGISI</option>
                                     </select>
                                 </div>
                             </div>

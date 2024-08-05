@@ -24,7 +24,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             array(
                 'field' => 'nama',
                 'label' => 'Nama',
-                'rules' => 'required|alpha|max_length[50]'
+                'rules' => 'required|max_length[50]'
             ),
             array(
                 'field' => 'no_urut_kk',
@@ -39,12 +39,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             array(
                 'field' => 'nama_ayah',
                 'label' => 'Nama Ayah',
-                'rules' => 'required|alpha|max_length[50]'
+                'rules' => 'required|max_length[50]'
             ),
             array(
                 'field' => 'nama_ibu',
                 'label' => 'Nama Ibu',
-                'rules' => 'required|alpha|max_length[50]'
+                'rules' => 'required|max_length[50]'
             ),
             array(
                 'field' => 'rt',

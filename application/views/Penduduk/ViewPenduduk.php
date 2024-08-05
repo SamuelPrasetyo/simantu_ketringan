@@ -65,13 +65,13 @@
                             <tr>
                                 <th>No.</th>
                                 <th>NIK</th>
+                                <th>No. KK</th>
                                 <th>Nama</th>
                                 <th>Tempat Tgl Lahir</th>
                                 <th>Agama</th>
                                 <th>Status</th>
                                 <th>Pendidikan</th>
                                 <th>Pekerjaan</th>
-                                <th>No. KK</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
@@ -79,13 +79,13 @@
                             <tr>
                                 <th>No.</th>
                                 <th>NIK</th>
+                                <th>No. KK</th>
                                 <th>Nama</th>
                                 <th>Tempat Tgl Lahir</th>
                                 <th>Agama</th>
                                 <th>Status</th>
                                 <th>Pendidikan</th>
                                 <th>Pekerjaan</th>
-                                <th>No. KK</th>
                                 <th>Aksi</th>
                             </tr>
                         </tfoot>
@@ -98,6 +98,9 @@
                                     </td>
                                     <td>
                                         <?php echo $row->nik; ?>
+                                    </td>
+                                    <td>
+                                        <?php echo $row->no_kk; ?>
                                     </td>
                                     <td>
                                         <?php echo $row->nama; ?>
@@ -117,9 +120,6 @@
                                     <td>
                                         <?php echo $row->pekerjaan; ?>
                                     </td>
-                                    <td>
-                                        <?php echo $row->no_kk; ?>
-                                    </td>
                                     <td style="width: 15%;">
                                         <a class="btn btn-info" href="<?php echo base_url('detail_penduduk/' . $row->nik); ?>">
                                             <i class="mdi mdi-library-books"></i>
@@ -127,6 +127,9 @@
                                         <a class="btn btn-warning" href="<?php echo base_url('edit_penduduk/' . $row->nik); ?>">
                                             <i class="far fa-edit"></i>
                                         </a>
+                                        <!-- <a class="btn btn-danger" href="<?php echo base_url('delete_penduduk/' . $row->nik); ?>">
+                                            <i class="mdi mdi-delete"></i>
+                                        </a> -->
                                         <button class="btn btn-danger" onclick="confirmDelete('<?php echo base_url('delete_penduduk/' . $row->nik); ?>')">
                                             <i class="mdi mdi-delete"></i>
                                         </button>
