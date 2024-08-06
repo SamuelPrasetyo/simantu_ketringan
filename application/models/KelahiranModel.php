@@ -13,66 +13,66 @@ defined('BASEPATH') or exit('No direct script access allowed');
  **           berasal dari bagaimana kamu berpikir..."
  */
 
-class PendudukModel extends CI_Model
+class KelahiranModel extends CI_Model
 {
     public function view()
     {
         $query = $this->db->query(
             "SELECT *, DATE_FORMAT(tgl_lahir, '%d %M %Y') AS tgl_lahir
-                FROM penduduk"
+                FROM kelahiran"
         );
 
         return $query->result();
     }
 
-    public function detail($nik)
+    public function detail($no_ket_lahir)
     {
         $this->db->select("*, DATE_FORMAT(tgl_lahir, '%d %M %Y') AS tgl_lahir");
 
-        $this->db->from('penduduk');
-        $this->db->where('nik', $nik);
+        $this->db->from('kelahiran');
+        $this->db->where('no_ket_lahir', $no_ket_lahir);
         $query = $this->db->get();
 
         return $query->row();
     }
 
-    public function insert_penduduk($data)
+    public function insert_kelahiran($data)
     {
-        return $this->db->insert('penduduk', $data);
+        return $this->db->insert('kelahiran', $data);
     }
 
-    public function get_edit($nik)
+    public function get_edit($no_ket_lahir)
     {
         $this->db->select('*');
 
-        $this->db->from('penduduk');
-        $this->db->where('nik', $nik);
+        $this->db->from('kelahiran');
+        $this->db->where('no_ket_lahir', $no_ket_lahir);
         $query = $this->db->get();
 
         return $query->row();
     }
 
-    public function update_penduduk($data)
+    public function update_kelahiran($data)
     {
-        $this->db->where('nik', $data['nik']);
-        return $this->db->update('penduduk', $data);
+        $this->db->where('no_ket_lahir', $data['no_ket_lahir']);
+        return $this->db->update('kelahiran', $data);
     }
 
-    public function delete_penduduk($nik)
+    public function delete_kelahiran($id_kelahiran)
     {
-        $this->db->where('nik', $nik);
-        return $this->db->delete('penduduk');
+        $this->db->where('id_kelahiran', $id_kelahiran);
+        return $this->db->delete('kelahiran');
     }
 
-    public function check_nik_exists($nik)
+    public function check_no_ket_lahir_exists($no_ket_lahir)
     {
-        $this->db->where('nik', $nik);
-        $query = $this->db->get('penduduk');
+        $this->db->where('no_ket_lahir', $no_ket_lahir);
+        $query = $this->db->get('kelahiran');
         return $query->num_rows() > 0;
     }
 
-    public function import_penduduk($data)
+    public function import_kelahiran($data)
     {
-        return $this->db->insert_batch('penduduk', $data);
+        return $this->db->insert_batch('kelahiran', $data);
     }
 }

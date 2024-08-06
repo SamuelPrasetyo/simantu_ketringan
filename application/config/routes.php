@@ -32,6 +32,16 @@ $route['update_penduduk'] = 'Data/PendudukController/update_penduduk';
 $route['delete_penduduk/(:any)'] = 'Data/PendudukController/delete_penduduk';
 $route['import_penduduk'] = 'Data/PendudukController/import_penduduk';
 
+// Data Kelahiran
+$route['view_kelahiran'] = 'Data/KelahiranController';
+$route['detail_kelahiran/(:any)'] = 'Data/KelahiranController/detail_kelahiran';
+$route['add_kelahiran'] = 'Data/KelahiranController/page_add';
+$route['create_kelahiran'] = 'Data/KelahiranController/create_kelahiran';
+$route['edit_kelahiran/(:any)'] = 'Data/KelahiranController/page_edit';
+$route['update_kelahiran'] = 'Data/KelahiranController/update_kelahiran';
+$route['delete_kelahiran/(:any)'] = 'Data/KelahiranController/delete_kelahiran';
+$route['import_kelahiran'] = 'Data/KelahiranController/import_kelahiran';
+
 
 
 $route['404_override'] = '';
