@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="<?= base_url() ?>template/assets/node_modules/bootstrap/dist/css/bootstrap.css">
 
     <!-- Time Picker -->
-     <link rel="stylesheet" href="<?= base_url() ?>template/assets/node_modules/timepicker/flatpickr.min.css">
+    <link rel="stylesheet" href="<?= base_url() ?>template/assets/node_modules/timepicker/flatpickr.min.css">
 
     <!-- Popup CSS -->
     <link href="<?= base_url() ?>template/assets/node_modules/Magnific-Popup-master/dist/magnific-popup.css" rel="stylesheet">
@@ -53,9 +53,9 @@
     <div id="main-wrapper">
         <header class="topbar blue-theme">
             <nav class="navbar top-navbar navbar-expand-md navbar-dark">
-                <div class="navbar-header">
+                <!-- <div class="navxbar-header"> -->
                     <!-- Logo icon -->
-                    <b>
+                    <!-- <b>
                         <center><img src="<?= base_url() ?>template/assets/gambar/logo_simdes.png" style="width: 80%;" alt="Logo Simdes" class="light-logo" /></center>
                     </b>
                 </div>
@@ -65,7 +65,7 @@
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item"> <a class="nav-link nav-toggler d-block d-md-none waves-effect waves-dark" href="javascript:void(0)"><i class="ti-menu"></i></a> </li>
                     </ul>
-                </div>
+                </div> -->
             </nav>
         </header>
 
@@ -75,15 +75,18 @@
                 <!-- Sidebar navigation-->
                 <nav class="sidebar-nav">
                     <ul id="sidebarnav">
+                        <center>
+                            <img src="<?= base_url() ?>template/assets/gambar/logo_kabblora.png" style="width: 50%; margin: -10px 0 10px 0;" alt="Logo Simdes" class="light-logo" />
+                        </center>
                         <li class="user-pro">
                             <a href="javascript:void(0)" class="has-arrow waves-effect waves-dark">
-                                <img src="<?=base_url()?>template/assets/images/users/icon-user.png" alt="user-img" class="img-circle">
+                                <img src="<?= base_url() ?>template/assets/images/users/icon-user.png" alt="user-img" class="img-circle">
                                 <span class="hide-menu"><?php echo $nama_user; ?></span>
                             </a>
                             <ul aria-expanded="false" class="collapse">
                                 <li>
-                                    <a href="javascript:void(0)" class="dropdown-item"><i class="ti-user"></i> My Profile</a>
-                                    <div class="dropdown-divider"></div>
+                                    <!-- <a href="javascript:void(0)" class="dropdown-item"><i class="ti-user"></i> My Profile</a> -->
+                                    <!-- <div class="dropdown-divider"></div> -->
                                     <a href="logout" class="dropdown-item"><i class="fa fa-power-off"></i> Logout</a>
                                 </li>
                             </ul>
@@ -125,12 +128,10 @@
                             </a>
                         </li>
 
-                        <li> <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-account-multiple"></i>
+                        <li> <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-note-multiple"></i>
                                 <span class="hide-menu">Forms</span></a>
                             <ul aria-expanded="false" class="collapse">
-                                <?php if ($this->session->userdata('akses') == 'admin') { ?>
-                                    <li><a href="<?= base_url('entri_barang') ?>">Entri Data Barang</a></li>
-                                <?php } ?>
+                                <li><a href="<?= base_url('view_surat_keterangan_pengantar') ?>">Surat Keterangan Pengantar</a></li>
                                 <li><a href="<?= base_url('entri_penjualan') ?>">Entri Penjualan</a></li>
                             </ul>
                         </li>
@@ -163,7 +164,7 @@
             <!-- ============================================================== -->
             <!-- Container fluid  -->
             <!-- ============================================================== -->
-            <div class="container-fluid">
+            <div class="container-fluid" style="margin-top: -17px;">
                 <!-- ============================================================== -->
                 <!-- Bread crumb and right sidebar toggle -->
                 <!-- ============================================================== -->

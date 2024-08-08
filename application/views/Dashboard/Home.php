@@ -4,13 +4,9 @@
             <h5 class="card-title">JUMLAH PENDUDUK</h5>
             <div class="d-flex m-t-30 m-b-20 no-block align-items-center">
                 <span class="display-5 text-info">
-                    <i class="icon-people"></i>
+                    <i class="icon-user"></i>
                 </span>
-                <h1 class="link display-5 ml-auto"><?php
-
-use SebastianBergmann\Template\Template;
-
- echo $jumlahPenduduk; ?></h1>
+                <h1 class="link display-5 ml-auto"><?php echo $jumlahPenduduk; ?></h1>
             </div>
         </div>
     </div>
@@ -34,7 +30,7 @@ use SebastianBergmann\Template\Template;
             <h5 class="card-title">JUMLAH LAKI - LAKI</h5>
             <div class="d-flex m-t-30 m-b-20 no-block align-items-center">
                 <span class="display-5 text-info">
-                    <i class="icon-people"></i>
+                    <i class="icon-symbol-male"></i>
                 </span>
                 <h1 class="link display-5 ml-auto"><?php echo $jumlahLakiLaki; ?></h1>
             </div>
@@ -47,7 +43,7 @@ use SebastianBergmann\Template\Template;
             <h5 class="card-title">JUMLAH PEREMPUAN</h5>
             <div class="d-flex m-t-30 m-b-20 no-block align-items-center">
                 <span class="display-5 text-info">
-                    <i class="icon-people"></i>
+                    <i class="icon-symble-female"></i>
                 </span>
                 <h1 class="link display-5 ml-auto"><?php echo $jumlahPerempuan; ?></h1>
             </div>
