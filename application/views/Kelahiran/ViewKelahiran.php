@@ -66,8 +66,8 @@
                                 <th>No.</th>
                                 <th>No. Ket Lahir</th>
                                 <th>Nama Bayi</th>
-                                <th>Tgl Lahir</th>
-                                <th>Jenis Kelamin</th>
+                                <th style="width: 12%;">Tgl Lahir</th>
+                                <th>Jenkel</th>
                                 <th>Nama Ibu</th>
                                 <th>NIK Ibu</th>
                                 <th>Nama Ayah</th>
@@ -81,7 +81,7 @@
                                 <th>No. Ket Lahir</th>
                                 <th>Nama Bayi</th>
                                 <th>Tgl Lahir</th>
-                                <th>Jenis Kelamin</th>
+                                <th>Jenkel</th>
                                 <th>Nama Ibu</th>
                                 <th>NIK Ibu</th>
                                 <th>Nama Ayah</th>
@@ -120,16 +120,13 @@
                                     <td>
                                         <?php echo $row->nik_ayah; ?>
                                     </td>
-                                    <td style="width: 15%;">
+                                    <td style="width: 13%;">
                                         <a class="btn btn-info" href="<?php echo base_url('detail_kelahiran/' . $row->id_kelahiran); ?>">
                                             <i class="mdi mdi-library-books"></i>
                                         </a>
                                         <a class="btn btn-warning" href="<?php echo base_url('edit_kelahiran/' . $row->id_kelahiran); ?>">
                                             <i class="far fa-edit"></i>
                                         </a>
-                                        <!-- <a class="btn btn-danger" href="<?php echo base_url('delete_kelahiran/' . $row->id_kelahiran); ?>">
-                                            <i class="mdi mdi-delete"></i>
-                                        </a> -->
                                         <button class="btn btn-danger" onclick="confirmDelete('<?php echo base_url('delete_kelahiran/' . $row->id_kelahiran); ?>')">
                                             <i class="mdi mdi-delete"></i>
                                         </button>

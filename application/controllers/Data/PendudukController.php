@@ -27,7 +27,7 @@ class PendudukController extends CI_Controller
         $this->auth->check();
 
         $this->load->model('PendudukModel');
-        $this->load->helper(array('form', 'validation_form'));
+        $this->load->helper(array('form', 'validation_formpenduduk'));
     }
 
     public function index()

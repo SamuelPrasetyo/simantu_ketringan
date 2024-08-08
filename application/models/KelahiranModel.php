@@ -18,19 +18,18 @@ class KelahiranModel extends CI_Model
     public function view()
     {
         $query = $this->db->query(
-            "SELECT *, DATE_FORMAT(tgl_lahir, '%d %M %Y') AS tgl_lahir
-                FROM kelahiran"
+            "SELECT * FROM kelahiran order by no_ket_lahir ASC"
         );
 
         return $query->result();
     }
 
-    public function detail($no_ket_lahir)
+    public function detail($id_kelahiran)
     {
-        $this->db->select("*, DATE_FORMAT(tgl_lahir, '%d %M %Y') AS tgl_lahir");
+        $this->db->select("*");
 
         $this->db->from('kelahiran');
-        $this->db->where('no_ket_lahir', $no_ket_lahir);
+        $this->db->where('id_kelahiran', $id_kelahiran);
         $query = $this->db->get();
 
         return $query->row();
@@ -41,12 +40,12 @@ class KelahiranModel extends CI_Model
         return $this->db->insert('kelahiran', $data);
     }
 
-    public function get_edit($no_ket_lahir)
+    public function get_edit($id_kelahiran)
     {
         $this->db->select('*');
 
         $this->db->from('kelahiran');
-        $this->db->where('no_ket_lahir', $no_ket_lahir);
+        $this->db->where('id_kelahiran', $id_kelahiran);
         $query = $this->db->get();
 
         return $query->row();
@@ -54,7 +53,7 @@ class KelahiranModel extends CI_Model
 
     public function update_kelahiran($data)
     {
-        $this->db->where('no_ket_lahir', $data['no_ket_lahir']);
+        $this->db->where('id_kelahiran', $data['id_kelahiran']);
         return $this->db->update('kelahiran', $data);
     }
 

@@ -2,7 +2,7 @@
     <div class="col-lg-12">
         <div class="card">
             <div class="card-header bg-info">
-                <h4 class="m-b-0 text-white">Form</h4>
+                <h4 class="m-b-0 text-white">Form Data Penduduk</h4>
             </div>
             <div class="card-body">
                 <!-- Error Message -->
@@ -44,15 +44,13 @@
                                 <div class="form-group">
                                     <label class="control-label">*Jenis Kelamin</label><br>
                                     <div class="custom-control custom-radio">
-                                        <input type="radio" id="laki-laki" name="jenkel" class="custom-control-input" value="L" <?php if ($jenkel == "L") {
-                                                                                                                                    echo "checked";
-                                                                                                                                }; ?> required>
+                                        <input type="radio" id="laki-laki" name="jenkel" class="custom-control-input" value="L" 
+                                            <?php if ($jenkel == "L") { echo "checked"; }; ?> required>
                                         <label class="custom-control-label" for="laki-laki">Laki-Laki</label>
                                     </div>
                                     <div class="custom-control custom-radio">
-                                        <input type="radio" id="perempuan" name="jenkel" class="custom-control-input" value="P" <?php if ($jenkel == "P") {
-                                                                                                                                    echo "checked";
-                                                                                                                                }; ?> required>
+                                        <input type="radio" id="perempuan" name="jenkel" class="custom-control-input" value="P" 
+                                            <?php if ($jenkel == "P") { echo "checked"; }; ?> required>
                                         <label class="custom-control-label" for="perempuan">Perempuan</label>
                                     </div>
                                 </div>

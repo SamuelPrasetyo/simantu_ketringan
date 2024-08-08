@@ -10,84 +10,60 @@
                     <table class="table table-bordered">
                         <thead>
                             <tr>
+                                <th>No.</th>
                                 <th>Detail</th>
-                                <th>Data Penduduk</th>
+                                <th>Data Kelahiran</th>
                             </tr>
                         </thead>
+                        <?php
+                        $fields = [
+                            "No. Keterangan Lahir" => $kelahiran->no_ket_lahir,
+                            "Nama Bayi" => $kelahiran->nama_bayi,
+                            "Hari" => $kelahiran->hari,
+                            "Tanggal Lahir" => $kelahiran->tgl_lahir,
+                            "Jam Lahir" => $kelahiran->jam,
+                            "Jenis Kelamin" => $kelahiran->jenkel,
+                            "Jenis Kelahiran" => $kelahiran->jenis_kelahiran,
+                            "Anak Ke" => $kelahiran->anak_ke,
+                            "Usia Gestasi" => $kelahiran->usia_gestasi,
+                            "Berat Lahir" => $kelahiran->berat_lahir,
+                            "Panjang Badan" => $kelahiran->panjang_badan,
+                            "Lingkar Kepala" => $kelahiran->lingkar_kepala,
+                            "Tempat Lahiran" => $kelahiran->tempat_lahiran,
+                            "Alamat Lahiran" => $kelahiran->alamat_lahiran,
+                            "Nama Ibu" => $kelahiran->nama_ibu,
+                            "Umur Ibu" => $kelahiran->umur_ibu,
+                            "NIK Ibu" => $kelahiran->nik_ibu,
+                            "Nama Ayah" => $kelahiran->nama_ayah,
+                            "NIK Ayah" => $kelahiran->nik_ayah,
+                            "Pekerjaan Ayah" => $kelahiran->pekerjaan,
+                            "Alamat Rumah" => $kelahiran->alamat_rumah,
+                            "Kecamatan" => $kelahiran->kecamatan,
+                            "Kabupaten/Kota" => $kelahiran->kab_kota,
+                        ];
+                        ?>
                         <tbody>
-                            <tr>
-                                <td>No. KK</td>
-                                <td><?= $penduduk->no_kk ?></td>
-                            </tr>
-                            <tr>
-                                <td>NIK</td>
-                                <td><?= $penduduk->nik ?></td>
-                            </tr>
-                            <tr>
-                                <td>Nama</td>
-                                <td><?= $penduduk->nama ?></td>
-                            </tr>
-                            <tr>
-                                <td>No. Urut KK</td>
-                                <td><?= $penduduk->no_urut_kk ?></td>
-                            </tr>
-                            <tr>
-                                <td>Jenis Kelamin</td>
-                                <td><?= $penduduk->jenkel ?></td>
-                            </tr>
-                            <tr>
-                                <td>Tempat Lahir</td>
-                                <td><?= $penduduk->tmp_lahir ?></td>
-                            </tr>
-                            <tr>
-                                <td>Tanggal Lahir</td>
-                                <td><?= $penduduk->tgl_lahir ?></td>
-                            </tr>
-                            <tr>
-                                <td>Golongan Darah</td>
-                                <td><?= $penduduk->gol_darah ?></td>
-                            </tr>
-                            <tr>
-                                <td>Agama</td>
-                                <td><?= $penduduk->agama ?></td>
-                            </tr>
-                            <tr>
-                                <td>Status Menikah</td>
-                                <td><?= $penduduk->status_nikah ?></td>
-                            </tr>
-                            <tr>
-                                <td>Status Keluarga</td>
-                                <td><?= $penduduk->status_keluarga ?></td>
-                            </tr>
-                            <tr>
-                                <td>Pendidikan</td>
-                                <td><?= $penduduk->pendidikan ?></td>
-                            </tr>
-                            <tr>
-                                <td>Pekerjaan</td>
-                                <td><?= $penduduk->pekerjaan ?></td>
-                            </tr>
-                            <tr>
-                                <td>Nama Ayah</td>
-                                <td><?= $penduduk->nama_ayah ?></td>
-                            </tr>
-                            <tr>
-                                <td>Nama Ibu</td>
-                                <td><?= $penduduk->nama_ibu ?></td>
-                            </tr>
-                            <tr>
-                                <td>RT</td>
-                                <td><?= $penduduk->rt ?></td>
-                            </tr>
-                            <tr>
-                                <td>RW</td>
-                                <td><?= $penduduk->rw ?></td>
-                            </tr>
-                            <tr>
-                                <td>Warga Negara</td>
-                                <td><?= $penduduk->warga_negara ?></td>
-                            </tr>
+                            <?php
+                            $no = 1;
+                            foreach ($fields as $label => $value) {
+                                echo "<tr>";
+                                echo "<td>{$no}</td>";
+                                echo "<td>{$label}</td>";
+                                if ($label == "Usia Gestasi") {
+                                    echo "<td>{$value} Minggu</td>";
+                                } elseif ($label == "Berat Lahir") {
+                                    echo "<td>{$value} gram</td>";
+                                } elseif ($label == "Panjang Badan" || $label == "Lingkar Kepala") {
+                                    echo "<td>{$value} cm</td>";
+                                } else {
+                                    echo "<td>{$value}</td>";
+                                }
+                                echo "</tr>";
+                                $no++;
+                            }
+                            ?>
                         </tbody>
+
                     </table>
                 </div>
 

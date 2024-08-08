@@ -16,6 +16,9 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="<?= base_url() ?>template/assets/node_modules/bootstrap/dist/css/bootstrap.css">
 
+    <!-- Time Picker -->
+     <link rel="stylesheet" href="<?= base_url() ?>template/assets/node_modules/timepicker/flatpickr.min.css">
+
     <!-- Popup CSS -->
     <link href="<?= base_url() ?>template/assets/node_modules/Magnific-Popup-master/dist/magnific-popup.css" rel="stylesheet">
 
@@ -36,11 +39,6 @@
     <link href="<?= base_url() ?>template/assets/node_modules/clockpicker/dist/jquery-clockpicker.min.css" rel="stylesheet">
     <!-- Color picker plugins css -->
     <link href="<?= base_url() ?>template/assets/node_modules/jquery-asColorPicker-master/dist/css/asColorPicker.css" rel="stylesheet">
-    <!-- Date picker plugins css -->
-    <link href="<?= base_url() ?>template/assets/node_modules/bootstrap-datepicker/bootstrap-datepicker.min.css" rel="stylesheet" type="text/css" />
-    <!-- Daterange picker plugins css -->
-    <link href="<?= base_url() ?>template/assets/node_modules/timepicker/bootstrap-timepicker.min.css" rel="stylesheet">
-    <link href="<?= base_url() ?>template/assets/node_modules/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
 </head>
 
 <body class="fixed-layout skin-blue">

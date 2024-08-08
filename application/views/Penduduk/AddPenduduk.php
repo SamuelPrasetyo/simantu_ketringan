@@ -2,7 +2,7 @@
     <div class="col-lg-12">
         <div class="card">
             <div class="card-header bg-info">
-                <h4 class="m-b-0 text-white">Form</h4>
+                <h4 class="m-b-0 text-white">Form Data Penduduk</h4>
             </div>
             <div class="card-body">
                 <!-- Error Message -->

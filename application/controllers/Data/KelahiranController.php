@@ -27,7 +27,7 @@ class KelahiranController extends CI_Controller
         $this->auth->check();
 
         $this->load->model('KelahiranModel');
-        $this->load->helper(array('form', 'validation_form'));
+        $this->load->helper(array('form', 'validation_formkelahiran'));
     }
 
     public function index()
@@ -48,23 +48,23 @@ class KelahiranController extends CI_Controller
         $this->load->view('Layouts/Footer');
     }
 
-    public function detail_penduduk()
+    public function detail_kelahiran()
     {
         $data = array(
             'nama_user' => $this->session->userdata('nama_user'),
-            'title' => 'Detail Penduduk',
-            'title_content' => 'Detail Penduduk',
-            'link1' => 'Penduduk',
-            'link2' => 'Detail Penduduk'
+            'title' => 'Detail Kelahiran',
+            'title_content' => 'Detail Kelahiran',
+            'link1' => 'Kelahiran',
+            'link2' => 'Detail Kelahiran'
         );
 
-        $nik = $this->uri->segment(2);
-        $get_detail = $this->PendudukModel->detail($nik);
+        $id_kelahiran = $this->uri->segment(2);
+        $get_detail = $this->KelahiranModel->detail($id_kelahiran);
 
-        $detail['penduduk'] = $get_detail;
+        $detail['kelahiran'] = $get_detail;
 
         $this->load->view('Layouts/Header', $data);
-        $this->load->view('Penduduk/DetailPenduduk', $detail);
+        $this->load->view('Kelahiran/DetailKelahiran', $detail);
         $this->load->view('Layouts/Footer');
     }
 
@@ -83,50 +83,45 @@ class KelahiranController extends CI_Controller
         $this->load->view('Layouts/Footer');
     }
 
-    public function create_penduduk()
+    public function create_kelahiran()
     {
-        $this->form_validation->set_rules(penduduk_validation_rules());
+        $this->form_validation->set_rules(kelahiran_validation_rules());
 
         if ($this->form_validation->run() == FALSE) {
-            $data = array(
-                'nama_user' => $this->session->userdata('nama_user'),
-                'title' => 'Tambah Data Penduduk',
-                'title_content' => 'Tambah Data Penduduk',
-                'link1' => 'Penduduk',
-                'link2' => 'Add Penduduk',
-            );
-
-            $this->load->view('Layouts/Header', $data);
-            $this->load->view('Penduduk/AddPenduduk');
-            $this->load->view('Layouts/Footer');
+            $this->page_add();
         } else {
             $data = array(
-                'nik' => $this->input->post('nik'),
-                'nama' => ucwords(strtolower($this->input->post('nama'))),
-                'no_urut_kk' => $this->input->post('no_urut_kk'),
-                'jenkel' => $this->input->post('jenkel'),
-                'tmp_lahir' => ucwords(strtolower($this->input->post('tmp_lahir'))),
+                'no_ket_lahir' => $this->input->post('no_ket_lahir'),
+                'nama_bayi' => strtoupper(strtolower($this->input->post('nama_bayi'))),
+                'hari' => $this->input->post('hari'),
                 'tgl_lahir' => $this->input->post('tgl_lahir'),
-                'gol_darah' => $this->input->post('gol_darah'),
-                'agama' => $this->input->post('agama'),
-                'status_nikah' => $this->input->post('status_nikah'),
-                'status_keluarga' => $this->input->post('status_keluarga'),
-                'pendidikan' => $this->input->post('pendidikan'),
-                'pekerjaan' => ucwords(strtolower($this->input->post('pekerjaan'))),
-                'nama_ayah' => ucwords(strtolower($this->input->post('nama_ayah'))),
+                'jam' => $this->input->post('jam'),
+                'jenkel' => $this->input->post('jenkel'),
+                'jenis_kelahiran' => $this->input->post('jenis_kelahiran'),
+                'anak_ke' => $this->input->post('anak_ke'),
+                'usia_gestasi' => $this->input->post('usia_gestasi', ' Minggu'),
+                'berat_lahir' => $this->input->post('berat_lahir'),
+                'panjang_badan' => $this->input->post('panjang_badan'),
+                'lingkar_kepala' => $this->input->post('lingkar_kepala'),
+                'tempat_lahiran' => $this->input->post('tempat_lahiran'),
+                'alamat_lahiran' => $this->input->post('alamat_lahiran'),
                 'nama_ibu' => ucwords(strtolower($this->input->post('nama_ibu'))),
-                'rt' => $this->input->post('rt'),
-                'rw' => $this->input->post('rw'),
-                'no_kk' => $this->input->post('no_kk'),
-                'warga_negara' => $this->input->post('warga_negara')
+                'umur_ibu' => $this->input->post('umur_ibu'),
+                'nik_ibu' => $this->input->post('nik_ibu'),
+                'nama_ayah' => ucwords(strtolower($this->input->post('nama_ayah'))),
+                'nik_ayah' => $this->input->post('nik_ayah'),
+                'pekerjaan' => ucwords(strtolower($this->input->post('pekerjaan'))),
+                'alamat_rumah' => ucwords($this->input->post('alamat_rumah')),
+                'kecamatan' => ucwords(strtolower($this->input->post('kecamatan'))),
+                'kab_kota' => ucwords(strtolower($this->input->post('kab_kota'))),
             );
 
-            if ($this->PendudukModel->insert_penduduk($data)) {
+            if ($this->KelahiranModel->insert_kelahiran($data)) {
                 $this->session->set_flashdata('success', 'Data berhasil ditambahkan!');
-                redirect('view_penduduk');
+                redirect('view_kelahiran');
             } else {
                 $this->session->set_flashdata('error', 'Data gagal ditambahkan!');
-                redirect('add_penduduk');
+                redirect('add_kelahiran');
             }
         }
     }
@@ -135,64 +130,60 @@ class KelahiranController extends CI_Controller
     {
         $data = array(
             'nama_user' => $this->session->userdata('nama_user'),
-            'title' => 'Edit Data Penduduk',
-            'title_content' => 'Edit Data Penduduk',
-            'link1' => 'Penduduk',
-            'link2' => 'Edit Penduduk',
+            'title' => 'Edit Data Kelahiran',
+            'title_content' => 'Edit Data Kelahiran',
+            'link1' => 'Kelahiran',
+            'link2' => 'Edit Kelahiran',
         );
 
-        $nik = $this->uri->segment(2);
-        $data_penduduk = $this->PendudukModel->get_edit($nik);
+        $id_kelahiran = $this->uri->segment(2);
+        $data_kelahiran = $this->KelahiranModel->get_edit($id_kelahiran);
 
         $this->load->view('Layouts/Header', $data);
-        $this->load->view('Penduduk/EditPenduduk', $data_penduduk);
+        $this->load->view('Kelahiran/EditKelahiran', $data_kelahiran);
         $this->load->view('Layouts/Footer');
     }
 
-    public function update_penduduk()
+    public function update_kelahiran()
     {
-        $this->form_validation->set_rules(penduduk_validation_rules());
+        $this->form_validation->set_rules(kelahiran_validation_rules());
 
         if ($this->form_validation->run() == FALSE) {
-            $data = array(
-                'nama_user' => $this->session->userdata('nama_user'),
-                'title' => 'Edit Data Penduduk',
-                'title_content' => 'Edit Data Penduduk',
-                'link1' => 'Penduduk',
-                'link2' => 'Edit Penduduk',
-            );
-
-            $this->load->view('Layouts/Header', $data);
-            $this->load->view('Penduduk/EditPenduduk');
-            $this->load->view('Layouts/Footer');
+            $this->page_edit();
         } else {
             $data = array(
-                'nik' => $this->input->post('nik'),
-                'nama' => ucwords(strtolower($this->input->post('nama'))),
-                'no_urut_kk' => $this->input->post('no_urut_kk'),
-                'jenkel' => $this->input->post('jenkel'),
-                'tmp_lahir' => ucwords(strtolower($this->input->post('tmp_lahir'))),
+                'id_kelahiran' => $this->input->post('id_kelahiran'),
+                'no_ket_lahir' => $this->input->post('no_ket_lahir'),
+                'nama_bayi' => strtoupper(strtolower($this->input->post('nama_bayi'))),
+                'hari' => $this->input->post('hari'),
                 'tgl_lahir' => $this->input->post('tgl_lahir'),
-                'gol_darah' => $this->input->post('gol_darah'),
-                'agama' => $this->input->post('agama'),
-                'status_nikah' => $this->input->post('status_nikah'),
-                'status_keluarga' => $this->input->post('status_keluarga'),
-                'pendidikan' => $this->input->post('pendidikan'),
-                'pekerjaan' => ucwords(strtolower($this->input->post('pekerjaan'))),
-                'nama_ayah' => ucwords(strtolower($this->input->post('nama_ayah'))),
+                'jam' => $this->input->post('jam'),
+                'jenkel' => $this->input->post('jenkel'),
+                'jenis_kelahiran' => $this->input->post('jenis_kelahiran'),
+                'anak_ke' => $this->input->post('anak_ke'),
+                'usia_gestasi' => $this->input->post('usia_gestasi', ' Minggu'),
+                'berat_lahir' => $this->input->post('berat_lahir'),
+                'panjang_badan' => $this->input->post('panjang_badan'),
+                'lingkar_kepala' => $this->input->post('lingkar_kepala'),
+                'tempat_lahiran' => $this->input->post('tempat_lahiran'),
+                'alamat_lahiran' => $this->input->post('alamat_lahiran'),
                 'nama_ibu' => ucwords(strtolower($this->input->post('nama_ibu'))),
-                'rt' => $this->input->post('rt'),
-                'rw' => $this->input->post('rw'),
-                'no_kk' => $this->input->post('no_kk'),
-                'warga_negara' => $this->input->post('warga_negara')
+                'umur_ibu' => $this->input->post('umur_ibu'),
+                'nik_ibu' => $this->input->post('nik_ibu'),
+                'nama_ayah' => ucwords(strtolower($this->input->post('nama_ayah'))),
+                'nik_ayah' => $this->input->post('nik_ayah'),
+                'pekerjaan' => ucwords(strtolower($this->input->post('pekerjaan'))),
+                'alamat_rumah' => ucwords($this->input->post('alamat_rumah')),
+                'kecamatan' => ucwords(strtolower($this->input->post('kecamatan'))),
+                'kab_kota' => ucwords(strtolower($this->input->post('kab_kota'))),
             );
 
-            if ($this->PendudukModel->update_penduduk($data)) {
+            if ($this->KelahiranModel->update_kelahiran($data)) {
                 $this->session->set_flashdata('success', 'Data berhasil diubah!');
-                redirect('view_penduduk');
+                redirect('view_kelahiran');
             } else {
                 $this->session->set_flashdata('error', 'Data gagal diubah!');
-                redirect('edit_penduduk');
+                redirect('edit_kelahiran');
             }
         }
     }
