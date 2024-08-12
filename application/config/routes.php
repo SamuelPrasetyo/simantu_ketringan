@@ -42,6 +42,15 @@ $route['update_kelahiran'] = 'Data/KelahiranController/update_kelahiran';
 $route['delete_kelahiran/(:any)'] = 'Data/KelahiranController/delete_kelahiran';
 $route['import_kelahiran'] = 'Data/KelahiranController/import_kelahiran';
 
+// Surat Pengantar
+$route['view_suratpengantar'] = 'Surat/SuratPengantarController';
+$route['add_suratpengantar'] = 'Surat/SuratPengantarController/page_add';
+$route['create_suratpengantar'] = 'Surat/SuratPengantarController/create_surat';
+$route['edit_suratpengantar/(:any)'] = 'Surat/SuratPengantarController/page_edit';
+$route['update_suratpengantar'] = 'Surat/SuratPengantarController/update_surat';
+$route['delete_suratpengantar/(:any)'] = 'Surat/SuratPengantarController/delete_surat';
+$route['pdf_suratpengantar/(:any)'] = 'Surat/SuratPengantarController/pdf_surat';
+
 
 
 $route['404_override'] = '';

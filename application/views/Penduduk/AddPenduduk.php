@@ -71,7 +71,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label class="control-label">*Tanggal Lahir</label>
-                                    <input type="text" name="tgl_lahir" class="form-control" id="mdate" value="<?php echo set_value('tgl_lahir'); ?>" required>
+                                    <input type="text" name="tgl_lahir" class="form-control" placeholder="Pilih Tanggal" id="datepicker" value="<?php echo set_value('tgl_lahir'); ?>" required>
                                 </div>
                             </div>
                         </div>
@@ -217,9 +217,9 @@
                         <!-- End of Form Body -->
                     </div>
                     <div class="form-actions mt-3">
-                        <button type="submit" name="submit" class="btn btn-success"> <i class="fa fa-check"></i> Save</button>
-                        <button type="reset" class="btn btn-danger"> <i class="fas fa-sync-alt"></i> Reset</button>
-                        <a href="<?= base_url('view_penduduk') ?>" class="btn btn-inverse">Cancel</a>
+                        <button type="submit" name="submit" class="btn btn-success"> <i class="fa fa-check"></i>&nbsp; Simpan</button>
+                        <button type="reset" class="btn btn-danger"> <i class="fas fa-sync-alt"></i>&nbsp; Reset</button>
+                        <a href="<?= base_url('view_penduduk') ?>" class="btn btn-inverse">Batal</a>
                     </div>
                 </form>
             </div>
@@ -230,8 +230,20 @@
 
 
 <script>
-    $('#mdate').bootstrapMaterialDatePicker({
-        weekStart: 0,
-        time: false
+    document.addEventListener('DOMContentLoaded', function() {
+        flatpickr("#datepicker", {
+            dateFormat: "d-m-Y", // Format tanggal yang digunakan dalam input text
+            locale: {
+                firstDayOfWeek: 1, // Memulai minggu dengan hari Senin
+                weekdays: {
+                    shorthand: ['Min', 'Sen', 'Sel', 'Rab', 'Kam', 'Jum', 'Sab'],
+                    longhand: ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'],
+                },
+                months: {
+                    shorthand: ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Agu', 'Sep', 'Okt', 'Nov', 'Des'],
+                    longhand: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'],
+                },
+            }
+        });
     });
 </script>

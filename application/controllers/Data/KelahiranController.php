@@ -44,7 +44,7 @@ class KelahiranController extends CI_Controller
         );
 
         $this->load->view('Layouts/Header', $data);
-        $this->load->view('Kelahiran/ViewKelahiran', $data_kelahiran);
+        $this->load->view('Kelahiran/ViewKelahiran', $data);
         $this->load->view('Layouts/Footer');
     }
 
@@ -92,7 +92,7 @@ class KelahiranController extends CI_Controller
         } else {
             $data = array(
                 'no_ket_lahir' => $this->input->post('no_ket_lahir'),
-                'nama_bayi' => strtoupper(strtolower($this->input->post('nama_bayi'))),
+                'nama_bayi' => strtoupper($this->input->post('nama_bayi')),
                 'hari' => $this->input->post('hari'),
                 'tgl_lahir' => $this->input->post('tgl_lahir'),
                 'jam' => $this->input->post('jam'),
@@ -154,7 +154,7 @@ class KelahiranController extends CI_Controller
             $data = array(
                 'id_kelahiran' => $this->input->post('id_kelahiran'),
                 'no_ket_lahir' => $this->input->post('no_ket_lahir'),
-                'nama_bayi' => strtoupper(strtolower($this->input->post('nama_bayi'))),
+                'nama_bayi' => strtoupper($this->input->post('nama_bayi')),
                 'hari' => $this->input->post('hari'),
                 'tgl_lahir' => $this->input->post('tgl_lahir'),
                 'jam' => $this->input->post('jam'),

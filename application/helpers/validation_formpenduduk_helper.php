@@ -20,7 +20,7 @@ if (!function_exists('penduduk_validation_rules')) {
             array(
                 'field' => 'nik',
                 'label' => 'NIK',
-                'rules' => 'required|numeric|exact_length[16]',
+                'rules' => 'trim|required|numeric|exact_length[16]',
                 'errors' => array(
                     'required' => 'NIK wajib diisi.',
                     'numeric' => 'NIK harus berupa angka.',
@@ -30,7 +30,7 @@ if (!function_exists('penduduk_validation_rules')) {
             array(
                 'field' => 'nama',
                 'label' => 'Nama',
-                'rules' => 'required|max_length[50]',
+                'rules' => 'trim|required|max_length[50]',
                 'errors' => array(
                     'required' => 'Nama wajib diisi.',
                     'max_length' => 'Nama tidak boleh lebih dari 50 karakter.'
@@ -39,7 +39,7 @@ if (!function_exists('penduduk_validation_rules')) {
             array(
                 'field' => 'no_urut_kk',
                 'label' => 'No Urut KK',
-                'rules' => 'required|numeric',
+                'rules' => 'trim|required|numeric',
                 'errors' => array(
                     'required' => 'No Urut KK wajib diisi.',
                     'numeric' => 'No Urut KK harus berupa angka.'
@@ -48,7 +48,7 @@ if (!function_exists('penduduk_validation_rules')) {
             array(
                 'field' => 'tmp_lahir',
                 'label' => 'Tempat Lahir',
-                'rules' => 'required|alpha',
+                'rules' => 'trim|required|alpha',
                 'errors' => array(
                     'required' => 'Tempat Lahir wajib diisi.',
                     'alpha' => 'Tempat Lahir harus berupa huruf.'
@@ -57,7 +57,7 @@ if (!function_exists('penduduk_validation_rules')) {
             array(
                 'field' => 'nama_ayah',
                 'label' => 'Nama Ayah',
-                'rules' => 'required|max_length[50]',
+                'rules' => 'trim|required|max_length[50]',
                 'errors' => array(
                     'required' => 'Nama Ayah wajib diisi.',
                     'max_length' => 'Nama Ayah tidak boleh lebih dari 50 karakter.'
@@ -66,7 +66,7 @@ if (!function_exists('penduduk_validation_rules')) {
             array(
                 'field' => 'nama_ibu',
                 'label' => 'Nama Ibu',
-                'rules' => 'required|max_length[50]',
+                'rules' => 'trim|required|max_length[50]',
                 'errors' => array(
                     'required' => 'Nama Ibu wajib diisi.',
                     'max_length' => 'Nama Ibu tidak boleh lebih dari 50 karakter.'
@@ -75,7 +75,7 @@ if (!function_exists('penduduk_validation_rules')) {
             array(
                 'field' => 'rt',
                 'label' => 'RT',
-                'rules' => 'required|numeric|max_length[3]',
+                'rules' => 'trim|required|numeric|max_length[3]',
                 'errors' => array(
                     'required' => 'RT wajib diisi.',
                     'numeric' => 'RT harus berupa angka.',
@@ -85,7 +85,7 @@ if (!function_exists('penduduk_validation_rules')) {
             array(
                 'field' => 'rw',
                 'label' => 'RW',
-                'rules' => 'required|numeric|max_length[3]',
+                'rules' => 'trim|required|numeric|max_length[3]',
                 'errors' => array(
                     'required' => 'RW wajib diisi.',
                     'numeric' => 'RW harus berupa angka.',
@@ -95,7 +95,7 @@ if (!function_exists('penduduk_validation_rules')) {
             array(
                 'field' => 'no_kk',
                 'label' => 'No KK',
-                'rules' => 'required|numeric|exact_length[16]',
+                'rules' => 'trim|required|numeric|exact_length[16]',
                 'errors' => array(
                     'required' => 'No KK wajib diisi.',
                     'numeric' => 'No KK harus berupa angka.',

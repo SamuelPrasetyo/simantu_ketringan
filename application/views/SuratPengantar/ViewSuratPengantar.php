@@ -26,7 +26,7 @@
                 <!-- End Message -->
 
                 <div class="table-responsive m-t-40">
-                    <a href="<?= base_url('add_kelahiran') ?>" class="btn btn-primary">
+                    <a href="<?= base_url('add_suratpengantar') ?>" class="btn btn-primary">
                         <i class="mdi mdi-account-plus"></i> Tambah Data
                     </a>
                     <button class="btn btn-success" data-toggle="modal" data-target="#importModal">
@@ -64,73 +64,58 @@
                         <thead>
                             <tr>
                                 <th>No.</th>
-                                <th>No. Ket Lahir</th>
-                                <th>Nama Bayi</th>
-                                <th style="width: 12%;">Tgl Lahir</th>
-                                <th>Jenkel</th>
-                                <th>Nama Ibu</th>
-                                <th>NIK Ibu</th>
-                                <th>Nama Ayah</th>
-                                <th>NIK Ayah</th>
+                                <th>No. Surat</th>
+                                <th>No. KK</th>
+                                <th>NIK</th>
+                                <th>Nama</th>
+                                <th>Surat Keterangan</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
                         <tfoot>
                             <tr>
                                 <th>No.</th>
-                                <th>No. Ket Lahir</th>
-                                <th>Nama Bayi</th>
-                                <th>Tgl Lahir</th>
-                                <th>Jenkel</th>
-                                <th>Nama Ibu</th>
-                                <th>NIK Ibu</th>
-                                <th>Nama Ayah</th>
-                                <th>NIK Ayah</th>
+                                <th>No. Surat</th>
+                                <th>No. KK</th>
+                                <th>NIK</th>
+                                <th>Nama</th>
+                                <th>Surat Keterangan</th>
                                 <th>Aksi</th>
                             </tr>
                         </tfoot>
                         <tbody>
                             <?php $no = 1;
-                            foreach ($get_kelahiran as $row) { ?>
+                            foreach ($get_suratpengantar as $row) { ?>
                                 <tr>
                                     <td>
                                         <?php echo $no++; ?>
                                     </td>
                                     <td>
-                                        <?php echo $row->no_ket_lahir; ?>
+                                        <?php echo $row->no_pengantar; ?>
                                     </td>
                                     <td>
-                                        <?php echo $row->nama_bayi; ?>
+                                        <?php echo $row->no_kk; ?>
                                     </td>
                                     <td>
-                                        <?php echo $row->hari; ?>, <?php echo $row->tgl_lahir; ?>
+                                        <?php echo $row->nik; ?>
                                     </td>
                                     <td>
-                                        <?php echo $row->jenkel; ?>
+                                        <?php echo $row->nama; ?>
                                     </td>
                                     <td>
-                                        <?php echo $row->nama_ibu; ?>
+                                        <?php echo $row->surat_keterangan; ?>
                                     </td>
-                                    <td>
-                                        <?php echo $row->nik_ibu; ?>
-                                    </td>
-                                    <td>
-                                        <?php echo $row->nama_ayah; ?>
-                                    </td>
-                                    <td>
-                                        <?php echo $row->nik_ayah; ?>
-                                    </td>
-                                    <td style="width: 13%;">
-                                        <a class="btn btn-info" href="<?php echo base_url('detail_kelahiran/' . $row->id_kelahiran); ?>">
+                                    <td style="width: 16%;">
+                                        <a class="btn btn-info" href="<?php echo base_url('pdf_suratpengantar/' . $row->id_pengantar); ?>">
+                                            <i class="icon-printer"></i>
+                                        </a>
+                                        <a class="btn btn-info" href="<?php echo base_url('detail_suratpengantar/' . $row->id_pengantar); ?>">
                                             <i class="mdi mdi-library-books"></i>
                                         </a>
-                                        <a class="btn btn-warning" href="<?php echo base_url('edit_kelahiran/' . $row->id_kelahiran); ?>">
+                                        <a class="btn btn-warning" href="<?php echo base_url('edit_suratpengantar/' . $row->id_pengantar); ?>">
                                             <i class="far fa-edit"></i>
                                         </a>
-                                        <!-- <a class="btn btn-danger" href="<?php echo base_url('delete_kelahiran/' . $row->id_kelahiran); ?>">
-                                            <i class="mdi mdi-delete"></i>
-                                        </a> -->
-                                        <button class="btn btn-danger" onclick="confirmDelete('<?php echo base_url('delete_kelahiran/' . $row->id_kelahiran); ?>')">
+                                        <button class="btn btn-danger" onclick="confirmDelete('<?php echo base_url('delete_suratpengantar/' . $row->id_pengantar); ?>')">
                                             <i class="mdi mdi-delete"></i>
                                         </button>
                                     </td>

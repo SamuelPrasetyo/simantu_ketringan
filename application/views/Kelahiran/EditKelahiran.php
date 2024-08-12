@@ -233,9 +233,9 @@
                         <!-- End of Form Body -->
                     </div>
                     <div class="form-actions mt-3">
-                        <button type="submit" name="submit" class="btn btn-success"> <i class="fa fa-check"></i> Save</button>
-                        <button type="reset" class="btn btn-danger"> <i class="fas fa-sync-alt"></i> Reset</button>
-                        <a href="<?= base_url('view_kelahiran') ?>" class="btn btn-inverse">Cancel</a>
+                        <button type="submit" name="submit" class="btn btn-success"> <i class="fa fa-check"></i>&nbsp; Simpan</button>
+                        <button type="reset" class="btn btn-danger"> <i class="fas fa-sync-alt"></i>&nbsp; Reset</button>
+                        <a href="<?= base_url('view_kelahiran') ?>" class="btn btn-inverse">Batal</a>
                     </div>
                 </form>
             </div>

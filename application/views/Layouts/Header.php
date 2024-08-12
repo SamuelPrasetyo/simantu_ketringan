@@ -128,19 +128,20 @@
                             </a>
                         </li>
 
-                        <li> <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-note-multiple"></i>
-                                <span class="hide-menu">Forms</span></a>
+                        <li>
+                            <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-note-multiple"></i>
+                                <span class="hide-menu">Formulir Surat</span>
+                            </a>
                             <ul aria-expanded="false" class="collapse">
-                                <li><a href="<?= base_url('view_surat_keterangan_pengantar') ?>">Surat Keterangan Pengantar</a></li>
-                                <li><a href="<?= base_url('entri_penjualan') ?>">Entri Penjualan</a></li>
+                                <li><a href="<?= base_url('view_suratpengantar') ?>">Surat Keterangan Pengantar</a></li>
                             </ul>
                         </li>
 
                         <li> <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="ti-files"></i>
                                 <span class="hide-menu">Laporan</span></a>
                             <ul aria-expanded="false" class="collapse">
-                                <li><a href="<?= base_url('laporan_barang') ?>">Laporan Data Barang</a></li>
-                                <li><a href="<?= base_url('laporan_penjualan') ?>">Laporan Penjualan</a></li>
+                                <li><a href="<?= base_url('beranda') ?>">A</a></li>
+                                <li><a href="<?= base_url('beranda') ?>">B</a></li>
                             </ul>
                         </li>
 

@@ -44,7 +44,7 @@ class PendudukController extends CI_Controller
         );
 
         $this->load->view('Layouts/Header', $data);
-        $this->load->view('Penduduk/ViewPenduduk', $data_penduduk);
+        $this->load->view('Penduduk/ViewPenduduk', $data);
         $this->load->view('Layouts/Footer');
     }
 

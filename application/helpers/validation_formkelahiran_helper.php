@@ -20,7 +20,7 @@ if (!function_exists('kelahiran_validation_rules')) {
             array(
                 'field' => 'nama_bayi',
                 'label' => 'Nama Bayi',
-                'rules' => 'required|max_length[50]',
+                'rules' => 'trim|required|max_length[50]',
                 'errors' => array(
                     'required' => 'Nama Bayi wajib diisi.',
                     'max_length' => 'Nama Bayi tidak boleh lebih dari 50 karakter.'
@@ -29,7 +29,7 @@ if (!function_exists('kelahiran_validation_rules')) {
             array(
                 'field' => 'anak_ke',
                 'label' => 'Anak Ke',
-                'rules' => 'required|numeric|max_length[2]',
+                'rules' => 'trim|required|numeric|max_length[2]',
                 'errors' => array(
                     'required' => 'Anak Ke wajib diisi.',
                     'numeric' => 'Anak Ke harus berupa angka.',
@@ -39,7 +39,7 @@ if (!function_exists('kelahiran_validation_rules')) {
             array(
                 'field' => 'usia_gestasi',
                 'label' => 'Usia Gestasi',
-                'rules' => 'required|numeric|max_length[2]',
+                'rules' => 'trim|required|numeric|max_length[2]',
                 'errors' => array(
                     'required' => 'Usia Gestasi wajib diisi.',
                     'numeric' => 'Usia Gestasi harus berupa angka.',
@@ -49,7 +49,7 @@ if (!function_exists('kelahiran_validation_rules')) {
             array(
                 'field' => 'berat_lahir',
                 'label' => 'Berat Lahir',
-                'rules' => 'required|numeric|max_length[4]',
+                'rules' => 'trim|required|numeric|max_length[4]',
                 'errors' => array(
                     'required' => 'Berat Lahir wajib diisi.',
                     'numeric' => 'Berat Lahir harus berupa angka.',
@@ -59,7 +59,7 @@ if (!function_exists('kelahiran_validation_rules')) {
             array(
                 'field' => 'panjang_badan',
                 'label' => 'Panjang Badan',
-                'rules' => 'required|numeric|max_length[2]',
+                'rules' => 'trim|required|numeric|max_length[2]',
                 'errors' => array(
                     'required' => 'Panjang Badan wajib diisi.',
                     'numeric' => 'Panjang Badan harus berupa angka.',
@@ -69,7 +69,7 @@ if (!function_exists('kelahiran_validation_rules')) {
             array(
                 'field' => 'lingkar_kepala',
                 'label' => 'Lingkar Kepala',
-                'rules' => 'required|numeric|max_length[2]',
+                'rules' => 'trim|required|numeric|max_length[2]',
                 'errors' => array(
                     'required' => 'Lingkar Kepala wajib diisi.',
                     'numeric' => 'Lingkar Kepala harus berupa angka.',
@@ -79,7 +79,7 @@ if (!function_exists('kelahiran_validation_rules')) {
             array(
                 'field' => 'alamat_lahiran',
                 'label' => 'Alamat Lahiran',
-                'rules' => 'required|max_length[50]',
+                'rules' => 'trim|required|max_length[50]',
                 'errors' => array(
                     'required' => 'Alamat Lahiran wajib diisi.',
                     'max_length' => 'Alamat Lahiran tidak boleh lebih dari 50 karakter.'
@@ -88,7 +88,7 @@ if (!function_exists('kelahiran_validation_rules')) {
             array(
                 'field' => 'nama_ibu',
                 'label' => 'Nama Ibu',
-                'rules' => 'required|max_length[50]',
+                'rules' => 'trim|required|max_length[50]',
                 'errors' => array(
                     'required' => 'Nama Ibu wajib diisi.',
                     'max_length' => 'Nama Ibu tidak boleh lebih dari 50 karakter.'
@@ -97,7 +97,7 @@ if (!function_exists('kelahiran_validation_rules')) {
             array(
                 'field' => 'umur_ibu',
                 'label' => 'Umur Ibu',
-                'rules' => 'required|numeric|max_length[3]',
+                'rules' => 'trim|required|numeric|max_length[3]',
                 'errors' => array(
                     'required' => 'Umur Ibu wajib diisi.',
                     'numeric' => 'Umur Ibu harus berupa angka.',
@@ -107,7 +107,7 @@ if (!function_exists('kelahiran_validation_rules')) {
             array(
                 'field' => 'nik_ibu',
                 'label' => 'NIK Ibu',
-                'rules' => 'required|numeric|exact_length[16]',
+                'rules' => 'trim|required|numeric|exact_length[16]',
                 'errors' => array(
                     'required' => 'NIK Ibu wajib diisi.',
                     'numeric' => 'NIK Ibu harus berupa angka.',
@@ -117,7 +117,7 @@ if (!function_exists('kelahiran_validation_rules')) {
             array(
                 'field' => 'nama_ayah',
                 'label' => 'Nama Ayah',
-                'rules' => 'required|max_length[50]',
+                'rules' => 'trim|required|max_length[50]',
                 'errors' => array(
                     'required' => 'Nama Ayah wajib diisi.',
                     'max_length' => 'Nama Ayah tidak boleh lebih dari 50 karakter.'
@@ -126,7 +126,7 @@ if (!function_exists('kelahiran_validation_rules')) {
             array(
                 'field' => 'nik_ayah',
                 'label' => 'NIK Ayah',
-                'rules' => 'required|numeric|exact_length[16]',
+                'rules' => 'trim|required|numeric|exact_length[16]',
                 'errors' => array(
                     'required' => 'NIK Ayah wajib diisi.',
                     'numeric' => 'NIK Ayah harus berupa angka.',
@@ -136,7 +136,7 @@ if (!function_exists('kelahiran_validation_rules')) {
             array(
                 'field' => 'pekerjaan',
                 'label' => 'Pekerjaan',
-                'rules' => 'required|max_length[30]',
+                'rules' => 'trim|required|max_length[30]',
                 'errors' => array(
                     'required' => 'Pekerjaan wajib diisi.',
                     'max_length' => 'Pekerjaan tidak boleh lebih dari 30 karakter.'
@@ -145,7 +145,7 @@ if (!function_exists('kelahiran_validation_rules')) {
             array(
                 'field' => 'alamat_rumah',
                 'label' => 'Alamat Rumah',
-                'rules' => 'required|max_length[50]',
+                'rules' => 'trim|required|max_length[50]',
                 'errors' => array(
                     'required' => 'Alamat Rumah wajib diisi.',
                     'max_length' => 'Alamat Rumah tidak boleh lebih dari 50 karakter.'
@@ -154,7 +154,7 @@ if (!function_exists('kelahiran_validation_rules')) {
             array(
                 'field' => 'kecamatan',
                 'label' => 'Kecamatan',
-                'rules' => 'required|max_length[30]',
+                'rules' => 'trim|required|max_length[30]',
                 'errors' => array(
                     'required' => 'Kecamatan wajib diisi.',
                     'max_length' => 'Kecamatan tidak boleh lebih dari 30 karakter.'
@@ -163,7 +163,7 @@ if (!function_exists('kelahiran_validation_rules')) {
             array(
                 'field' => 'kab_kota',
                 'label' => 'Kabupaten/Kota',
-                'rules' => 'required|max_length[30]',
+                'rules' => 'trim|required|max_length[30]',
                 'errors' => array(
                     'required' => 'Kabupaten/Kota wajib diisi.',
                     'max_length' => 'Kabupaten/Kota tidak boleh lebih dari 30 karakter.'
