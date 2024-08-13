@@ -95,11 +95,11 @@ if (!function_exists('penduduk_validation_rules')) {
             array(
                 'field' => 'no_kk',
                 'label' => 'No KK',
-                'rules' => 'trim|required|numeric|exact_length[16]',
+                'rules' => 'trim|required|numeric|max_length[16]',
                 'errors' => array(
                     'required' => 'No KK wajib diisi.',
                     'numeric' => 'No KK harus berupa angka.',
-                    'exact_length' => 'No KK harus tepat 16 digit.'
+                    'max_length' => 'No KK tidak boleh lebih dari 16 digit.'
                 )
             ),
         );

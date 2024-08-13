@@ -54,8 +54,8 @@
         <header class="topbar blue-theme">
             <nav class="navbar top-navbar navbar-expand-md navbar-dark">
                 <!-- <div class="navxbar-header"> -->
-                    <!-- Logo icon -->
-                    <!-- <b>
+                <!-- Logo icon -->
+                <!-- <b>
                         <center><img src="<?= base_url() ?>template/assets/gambar/logo_simdes.png" style="width: 80%;" alt="Logo Simdes" class="light-logo" /></center>
                     </b>
                 </div>
@@ -137,11 +137,13 @@
                             </ul>
                         </li>
 
-                        <li> <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="ti-files"></i>
-                                <span class="hide-menu">Laporan</span></a>
+                        <li> 
+                            <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="ti-files"></i>
+                                <span class="hide-menu">Laporan</span>
+                            </a>
                             <ul aria-expanded="false" class="collapse">
-                                <li><a href="<?= base_url('beranda') ?>">A</a></li>
-                                <li><a href="<?= base_url('beranda') ?>">B</a></li>
+                                <li><a href="#">A</a></li>
+                                <li><a href="#">B</a></li>
                             </ul>
                         </li>
 

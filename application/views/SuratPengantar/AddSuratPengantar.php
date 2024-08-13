@@ -12,7 +12,7 @@
                     </div>
                 <?php endif; ?>
 
-                <form action="<?php echo base_url('create_suratpengantar'); ?>" method="post">
+                <form action="<?php echo base_url('create_suratpengantar'); ?>" method="post" target="_blank">
                     <div class="form-body">
                         <h3 class="card-title">Input Data Surat Pengantar</h3>
                         <small class="form-control-feedback">* Menunjukkan Kolom yang Wajib Diisi</small>
@@ -36,13 +36,13 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label class="control-label">*NIK</label>
-                                    <input type="text" name="nik" class="form-control" placeholder="Masukkan NIK" value="<?php echo set_value('nik'); ?>" required>
+                                    <input type="text" name="nik" class="form-control" placeholder="Masukkan NIK" autocomplete="off" value="<?php echo set_value('nik'); ?>" required>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label class="control-label">*No KK</label>
-                                    <input type="text" name="no_kk" class="form-control" placeholder="Masukkan No. KK" value="<?php echo set_value('no_kk'); ?>" required>
+                                    <input type="text" name="no_kk" class="form-control" placeholder="Masukkan No. KK" autocomplete="off" value="<?php echo set_value('no_kk'); ?>" required>
                                 </div>
                             </div>
                         </div>
@@ -57,7 +57,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label class="control-label">*Tempat Lahir</label>
-                                    <input type="text" name="tmp_lahir" class="form-control" placeholder="Masukkan Tempat Lahir" value="<?php echo set_value('tmp_lahir'); ?>" autocomplete="off" required>
+                                    <input type="text" name="tmp_lahir" class="form-control" placeholder="Masukkan Tempat Lahir" autocomplete="off" value="<?php echo set_value('tmp_lahir'); ?>" required>
                                 </div>
                             </div>
                         </div>
@@ -66,7 +66,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label class="control-label">*Tanggal Lahir</label>
-                                    <input type="text" name="tgl_lahir" class="form-control" id="datepicker" placeholder="Pilih Tanggal" value="<?php echo set_value('tgl_lahir'); ?>" autocomplete="off" required>
+                                    <input type="text" name="tgl_lahir" class="form-control" id="datepicker" placeholder="Pilih Tanggal" autocomplete="off" value="<?php echo set_value('tgl_lahir'); ?>" required>
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -116,7 +116,7 @@
                             <div class="col-md-6">
                                 <div class="form-goup">
                                     <label class="control-label">*Pekerjaan</label>
-                                    <input type="text" name="pekerjaan" class="form-control" placeholder="Masukkan Pekerjaan" value="<?php echo set_value('pekerjaan'); ?>" autocomplete="off" required>
+                                    <input type="text" name="pekerjaan" class="form-control" placeholder="Masukkan Pekerjaan" autocomplete="off" value="<?php echo set_value('pekerjaan'); ?>" required>
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -151,7 +151,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-goup">
-                                    <label class="control-label">*Keperluan</label>
+                                    <label class="control-label">Keperluan</label>
                                     <input type="text" name="keperluan" class="form-control" placeholder="Masukkan Keperluan" autocomplete="off" value="<?php echo set_value('keperluan'); ?>" required>
                                 </div>
                             </div>
@@ -160,7 +160,7 @@
                         <div class="row p-t-25">
                             <div class="col-md-6">
                                 <div class="form-goup">
-                                    <label class="control-label">*Surat Keterangan</label>
+                                    <label class="control-label">Surat Keterangan</label>
                                     <input type="text" name="surat_keterangan" class="form-control" placeholder="Masukkan Surat Keterangan" autocomplete="off" value="<?php echo set_value('surat_keterangan'); ?>" required>
                                 </div>
                             </div>
@@ -175,7 +175,7 @@
                         <div class="row p-t-25">
                             <div class="col-md-12">
                                 <div class="form-goup">
-                                    <label class="control-label">*Keterangan Lain</label>
+                                    <label class="control-label">Keterangan Lain</label>
                                     <textarea name="ket_lain" class="form-control" placeholder="Masukkan Keterangan Lain" autocomplete="off" rows="5"><?php echo set_value('ket_lain'); ?></textarea>
                                 </div>
                             </div>
@@ -219,7 +219,6 @@
         });
     });
 </script>
-
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {

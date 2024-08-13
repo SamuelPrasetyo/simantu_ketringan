@@ -39,11 +39,11 @@ if (!function_exists('suratpengantar_validation_rules')) {
             array(
                 'field' => 'no_kk',
                 'label' => 'No KK',
-                'rules' => 'trim|required|numeric|exact_length[16]',
+                'rules' => 'trim|required|numeric|max_length[16]',
                 'errors' => array(
                     'required' => '%s wajib diisi.',
                     'numeric' => '%s harus berupa angka.',
-                    'exact_length' => '%s harus terdiri dari 16 angka.',
+                    'max_length' => '%s tidak boleh lebih dari 16 angka.',
                 ),
             ),
             array(

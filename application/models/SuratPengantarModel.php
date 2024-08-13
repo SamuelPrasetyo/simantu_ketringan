@@ -61,6 +61,17 @@ class SuratPengantarModel extends CI_Model
         return $query->result();
     }
 
+    public function detail($id_pengantar)
+    {
+        $this->db->select("*");
+
+        $this->db->from('surat_pengantar');
+        $this->db->where('id_pengantar', $id_pengantar);
+        $query = $this->db->get();
+
+        return $query->row();
+    }
+
     public function insert($data)
     {
         return $this->db->insert('surat_pengantar', $data);

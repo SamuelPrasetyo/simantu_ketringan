@@ -44,12 +44,13 @@ $route['import_kelahiran'] = 'Data/KelahiranController/import_kelahiran';
 
 // Surat Pengantar
 $route['view_suratpengantar'] = 'Surat/SuratPengantarController';
+$route['detail_suratpengantar/(:any)'] = 'Surat/SuratPengantarController/detail_suratpengantar';
 $route['add_suratpengantar'] = 'Surat/SuratPengantarController/page_add';
 $route['create_suratpengantar'] = 'Surat/SuratPengantarController/create_surat';
 $route['edit_suratpengantar/(:any)'] = 'Surat/SuratPengantarController/page_edit';
 $route['update_suratpengantar'] = 'Surat/SuratPengantarController/update_surat';
 $route['delete_suratpengantar/(:any)'] = 'Surat/SuratPengantarController/delete_surat';
-$route['pdf_suratpengantar/(:any)'] = 'Surat/SuratPengantarController/pdf_surat';
+$route['pdf_suratpengantar/(:any)'] = 'Surat/SuratPengantarController/cetak_pdf';
 
 
 
