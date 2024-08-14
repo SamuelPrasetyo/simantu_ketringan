@@ -134,6 +134,7 @@
                             </a>
                             <ul aria-expanded="false" class="collapse">
                                 <li><a href="<?= base_url('view_suratpengantar') ?>">Surat Keterangan Pengantar</a></li>
+                                <li><a href="<?= base_url('view_permohonanktp') ?>">Permohonan KTP</a></li>
                             </ul>
                         </li>
 

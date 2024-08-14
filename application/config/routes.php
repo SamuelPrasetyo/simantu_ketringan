@@ -42,7 +42,7 @@ $route['update_kelahiran'] = 'Data/KelahiranController/update_kelahiran';
 $route['delete_kelahiran/(:any)'] = 'Data/KelahiranController/delete_kelahiran';
 $route['import_kelahiran'] = 'Data/KelahiranController/import_kelahiran';
 
-// Surat Pengantar
+// Surat Keterangan Pengantar
 $route['view_suratpengantar'] = 'Surat/SuratPengantarController';
 $route['detail_suratpengantar/(:any)'] = 'Surat/SuratPengantarController/detail_suratpengantar';
 $route['add_suratpengantar'] = 'Surat/SuratPengantarController/page_add';
@@ -51,6 +51,16 @@ $route['edit_suratpengantar/(:any)'] = 'Surat/SuratPengantarController/page_edit
 $route['update_suratpengantar'] = 'Surat/SuratPengantarController/update_surat';
 $route['delete_suratpengantar/(:any)'] = 'Surat/SuratPengantarController/delete_surat';
 $route['pdf_suratpengantar/(:any)'] = 'Surat/SuratPengantarController/cetak_pdf';
+
+// Formulir Permohonan KTP
+$route['view_permohonanktp'] = 'Formulir/KTPController';
+$route['detail_permohonanktp/(:any)'] = 'Formulir/KTPController/detail_permohonan';
+$route['add_permohonanktp'] = 'Formulir/KTPController/page_add';
+$route['create_permohonanktp'] = 'Formulir/KTPController/create_permohonan';
+$route['edit_permohonanktp/(:any)'] = 'Formulir/KTPController/page_edit';
+$route['update_permohonanktp'] = 'Formulir/KTPController/update_permohonan';
+$route['delete_permohonanktp/(:any)'] = 'Formulir/KTPController/delete_permohonan';
+$route['pdf_permohonanktp/(:any)'] = 'Formulir/KTPController/cetak_pdf';
 
 
 

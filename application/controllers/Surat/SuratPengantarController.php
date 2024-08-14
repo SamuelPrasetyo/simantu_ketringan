@@ -41,7 +41,7 @@ class SuratPengantarController extends CI_Controller
         );
 
         $this->load->view('Layouts/Header', $data);
-        $this->load->view('SuratPengantar/ViewSuratPengantar', $data_suratpengantar);
+        $this->load->view('SuratPengantar/ViewSuratPengantar', $data);
         $this->load->view('Layouts/Footer');
     }
 
