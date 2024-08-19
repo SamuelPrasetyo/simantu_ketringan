@@ -19,6 +19,11 @@ $route['default_controller'] = 'AuthController';
 $route['aksi_login'] = 'AuthController/aksi_login';
 $route['logout'] = 'AuthController/logout';
 
+// Routes Settings
+$route['view_settings'] = 'SettingsController';
+$route['edit_settings/(:any)'] = 'SettingsController/page_edit';
+$route['update_settings'] = 'SettingsController/update';
+
 // Main Page
 $route['beranda'] = 'HomeController';
 

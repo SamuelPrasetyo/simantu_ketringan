@@ -78,6 +78,7 @@
                         <center>
                             <img src="<?= base_url() ?>template/assets/gambar/logo_kabblora.png" style="width: 50%; margin: -10px 0 10px 0;" alt="Logo Simdes" class="light-logo" />
                         </center>
+
                         <li class="user-pro">
                             <a href="javascript:void(0)" class="has-arrow waves-effect waves-dark">
                                 <img src="<?= base_url() ?>template/assets/images/users/icon-user.png" alt="user-img" class="img-circle">
@@ -85,12 +86,12 @@
                             </a>
                             <ul aria-expanded="false" class="collapse">
                                 <li>
-                                    <!-- <a href="javascript:void(0)" class="dropdown-item"><i class="ti-user"></i> My Profile</a> -->
-                                    <!-- <div class="dropdown-divider"></div> -->
-                                    <a href="logout" class="dropdown-item"><i class="fa fa-power-off"></i> Logout</a>
+                                    <a href="view_settings"><i class="mdi mdi-settings"></i> Pengaturan</a>
+                                    <a href="logout"><i class="fa fa-power-off"></i> Logout</a>
                                 </li>
                             </ul>
                         </li>
+
                         <li>
                             <a class="waves-effect waves-dark" href="<?= base_url('beranda') ?>" aria-expanded="false">
                                 <i class="fas fa-home text-success"></i><span class="hide-menu"> Beranda</span></a>
@@ -138,7 +139,7 @@
                             </ul>
                         </li>
 
-                        <li> 
+                        <!-- <li> 
                             <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="ti-files"></i>
                                 <span class="hide-menu">Laporan</span>
                             </a>
@@ -146,7 +147,7 @@
                                 <li><a href="#">A</a></li>
                                 <li><a href="#">B</a></li>
                             </ul>
-                        </li>
+                        </li> -->
 
                         <!-- <li style="margin-top: 100px;">
                             <a class="waves-effect waves-dark" href="<?= base_url('logout') ?>" aria-expanded="false">
