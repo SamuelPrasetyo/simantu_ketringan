@@ -13,7 +13,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
  **           berasal dari bagaimana kamu berpikir..."
  */
 
-class simdes_core extends CI_DB
+class SimdesModel extends CI_Model
 {
     public function kepala_desa()
     {

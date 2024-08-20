@@ -211,7 +211,7 @@
                             <div class="col-md-6">
                                 <div class="form-goup">
                                     <label class="control-label">*Kecamatan</label>
-                                    <input type="text" name="kecamatan" class="form-control" placeholder="Masukkan Kecamatan" autocomplete="off" value="<?php echo set_value('kecamatan', $kecamatan); ?>" required>
+                                    <input type="text" name="kecamatan" class="form-control" placeholder="Masukkan Kecamatan" autocomplete="off" value="<?php echo set_value('kecamatan', $kecamatan); ?>" readonly>
                                 </div>
                             </div>
                         </div>
@@ -226,7 +226,7 @@
                             <div class="col-md-6">
                                 <div class="form-goup">
                                     <label class="control-label">*Kabupaten/Kota</label>
-                                    <input type="text" name="kab_kota" class="form-control" placeholder="Masukkan Kabupaten/Kota" autocomplete="off" value="<?php echo set_value('kab_kota', $kab_kota); ?>" required>
+                                    <input type="text" name="kab_kota" class="form-control" placeholder="Masukkan Kabupaten/Kota" autocomplete="off" value="<?php echo set_value('kab_kota', $kab_kota); ?>" readonly>
                                 </div>
                             </div>
                         </div>

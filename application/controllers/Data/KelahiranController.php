@@ -27,6 +27,7 @@ class KelahiranController extends CI_Controller
         $this->auth->check();
 
         $this->load->model('KelahiranModel');
+        $this->load->model('SimdesModel');
         $this->load->helper(array('form', 'validation_formkelahiran'));
     }
 
@@ -70,6 +71,11 @@ class KelahiranController extends CI_Controller
 
     public function page_add()
     {
+        $auto = array(
+            'kecamatan' => $this->SimdesModel->nama_kecamatan(),
+            'kab_kota' => $this->SimdesModel->nama_kab_kota()
+        );
+
         $data = array(
             'nama_user' => $this->session->userdata('nama_user'),
             'title' => 'Tambah Data Kelahiran',
@@ -78,8 +84,10 @@ class KelahiranController extends CI_Controller
             'link2' => 'Add Kelahiran'
         );
 
+        $data = array_merge($data, $auto);
+
         $this->load->view('Layouts/Header', $data);
-        $this->load->view('Kelahiran/AddKelahiran');
+        $this->load->view('Kelahiran/AddKelahiran', $data);
         $this->load->view('Layouts/Footer');
     }
 
