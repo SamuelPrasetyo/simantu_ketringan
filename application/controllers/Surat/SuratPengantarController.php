@@ -24,6 +24,7 @@ class SuratPengantarController extends CI_Controller
         $this->auth->check();
 
         $this->load->model('SuratPengantarModel');
+        $this->load->model('SimdesModel');
         $this->load->helper(array('form', 'validation_formsuratpengantar'));
     }
 
@@ -67,6 +68,13 @@ class SuratPengantarController extends CI_Controller
 
     public function page_add()
     {
+        $auto_fill = array(
+            'kecamatan' => $this->SimdesModel->nama_kecamatan(),
+            'kab_kota' => $this->SimdesModel->nama_kab_kota(),
+            'provinsi' => $this->SimdesModel->nama_provinsi(),
+            'kepala_desa' => $this->SimdesModel->kepala_desa()
+        );
+
         $data = array(
             'nama_user' => $this->session->userdata('nama_user'),
             'title' => 'Tambah Surat Pengantar',
@@ -76,8 +84,10 @@ class SuratPengantarController extends CI_Controller
             'id_pengantar' => $this->SuratPengantarModel->generate_new_id()
         );
 
+        $data = array_merge($data, $auto_fill);
+
         $this->load->view('Layouts/Header', $data);
-        $this->load->view('SuratPengantar/AddSuratPengantar');
+        $this->load->view('SuratPengantar/AddSuratPengantar', $data);
         $this->load->view('Layouts/Footer');
     }
 

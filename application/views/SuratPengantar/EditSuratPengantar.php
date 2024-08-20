@@ -133,13 +133,13 @@
                             <div class="col-md-6">
                                 <div class="form-goup">
                                     <label class="control-label">*Kecamatan</label>
-                                    <input type="text" name="kecamatan" class="form-control" placeholder="Masukkan Kecamatan" autocomplete="off" value="<?php echo set_value('kecamatan', $kecamatan); ?>" required>
+                                    <input type="text" name="kecamatan" class="form-control" placeholder="Masukkan Kecamatan" autocomplete="off" value="<?php echo set_value('kecamatan', $kecamatan); ?>" readonly>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-goup">
                                     <label class="control-label">*Kabupaten/Kota</label>
-                                    <input type="text" name="kab_kota" class="form-control" placeholder="Masukkan Kabupaten/Kota" autocomplete="off" value="<?php echo set_value('kab_kota', $kab_kota); ?>" required>
+                                    <input type="text" name="kab_kota" class="form-control" placeholder="Masukkan Kabupaten/Kota" autocomplete="off" value="<?php echo set_value('kab_kota', $kab_kota); ?>" readonly>
                                 </div>
                             </div>
                         </div>
@@ -148,7 +148,7 @@
                             <div class="col-md-6">
                                 <div class="form-goup">
                                     <label class="control-label">*Provinsi</label>
-                                    <input type="text" name="provinsi" class="form-control" placeholder="Masukkan Provinsi" autocomplete="off" value="<?php echo set_value('provinsi', $provinsi); ?>" required>
+                                    <input type="text" name="provinsi" class="form-control" placeholder="Masukkan Provinsi" autocomplete="off" value="<?php echo set_value('provinsi', $provinsi); ?>" readonly>
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -193,7 +193,7 @@
                             <div class="col-md-6">
                                 <div class="form-goup">
                                     <label class="control-label">*Nama Kepala Desa</label>
-                                    <input type="text" name="kepala_desa" class="form-control" placeholder="Masukkan Nama Kepala Desa" autocomplete="off" value="<?php echo set_value('kepala_desa', $kepala_desa); ?>" required>
+                                    <input type="text" name="kepala_desa" class="form-control" placeholder="Masukkan Nama Kepala Desa" autocomplete="off" value="<?php echo set_value('kepala_desa', $kepala_desa); ?>" readonly>
                                 </div>
                             </div>
                         </div>

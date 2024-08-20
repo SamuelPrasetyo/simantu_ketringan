@@ -71,7 +71,7 @@ class KelahiranController extends CI_Controller
 
     public function page_add()
     {
-        $auto = array(
+        $auto_fill = array(
             'kecamatan' => $this->SimdesModel->nama_kecamatan(),
             'kab_kota' => $this->SimdesModel->nama_kab_kota()
         );
@@ -84,7 +84,7 @@ class KelahiranController extends CI_Controller
             'link2' => 'Add Kelahiran'
         );
 
-        $data = array_merge($data, $auto);
+        $data = array_merge($data, $auto_fill);
 
         $this->load->view('Layouts/Header', $data);
         $this->load->view('Kelahiran/AddKelahiran', $data);
