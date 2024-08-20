@@ -22,13 +22,13 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label class="control-label">*NIK</label>
-                                    <input type="text" name="nik" class="form-control" placeholder="Masukkan NIK" autocomplete="off" value="<?php echo $nik; ?>" readonly>
+                                    <input type="text" name="nik" class="form-control" placeholder="Masukkan NIK" autocomplete="off" value="<?php echo set_value('nik', $nik); ?>" readonly>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label class="control-label">*Nama</label>
-                                    <input type="text" name="nama" class="form-control" placeholder="Masukkan Nama" autocomplete="off" value="<?php echo $nama; ?>" required>
+                                    <input type="text" name="nama" class="form-control" placeholder="Masukkan Nama" autocomplete="off" value="<?php echo set_value('nama', $nama); ?>" required>
                                 </div>
                             </div>
                         </div>
@@ -37,7 +37,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label class="control-label">*No. Urut KK</label>
-                                    <input type="text" name="no_urut_kk" class="form-control" placeholder="Masukkan No. Urut KK" autocomplete="off" value="<?php echo $no_urut_kk; ?>" required>
+                                    <input type="text" name="no_urut_kk" class="form-control" placeholder="Masukkan No. Urut KK" autocomplete="off" value="<?php echo set_value('no_urut_kk', $no_urut_kk); ?>" required>
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -45,16 +45,12 @@
                                     <label class="control-label">*Jenis Kelamin</label><br>
                                     <div class="custom-control custom-radio">
                                         <input type="radio" id="laki-laki" name="jenkel" class="custom-control-input" value="L"
-                                            <?php if ($jenkel == "L") {
-                                                echo "checked";
-                                            }; ?> required>
+                                            <?php echo set_radio('jenkel', 'L', ($jenkel == 'L') ? true : false); ?> required>
                                         <label class="custom-control-label" for="laki-laki">Laki-Laki</label>
                                     </div>
                                     <div class="custom-control custom-radio">
                                         <input type="radio" id="perempuan" name="jenkel" class="custom-control-input" value="P"
-                                            <?php if ($jenkel == "P") {
-                                                echo "checked";
-                                            }; ?> required>
+                                            <?php echo set_radio('jenkel', 'P', ($jenkel == 'P') ? true : false); ?> required>
                                         <label class="custom-control-label" for="perempuan">Perempuan</label>
                                     </div>
                                 </div>
@@ -65,13 +61,13 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label class="control-label">*Tempat Lahir</label>
-                                    <input type="text" name="tmp_lahir" class="form-control" placeholder="Masukkan Tempat Lahir" autocomplete="off" value="<?php echo $tmp_lahir; ?>" required>
+                                    <input type="text" name="tmp_lahir" class="form-control" placeholder="Masukkan Tempat Lahir" autocomplete="off" value="<?php echo set_value('tmp_lahir', $tmp_lahir); ?>" required>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label class="control-label">*Tanggal Lahir</label>
-                                    <input type="text" name="tgl_lahir" class="form-control" placeholder="Pilih Tanggal" id="datepicker" value="<?php echo $tgl_lahir; ?>" required>
+                                    <input type="text" name="tgl_lahir" class="form-control" placeholder="Pilih Tanggal" id="datepicker" value="<?php echo set_value('tgl_lahir', $tgl_lahir); ?>" required>
                                 </div>
                             </div>
                         </div>
@@ -82,11 +78,11 @@
                                     <label class="control-label">*Golongan Darah</label>
                                     <select name="gol_darah" class="form-control custom-select" required>
                                         <option value="">Pilih Golongan Darah</option>
-                                        <option value="A" <?php echo ($gol_darah == 'A') ? 'selected' : ''; ?>>A</option>
-                                        <option value="B" <?php echo ($gol_darah == 'B') ? 'selected' : ''; ?>>B</option>
-                                        <option value="AB" <?php echo ($gol_darah == 'AB') ? 'selected' : ''; ?>>AB</option>
-                                        <option value="O" <?php echo ($gol_darah == 'O') ? 'selected' : ''; ?>>O</option>
-                                        <option value="TIDAK TAHU" <?php echo ($gol_darah == 'TIDAK TAHU') ? 'selected' : ''; ?>>Tidak Tahu</option>
+                                        <option value="A" <?php echo set_select('gol_darah', 'A', ($gol_darah == 'A') ? true : false); ?>>A</option>
+                                        <option value="B" <?php echo set_select('gol_darah', 'B', ($gol_darah == 'B') ? true : false); ?>>B</option>
+                                        <option value="AB" <?php echo set_select('gol_darah', 'AB', ($gol_darah == 'AB') ? true : false); ?>>AB</option>
+                                        <option value="O" <?php echo set_select('gol_darah', 'O', ($gol_darah == 'O') ? true : false); ?>>O</option>
+                                        <option value="TIDAK TAHU" <?php echo set_select('gol_darah', 'TIDAK TAHU', ($gol_darah == 'TIDAK TAHU') ? true : false); ?>>Tidak Tahu</option>
                                     </select>
                                 </div>
                             </div>
@@ -95,13 +91,13 @@
                                     <label class="control-label">*Agama</label>
                                     <select name="agama" class="form-control custom-select" required>
                                         <option value="">Pilih Agama</option>
-                                        <option value="Islam" <?php echo ($agama == 'Islam') ? 'selected' : ''; ?>>Islam</option>
-                                        <option value="Katolik" <?php echo ($agama == 'Katolik') ? 'selected' : ''; ?>>Katolik</option>
-                                        <option value="Protestan" <?php echo ($agama == 'Protestan') ? 'selected' : ''; ?>>Protestan</option>
-                                        <option value="Hindu" <?php echo ($agama == 'Hindu') ? 'selected' : ''; ?>>Hindu</option>
-                                        <option value="Buddha" <?php echo ($agama == 'Buddha') ? 'selected' : ''; ?>>Buddha</option>
-                                        <option value="Konghucu" <?php echo ($agama == 'Konghucu') ? 'selected' : ''; ?>>Konghucu</option>
-                                        <option value="Lainnya" <?php echo ($agama == 'Lainnya') ? 'selected' : ''; ?>>Lainnya</option>
+                                        <option value="Islam" <?php echo set_select('agama', 'Islam', ($agama == 'Islam') ? true : false); ?>>Islam</option>
+                                        <option value="Katolik" <?php echo set_select('agama', 'Katolik', ($agama == 'Katolik') ? true : false); ?>>Katolik</option>
+                                        <option value="Protestan" <?php echo set_select('agama', 'Protestan', ($agama == 'Protestan') ? true : false); ?>>Protestan</option>
+                                        <option value="Hindu" <?php echo set_select('agama', 'Hindu', ($agama == 'Hindu') ? true : false); ?>>Hindu</option>
+                                        <option value="Buddha" <?php echo set_select('agama', 'Buddha', ($agama == 'Buddha') ? true : false); ?>>Buddha</option>
+                                        <option value="Konghucu" <?php echo set_select('agama', 'Konghucu', ($agama == 'Konghucu') ? true : false); ?>>Konghucu</option>
+                                        <option value="Lainnya" <?php echo set_select('agama', 'Lainnya', ($agama == 'Lainnya') ? true : false); ?>>Lainnya</option>
                                     </select>
                                 </div>
                             </div>
@@ -113,12 +109,12 @@
                                     <label class="control-label">*Status Nikah</label>
                                     <select name="status_nikah" class="form-control custom-select" required>
                                         <option value="">Pilih Status Nikah</option>
-                                        <option value="Kawin Tercatat" <?php echo ($status_nikah == 'Kawin Tercatat') ? 'selected' : ''; ?>>Kawin Tercatat</option>
-                                        <option value="Kawin Tidak Tercatat" <?php echo ($status_nikah == 'Kawin Tidak Tercatat') ? 'selected' : ''; ?>>Kawin Tidak Tercatat</option>
-                                        <option value="Belum Kawin" <?php echo ($status_nikah == 'Belum Kawin') ? 'selected' : ''; ?>>Belum Kawin</option>
-                                        <option value="Cerai Hidup Tercatat" <?php echo ($status_nikah == 'Cerai Hidup Tercatat') ? 'selected' : ''; ?>>Cerai Hidup Tercatat</option>
-                                        <option value="Cerai Hidup Tidak Tercatat" <?php echo ($status_nikah == 'Cerai Hidup Tidak Tercatat') ? 'selected' : ''; ?>>Cerai Hidup Tidak Tercatat</option>
-                                        <option value="Cerai Mati" <?php echo ($status_nikah == 'Cerai Mati') ? 'selected' : ''; ?>>Cerai Mati</option>
+                                        <option value="Kawin Tercatat" <?php echo set_select('status_nikah', 'Kawin Tercatat', ($status_nikah == 'Kawin Tercatat') ? true : false); ?>>Kawin Tercatat</option>
+                                        <option value="Kawin Tidak Tercatat" <?php echo set_select('status_nikah', 'Kawin Tidak Tercatat', ($status_nikah == 'Kawin Tidak Tercatat') ? true : false); ?>>Kawin Tidak Tercatat</option>
+                                        <option value="Belum Kawin" <?php echo set_select('status_nikah', 'Belum Kawin', ($status_nikah == 'Belum Kawin') ? true : false); ?>>Belum Kawin</option>
+                                        <option value="Cerai Hidup Tercatat" <?php echo set_select('status_nikah', 'Cerai Hidup Tercatat', ($status_nikah == 'Cerai Hidup Tercatat') ? true : false); ?>>Cerai Hidup Tercatat</option>
+                                        <option value="Cerai Hidup Tidak Tercatat" <?php echo set_select('status_nikah', 'Cerai Hidup Tidak Tercatat', ($status_nikah == 'Cerai Hidup Tidak Tercatat') ? true : false); ?>>Cerai Hidup Tidak Tercatat</option>
+                                        <option value="Cerai Mati" <?php echo set_select('status_nikah', 'Cerai Mati', ($status_nikah == 'Cerai Mati') ? true : false); ?>>Cerai Mati</option>
                                     </select>
                                 </div>
                             </div>
@@ -127,13 +123,13 @@
                                     <label class="control-label">*Status Keluarga</label>
                                     <select name="status_keluarga" class="form-control custom-select" required>
                                         <option value="">Pilih Status Keluarga</option>
-                                        <option value="Kepala Keluarga" <?php echo ($status_keluarga == 'Kepala Keluarga') ? 'selected' : ''; ?>>Kepala Keluarga</option>
-                                        <option value="Suami" <?php echo ($status_keluarga == 'Suami') ? 'selected' : ''; ?>>Suami</option>
-                                        <option value="Istri" <?php echo ($status_keluarga == 'Istri') ? 'selected' : ''; ?>>Istri</option>
-                                        <option value="Anak" <?php echo ($status_keluarga == 'Anak') ? 'selected' : ''; ?>>Anak</option>
-                                        <option value="Orang Tua" <?php echo ($status_keluarga == 'Orang Tua') ? 'selected' : ''; ?>>Orang Tua</option>
-                                        <option value="Famili Lain" <?php echo ($status_keluarga == 'Famili Lain') ? 'selected' : ''; ?>>Famili Lain</option>
-                                        <option value="Pembantu" <?php echo ($status_keluarga == 'Pembantu') ? 'selected' : ''; ?>>Pembantu</option>
+                                        <option value="Kepala Keluarga" <?php echo set_select('status_keluarga', 'Kepala Keluarga', ($status_keluarga == 'Kepala Keluarga') ? true : false); ?>>Kepala Keluarga</option>
+                                        <option value="Suami" <?php echo set_select('status_keluarga', 'Suami', ($status_keluarga == 'Suami') ? true : false); ?>>Suami</option>
+                                        <option value="Istri" <?php echo set_select('status_keluarga', 'Istri', ($status_keluarga == 'Istri') ? true : false); ?>>Istri</option>
+                                        <option value="Anak" <?php echo set_select('status_keluarga', 'Anak', ($status_keluarga == 'Anak') ? true : false); ?>>Anak</option>
+                                        <option value="Orang Tua" <?php echo set_select('status_keluarga', 'Orang Tua', ($status_keluarga == 'Orang Tua') ? true : false); ?>>Orang Tua</option>
+                                        <option value="Famili Lain" <?php echo set_select('status_keluarga', 'Famili Lain', ($status_keluarga == 'Famili Lain') ? true : false); ?>>Famili Lain</option>
+                                        <option value="Pembantu" <?php echo set_select('status_keluarga', 'Pembantu', ($status_keluarga == 'Pembantu') ? true : false); ?>>Pembantu</option>
                                     </select>
                                 </div>
                             </div>
@@ -145,17 +141,17 @@
                                     <label class="control-label">*Pendidikan</label>
                                     <select name="pendidikan" class="form-control custom-select">
                                         <option value="">Pilih Pendidikan</option>
-                                        <option value="TIDAK / BELUM SEKOLAH" <?php echo ($pendidikan == 'TIDAK / BELUM SEKOLAH') ? 'selected' : ''; ?>>TIDAK / BELUM SEKOLAH</option>
-                                        <option value="BELUM TAMAT SD / SEDERAJAT" <?php echo ($pendidikan == 'BELUM TAMAT SD / SEDERAJAT') ? 'selected' : ''; ?>>BELUM TAMAT SD / SEDERAJAT</option>
-                                        <option value="TAMAT SD / SEDERAJAT" <?php echo ($pendidikan == 'TAMAT SD / SEDERAJAT') ? 'selected' : ''; ?>>TAMAT SD / SEDERAJAT</option>
-                                        <option value="SLTP / SEDERAJAT" <?php echo ($pendidikan == 'SLTP / SEDERAJAT') ? 'selected' : ''; ?>>SLTP / SEDERAJAT</option>
-                                        <option value="SLTA / SEDERAJAT" <?php echo ($pendidikan == 'SLTA / SEDERAJAT') ? 'selected' : ''; ?>>SLTA / SEDERAJAT</option>
-                                        <option value="DIPLOMA I / II" <?php echo ($pendidikan == 'DIPLOMA I / II') ? 'selected' : ''; ?>>DIPLOMA I / II</option>
-                                        <option value="DIPLOMA III" <?php echo ($pendidikan == 'DIPLOMA III') ? 'selected' : ''; ?>>DIPLOMA III</option>
-                                        <option value="DIPLOMA IV / STRATA I" <?php echo ($pendidikan == 'DIPLOMA IV / STRATA I') ? 'selected' : ''; ?>>DIPLOMA IV / STRATA I</option>
-                                        <option value="STRATA II" <?php echo ($pendidikan == 'STRATA II') ? 'selected' : ''; ?>>STRATA II</option>
-                                        <option value="STRATA III" <?php echo ($pendidikan == 'STRATA III') ? 'selected' : ''; ?>>STRATA III</option>
-                                        <option value="BELUM MENGISI" <?php echo ($pendidikan == 'BELUM MENGISI') ? 'selected' : ''; ?>>BELUM MENGISI</option>
+                                        <option value="TIDAK / BELUM SEKOLAH" <?php echo set_select('pendidikan', 'TIDAK / BELUM SEKOLAH', ($pendidikan == 'TIDAK / BELUM SEKOLAH') ? true : false); ?>>TIDAK / BELUM SEKOLAH</option>
+                                        <option value="BELUM TAMAT SD / SEDERAJAT" <?php echo set_select('pendidikan', 'BELUM TAMAT SD / SEDERAJAT', ($pendidikan == 'BELUM TAMAT SD / SEDERAJAT') ? true : false); ?>>BELUM TAMAT SD / SEDERAJAT</option>
+                                        <option value="TAMAT SD / SEDERAJAT" <?php echo set_select('pendidikan', 'TAMAT SD / SEDERAJAT', ($pendidikan == 'TAMAT SD / SEDERAJAT') ? true : false); ?>>TAMAT SD / SEDERAJAT</option>
+                                        <option value="SLTP / SEDERAJAT" <?php echo set_select('pendidikan', 'SLTP / SEDERAJAT', ($pendidikan == 'SLTP / SEDERAJAT') ? true : false); ?>>SLTP / SEDERAJAT</option>
+                                        <option value="SLTA / SEDERAJAT" <?php echo set_select('pendidikan', 'SLTA / SEDERAJAT', ($pendidikan == 'SLTA / SEDERAJAT') ? true : false); ?>>SLTA / SEDERAJAT</option>
+                                        <option value="DIPLOMA I / II" <?php echo set_select('pendidikan', 'DIPLOMA I / II', ($pendidikan == 'DIPLOMA I / II') ? true : false); ?>>DIPLOMA I / II</option>
+                                        <option value="DIPLOMA III" <?php echo set_select('pendidikan', 'DIPLOMA III', ($pendidikan == 'DIPLOMA III') ? true : false); ?>>DIPLOMA III</option>
+                                        <option value="DIPLOMA IV / STRATA I" <?php echo set_select('pendidikan', 'DIPLOMA IV / STRATA I', ($pendidikan == 'DIPLOMA IV / STRATA I') ? true : false); ?>>DIPLOMA IV / STRATA I</option>
+                                        <option value="STRATA II" <?php echo set_select('pendidikan', 'STRATA II', ($pendidikan == 'STRATA II') ? true : false); ?>>STRATA II</option>
+                                        <option value="STRATA III" <?php echo set_select('pendidikan', 'STRATA III', ($pendidikan == 'STRATA III') ? true : false); ?>>STRATA III</option>
+                                        <option value="BELUM MENGISI" <?php echo set_select('pendidikan', 'BELUM MENGISI', ($pendidikan == 'BELUM MENGISI') ? true : false); ?>>BELUM MENGISI</option>
 
                                     </select>
                                 </div>
@@ -163,7 +159,7 @@
                             <div class="col-md-6">
                                 <div class="form-goup">
                                     <label class="control-label">*Pekerjaan</label>
-                                    <input type="text" name="pekerjaan" class="form-control" placeholder="Masukkan Pekerjaan" autocomplete="off" value="<?php echo $pekerjaan; ?>" required>
+                                    <input type="text" name="pekerjaan" class="form-control" placeholder="Masukkan Pekerjaan" autocomplete="off" value="<?php echo set_value('pekerjaan', $pekerjaan); ?>" required>
                                 </div>
                             </div>
                         </div>
@@ -172,13 +168,13 @@
                             <div class="col-md-6">
                                 <div class="form-goup">
                                     <label class="control-label">*Nama Ayah</label>
-                                    <input type="text" name="nama_ayah" class="form-control" placeholder="Masukkan Nama Ayah" autocomplete="off" value="<?php echo $nama_ayah; ?>" required>
+                                    <input type="text" name="nama_ayah" class="form-control" placeholder="Masukkan Nama Ayah" autocomplete="off" value="<?php echo set_value('nama_ayah', $nama_ayah); ?>" required>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-goup">
                                     <label class="control-label">*Nama Ibu</label>
-                                    <input type="text" name="nama_ibu" class="form-control" placeholder="Masukkan Nama Ibu" autocomplete="off" value="<?php echo $nama_ibu; ?>" required>
+                                    <input type="text" name="nama_ibu" class="form-control" placeholder="Masukkan Nama Ibu" autocomplete="off" value="<?php echo set_value('nama_ibu', $nama_ibu); ?>" required>
                                 </div>
                             </div>
                         </div>
@@ -187,13 +183,13 @@
                             <div class="col-md-6">
                                 <div class="form-goup">
                                     <label class="control-label">*RT</label>
-                                    <input type="text" name="rt" class="form-control" placeholder="Masukkan RT" autocomplete="off" value="<?php echo $rt; ?>" required>
+                                    <input type="text" name="rt" class="form-control" placeholder="Masukkan RT" autocomplete="off" value="<?php echo set_value('rt', $rt); ?>" required>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-goup">
                                     <label class="control-label">*RW</label>
-                                    <input type="text" name="rw" class="form-control" placeholder="Masukkan RW" autocomplete="off" value="<?php echo $rw; ?>" required">
+                                    <input type="text" name="rw" class="form-control" placeholder="Masukkan RW" autocomplete="off" value="<?php echo set_value('rw', $rw); ?>" required">
                                 </div>
                             </div>
                         </div>
@@ -202,7 +198,7 @@
                             <div class="col-md-6">
                                 <div class="form-goup">
                                     <label class="control-label">*No. KK</label>
-                                    <input type="text" name="no_kk" class="form-control" placeholder="Masukkan No. KK" autocomplete="off" value="<?php echo $no_kk; ?>" required>
+                                    <input type="text" name="no_kk" class="form-control" placeholder="Masukkan No. KK" autocomplete="off" value="<?php echo set_value('no_kk', $no_kk); ?>" required>
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -210,8 +206,8 @@
                                     <label class="control-label">*Warga Negara</label>
                                     <select name="warga_negara" class="form-control custom-select">
                                         <option value="">Pilih Warga Negara</option>
-                                        <option value="WNI" <?php echo ($warga_negara == 'WNI') ? 'selected' : ''; ?>>WNI</option>
-                                        <option value="WNA" <?php echo ($warga_negara == 'WNA') ? 'selected' : ''; ?>>WNA</option>
+                                        <option value="WNI" <?php echo set_select('warga_negara', 'WNI', ($warga_negara == 'WNI') ? true : false); ?>>WNI</option>
+                                        <option value="WNA" <?php echo set_select('warga_negara', 'WNA', ($warga_negara == 'WNA') ? true : false); ?>>WNA</option>
                                     </select>
                                 </div>
                             </div>
@@ -219,8 +215,8 @@
                         <!-- End of Form Body -->
                     </div>
                     <div class="form-actions mt-3">
-                        <button type="submit" name="submit" class="btn btn-success"> <i class="fa fa-check"></i>&nbsp; Simpan</button>
-                        <button type="reset" class="btn btn-danger"> <i class="fas fa-sync-alt"></i>&nbsp; Reset</button>
+                        <button type="submit" name="submit" class="btn btn-primary"> <i class="fa fa-check"></i>&nbsp; Simpan</button>
+                        <!-- <button type="reset" class="btn btn-danger"> <i class="fas fa-sync-alt"></i>&nbsp; Reset</button> -->
                         <a href="<?= base_url('view_penduduk') ?>" class="btn btn-inverse">Batal</a>
                     </div>
                 </form>

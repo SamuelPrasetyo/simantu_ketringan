@@ -12,7 +12,7 @@
                     </div>
                 <?php endif; ?>
 
-                <form action="<?php echo base_url('create_suratpengantar'); ?>" method="post" target="_blank">
+                <form action="<?php echo base_url('create_suratpengantar'); ?>" method="post">
                     <div class="form-body">
                         <h3 class="card-title">Input Data Surat Pengantar</h3>
                         <small class="form-control-feedback">* Menunjukkan Kolom yang Wajib Diisi</small>
@@ -152,7 +152,7 @@
                             <div class="col-md-6">
                                 <div class="form-goup">
                                     <label class="control-label">Keperluan</label>
-                                    <input type="text" name="keperluan" class="form-control" placeholder="Masukkan Keperluan" autocomplete="off" value="<?php echo set_value('keperluan'); ?>" required>
+                                    <input type="text" name="keperluan" class="form-control" placeholder="Masukkan Keperluan" autocomplete="off" value="<?php echo set_value('keperluan'); ?>">
                                 </div>
                             </div>
                         </div>
@@ -161,7 +161,7 @@
                             <div class="col-md-6">
                                 <div class="form-goup">
                                     <label class="control-label">Surat Keterangan</label>
-                                    <input type="text" name="surat_keterangan" class="form-control" placeholder="Masukkan Surat Keterangan" autocomplete="off" value="<?php echo set_value('surat_keterangan'); ?>" required>
+                                    <input type="text" name="surat_keterangan" class="form-control" placeholder="Masukkan Surat Keterangan" autocomplete="off" value="<?php echo set_value('surat_keterangan'); ?>">
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -199,7 +199,7 @@
                     </div>
                     <div class="form-actions mt-3">
                         <button type="submit" name="submit" class="btn btn-success"> <i class="fa fa-check"></i>&nbsp; Simpan</button>
-                        <a href="<?= base_url('pdf_suratpengantar') ?>" class="btn btn-info"><i class="icon-printer"></i>&nbsp; Cetak</a>
+                        <!-- <a href="<?= base_url('pdf_suratpengantar') ?>" class="btn btn-info"><i class="icon-printer"></i>&nbsp; Cetak</a> -->
                         <button type="reset" class="btn btn-danger"> <i class="fas fa-sync-alt"></i>&nbsp; Reset</button>
                         <a href="<?= base_url('view_suratpengantar') ?>" class="btn btn-inverse">Batal</a>
                     </div>

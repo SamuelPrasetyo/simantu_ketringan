@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col-lg-12">
         <div class="card">
-            <div class="card-header bg-success">
+            <div class="card-header bg-dark">
                 <h4 class="m-b-0 text-white">Form Pengaturan</h4>
             </div>
             <div class="card-body">
@@ -35,8 +35,8 @@
                         <!-- End of Form Body -->
                     </div>
                     <div class="form-actions mt-3">
-                        <button type="submit" name="submit" class="btn btn-success"> <i class="fa fa-check"></i>&nbsp; Simpan</button>
-                        <button type="reset" class="btn btn-danger"> <i class="fas fa-sync-alt"></i>&nbsp; Reset</button>
+                        <button type="submit" name="submit" class="btn btn-primary"> <i class="fa fa-check"></i>&nbsp; Simpan</button>
+                        <!-- <button type="reset" class="btn btn-danger"> <i class="fas fa-sync-alt"></i>&nbsp; Reset</button> -->
                         <a href="<?= base_url('view_settings') ?>" class="btn btn-inverse">Batal</a>
                     </div>
                 </form>

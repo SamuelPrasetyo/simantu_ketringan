@@ -126,7 +126,7 @@ class KelahiranController extends CI_Controller
         }
     }
 
-    public function page_edit()
+    public function page_edit($id_kelahiran = null)
     {
         $data = array(
             'nama_user' => $this->session->userdata('nama_user'),
@@ -136,7 +136,10 @@ class KelahiranController extends CI_Controller
             'link2' => 'Edit Kelahiran',
         );
 
-        $id_kelahiran = $this->uri->segment(2);
+        if ($id_kelahiran == null) {
+            $id_kelahiran = $this->uri->segment(2);
+        }
+
         $data_kelahiran = $this->KelahiranModel->get_edit($id_kelahiran);
 
         $this->load->view('Layouts/Header', $data);
@@ -149,7 +152,7 @@ class KelahiranController extends CI_Controller
         $this->form_validation->set_rules(kelahiran_validation_rules());
 
         if ($this->form_validation->run() == FALSE) {
-            $this->page_edit();
+            $this->page_edit($this->input->post('id_kelahiran'));
         } else {
             $data = array(
                 'id_kelahiran' => $this->input->post('id_kelahiran'),

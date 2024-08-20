@@ -131,7 +131,7 @@ class PendudukController extends CI_Controller
         }
     }
 
-    public function page_edit()
+    public function page_edit($nik = null)
     {
         $data = array(
             'nama_user' => $this->session->userdata('nama_user'),
@@ -141,7 +141,10 @@ class PendudukController extends CI_Controller
             'link2' => 'Edit Penduduk',
         );
 
-        $nik = $this->uri->segment(2);
+        if ($nik == null) {
+            $nik = $this->uri->segment(2);
+        }
+
         $data_penduduk = $this->PendudukModel->get_edit($nik);
 
         $this->load->view('Layouts/Header', $data);
@@ -154,17 +157,7 @@ class PendudukController extends CI_Controller
         $this->form_validation->set_rules(penduduk_validation_rules());
 
         if ($this->form_validation->run() == FALSE) {
-            $data = array(
-                'nama_user' => $this->session->userdata('nama_user'),
-                'title' => 'Edit Data Penduduk',
-                'title_content' => 'Edit Data Penduduk',
-                'link1' => 'Penduduk',
-                'link2' => 'Edit Penduduk',
-            );
-
-            $this->load->view('Layouts/Header', $data);
-            $this->load->view('Penduduk/EditPenduduk');
-            $this->load->view('Layouts/Footer');
+            $this->page_edit($this->input->post('nik'));
         } else {
             $data = array(
                 'nik' => $this->input->post('nik'),

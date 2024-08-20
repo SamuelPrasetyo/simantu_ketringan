@@ -123,7 +123,7 @@ class SuratPengantarController extends CI_Controller
         }
     }
 
-    public function page_edit()
+    public function page_edit($id_pengantar = null)
     {
         $data = array(
             'nama_user' => $this->session->userdata('nama_user'),
@@ -133,7 +133,10 @@ class SuratPengantarController extends CI_Controller
             'link2' => 'Edit Surat Pengantar',
         );
 
-        $id_pengantar = $this->uri->segment(2);
+        if ($id_pengantar == null) {
+            $id_pengantar = $this->uri->segment(2);
+        }
+
         $data_suratpengantar = $this->SuratPengantarModel->get_edit($id_pengantar);
 
         $this->load->view('Layouts/Header', $data);
@@ -146,7 +149,7 @@ class SuratPengantarController extends CI_Controller
         $this->form_validation->set_rules(suratpengantar_validation_rules());
 
         if ($this->form_validation->run() == FALSE) {
-            $this->page_edit();
+            $this->page_edit($this->input->post('id_pengantar'));
         } else {
             $data = array(
                 'id_pengantar' => $this->input->post('id_pengantar'),

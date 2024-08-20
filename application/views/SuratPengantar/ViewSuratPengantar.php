@@ -2,7 +2,7 @@
     <div class="col-12">
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title">Data Kelahiran</h4>
+                <h4 class="card-title">Surat Keterangan Pengantar</h4>
                 <h6 class="card-subtitle">Desa Ketringan</h6>
 
                 <!-- Message Notification Success or Failed -->
@@ -29,35 +29,6 @@
                     <a href="<?= base_url('add_suratpengantar') ?>" class="btn btn-primary">
                         <i class="mdi mdi-account-plus"></i> Tambah Data
                     </a>
-                    <button class="btn btn-success" data-toggle="modal" data-target="#importModal">
-                        <i class="mdi mdi-file-import"></i> Import Data
-                    </button>
-
-                    <!-- Modal Import -->
-                    <div id="importModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="importModalLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h4 class="modal-title" id="importModalLabel">Import Excel</h4>
-                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                                </div>
-                                <div class="modal-body">
-                                    <form action="<?= base_url('import_kelahiran') ?>" method="POST" enctype="multipart/form-data">
-                                        <div class="form-group">
-                                            <label for="excelFile">File Excel</label>
-                                            <input type="file" class="form-control" id="excelFile" name="excelFile" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <button type="submit" class="btn btn-success">Upload</button>
-                                        </div>
-                                    </form>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
 
                     <!-- Table -->
                     <table id="myTable" class="table table-striped table-bordered" cellspacing="0" width="100%">
