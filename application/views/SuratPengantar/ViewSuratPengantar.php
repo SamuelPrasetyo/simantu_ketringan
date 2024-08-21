@@ -77,7 +77,7 @@
                                         <?php echo $row->surat_keterangan; ?>
                                     </td>
                                     <td style="width: 16%;">
-                                        <a class="btn btn-info" href="<?php echo base_url('pdf_suratpengantar/' . $row->id_pengantar); ?>">
+                                        <a class="btn btn-info" href="<?php echo base_url('pdf_suratpengantar/' . $row->id_pengantar); ?>" target="_blank">
                                             <i class="icon-printer"></i>
                                         </a>
                                         <a class="btn btn-info" href="<?php echo base_url('detail_suratpengantar/' . $row->id_pengantar); ?>">

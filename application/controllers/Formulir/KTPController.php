@@ -24,6 +24,7 @@ class KTPController extends CI_Controller
         $this->auth->check();
 
         $this->load->model('KTPModel');
+        $this->load->model('SimdesModel');
         $this->load->helper(array('form', 'validation_formktp'));
     }
 
@@ -47,6 +48,15 @@ class KTPController extends CI_Controller
 
     public function page_add()
     {
+        $auto_fill = array(
+            'kelurahan' => $this->SimdesModel->nama_kelurahan(),
+            'kecamatan' => $this->SimdesModel->nama_kecamatan(),
+            'kab_kota' => $this->SimdesModel->nama_kab_kota(),
+            'provinsi' => $this->SimdesModel->nama_provinsi(),
+            'kode_pos' => $this->SimdesModel->kode_pos(),
+            'kepala_desa' => $this->SimdesModel->kepala_desa()
+        );
+
         $data = array(
             'nama_user' => $this->session->userdata('nama_user'),
             'title' => 'Tambah Permohonan KTP',
@@ -55,6 +65,8 @@ class KTPController extends CI_Controller
             'link2' => 'Add Permohonan KTP',
             'id_permohonan' => $this->KTPModel->generate_new_id()
         );
+
+        $data = array_merge($data, $auto_fill);
 
         $this->load->view('Layouts/Header', $data);
         $this->load->view('PermohonanKTP/AddPermohonanKTP', $data);
@@ -74,20 +86,28 @@ class KTPController extends CI_Controller
                 'nama' => strtoupper($this->input->post('nama')),
                 'nik' => $this->input->post('nik'),
                 'no_kk' => $this->input->post('no_kk'),
-                'alamat' => ucwords(strtolower($this->input->post('alamat'))),
+                'alamat' => strtolower(ucwords($this->input->post('alamat'))),
                 'rt' => $this->input->post('rt'),
                 'rw' => $this->input->post('rw'),
                 'kode_pos' => $this->input->post('kode_pos'),
-                'kelurahan' => ucwords(strtolower($this->input->post('kelurahan'))),
-                'kecamatan' => ucwords(strtolower($this->input->post('kecamatan'))),
-                'kab_kota' => ucwords(strtolower($this->input->post('kab_kota'))),
-                'provinsi' => ucwords(strtolower($this->input->post('provinsi'))),
+                'kelurahan' => $this->input->post('kelurahan'),
+                'kecamatan' => $this->input->post('kecamatan'),
+                'kab_kota' => $this->input->post('kab_kota'),
+                'provinsi' => $this->input->post('provinsi'),
                 'nama_pemohon' => strtoupper($this->input->post('nama_pemohon')),
-                'kepala_desa' => strtoupper($this->input->post('kepala_desa')),
+                'kepala_desa' => $this->input->post('kepala_desa')
+            );
+
+            $kode_desa = array(
+                'kode_kelurahan' => $this->SimdesModel->kode_kelurahan(),
+                'kode_kecamatan' => $this->SimdesModel->kode_kecamatan(),
+                'kode_kab_kota' => $this->SimdesModel->kode_kab_kota(),
+                'kode_provinsi' => $this->SimdesModel->kode_provinsi()
             );
 
             if ($this->KTPModel->insert($data)) {
-                // $this->generate_pdf($data);
+                $data = array_merge($data, $kode_desa);
+                $this->generate_pdf($data);
                 $this->session->set_flashdata('success', 'Data berhasil ditambahkan!');
                 redirect('view_permohonanktp');
             } else {
@@ -118,10 +138,37 @@ class KTPController extends CI_Controller
         $mpdf = new \Mpdf\Mpdf();
 
         // Load view template surat pengantar dan isi dengan data yang baru disimpan
-        $html = $this->load->view('PermohananKTP/PDFPermohonanKTP', $data, TRUE);
+        $html = $this->load->view('PermohonanKTP/PDFPermohonanKTP', $data, TRUE);
 
         // Generate PDF
         $mpdf->WriteHTML($html);
-        $mpdf->Output('Surat_Pengantar.pdf', 'I'); // 'I' untuk menampilkan di browser, 'D' untuk mengunduh langsung
+        $mpdf->Output('Formulir_Permohonan_KTP.pdf', 'I'); // 'I' untuk menampilkan di browser, 'D' untuk mengunduh langsung
+    }
+
+    public function cetak_pdf()
+    {
+        $id_permohonan = $this->uri->segment(2);
+        $data = $this->KTPModel->detail($id_permohonan);
+        $data = (array) $data;
+
+        $kode_desa = array(
+            'kode_kelurahan' => $this->SimdesModel->kode_kelurahan(),
+            'kode_kecamatan' => $this->SimdesModel->kode_kecamatan(),
+            'kode_kab_kota' => $this->SimdesModel->kode_kab_kota(),
+            'kode_provinsi' => $this->SimdesModel->kode_provinsi()
+        );
+
+        $data = array_merge($data, $kode_desa);
+
+        // Load library mPDF dari Composer
+        require_once FCPATH . 'vendor/autoload.php';
+        $mpdf = new \Mpdf\Mpdf();
+
+        // Load view template surat pengantar dan isi dengan data yang baru disimpan
+        $html = $this->load->view('PermohonanKTP/PDFPermohonanKTP', $data, TRUE);
+
+        // Generate PDF
+        $mpdf->WriteHTML($html);
+        $mpdf->Output('Formulir_Permohonan_KTP.pdf', 'I'); // 'I' untuk menampilkan di browser, 'D' untuk mengunduh langsung
     }
 }

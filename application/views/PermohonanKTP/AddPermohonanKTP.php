@@ -2,7 +2,7 @@
     <div class="col-lg-12">
         <div class="card">
             <div class="card-header bg-success">
-                <h4 class="m-b-0 text-white">Form Surat Pengantar</h4>
+                <h4 class="m-b-0 text-white">Form Permohonan KTP</h4>
             </div>
             <div class="card-body">
                 <!-- Error Message -->
@@ -12,7 +12,7 @@
                     </div>
                 <?php endif; ?>
 
-                <form action="<?php echo base_url('create_permohonanktp'); ?>" method="post" target="_blank">
+                <form action="<?php echo base_url('create_permohonanktp'); ?>" method="post">
                     <div class="form-body">
                         <h3 class="card-title">Input Formulir Permohonan KTP</h3>
                         <small class="form-control-feedback">* Menunjukkan Kolom yang Wajib Diisi</small>
@@ -83,7 +83,7 @@
                             <div class="col-md-6">
                                 <div class="form-goup">
                                     <label class="control-label">*Kode Pos</label>
-                                    <input type="text" name="kode_pos" class="form-control" placeholder="Masukkan Kode Pos" autocomplete="off" value="<?php echo set_value('kode_pos'); ?>" required>
+                                    <input type="text" name="kode_pos" class="form-control" placeholder="Masukkan Kode Pos" autocomplete="off" value="<?php echo isset($kode_pos[0]->data_aturan) ? $kode_pos[0]->data_aturan : ''; ?>" readonly>
                                 </div>
                             </div>
                         </div>
@@ -92,13 +92,13 @@
                             <div class="col-md-6">
                                 <div class="form-goup">
                                     <label class="control-label">*Kelurahan</label>
-                                    <input type="text" name="keperluan" class="form-control" placeholder="Masukkan Keperluan" autocomplete="off" value="<?php echo set_value('keperluan'); ?>" required>
+                                    <input type="text" name="kelurahan" class="form-control" placeholder="Masukkan Kelurahan" autocomplete="off" value="<?php echo isset($kelurahan[0]->data_aturan) ? $kelurahan[0]->data_aturan : ''; ?>" readonly>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-goup">
                                     <label class="control-label">*Kecamatan</label>
-                                    <input type="text" name="kecamatan" class="form-control" placeholder="Masukkan Kecamatan" autocomplete="off" value="<?php echo set_value('kecamatan'); ?>" required>
+                                    <input type="text" name="kecamatan" class="form-control" placeholder="Masukkan Kecamatan" autocomplete="off" value="<?php echo isset($kecamatan[0]->data_aturan) ? $kecamatan[0]->data_aturan : ''; ?>" readonly>
                                 </div>
                             </div>
 
@@ -108,13 +108,13 @@
                             <div class="col-md-6">
                                 <div class="form-goup">
                                     <label class="control-label">*Kabupaten/Kota</label>
-                                    <input type="text" name="kab_kota" class="form-control" placeholder="Masukkan Kabupaten/Kota" autocomplete="off" value="<?php echo set_value('kab_kota'); ?>" required>
+                                    <input type="text" name="kab_kota" class="form-control" placeholder="Masukkan Kabupaten/Kota" autocomplete="off" value="<?php echo isset($kab_kota[0]->data_aturan) ? $kab_kota[0]->data_aturan : ''; ?>" readonly>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-goup">
                                     <label class="control-label">*Provinsi</label>
-                                    <input type="text" name="provinsi" class="form-control" placeholder="Masukkan Provinsi" autocomplete="off" value="<?php echo set_value('provinsi'); ?>" required>
+                                    <input type="text" name="provinsi" class="form-control" placeholder="Masukkan Provinsi" autocomplete="off" value="<?php echo isset($provinsi[0]->data_aturan) ? $provinsi[0]->data_aturan : ''; ?>" readonly>
                                 </div>
                             </div>
                         </div>
@@ -129,7 +129,7 @@
                             <div class="col-md-6">
                                 <div class="form-goup">
                                     <label class="control-label">*Nama Kepala Desa</label>
-                                    <input type="text" name="kepala_desa" class="form-control" placeholder="Masukkan Nama Kepala Desa" autocomplete="off" value="<?php echo set_value('kepala_desa'); ?>" required>
+                                    <input type="text" name="kepala_desa" class="form-control" placeholder="Masukkan Nama Kepala Desa" autocomplete="off" value="<?php echo isset($kepala_desa[0]->data_aturan) ? $kepala_desa[0]->data_aturan : ''; ?>" readonly>
                                 </div>
                             </div>
                         </div>
@@ -137,9 +137,8 @@
                     </div>
                     <div class="form-actions mt-3">
                         <button type="submit" name="submit" class="btn btn-success"> <i class="fa fa-check"></i>&nbsp; Simpan</button>
-                        <a href="<?= base_url('pdf_suratpengantar') ?>" class="btn btn-info"><i class="icon-printer"></i>&nbsp; Cetak</a>
                         <button type="reset" class="btn btn-danger"> <i class="fas fa-sync-alt"></i>&nbsp; Reset</button>
-                        <a href="<?= base_url('view_suratpengantar') ?>" class="btn btn-inverse">Batal</a>
+                        <a href="<?= base_url('view_permohonanktp') ?>" class="btn btn-inverse">Batal</a>
                     </div>
                 </form>
             </div>

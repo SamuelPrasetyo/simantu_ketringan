@@ -83,33 +83,6 @@ if (!function_exists('suratpengantar_validation_rules')) {
                 ),
             ),
             array(
-                'field' => 'kecamatan',
-                'label' => 'Kecamatan',
-                'rules' => 'trim|required|max_length[30]',
-                'errors' => array(
-                    'required' => '%s wajib diisi.',
-                    'max_length' => '%s tidak boleh lebih dari 30 karakter.',
-                ),
-            ),
-            array(
-                'field' => 'kab_kota',
-                'label' => 'Kabupaten/Kota',
-                'rules' => 'trim|required|max_length[30]',
-                'errors' => array(
-                    'required' => '%s wajib diisi.',
-                    'max_length' => '%s tidak boleh lebih dari 30 karakter.',
-                ),
-            ),
-            array(
-                'field' => 'provinsi',
-                'label' => 'Provinsi',
-                'rules' => 'trim|required|max_length[30]',
-                'errors' => array(
-                    'required' => '%s wajib diisi.',
-                    'max_length' => '%s tidak boleh lebih dari 30 karakter.',
-                ),
-            ),
-            array(
                 'field' => 'keperluan',
                 'label' => 'Keperluan',
                 'rules' => 'trim|max_length[150]',
@@ -136,15 +109,6 @@ if (!function_exists('suratpengantar_validation_rules')) {
             array(
                 'field' => 'pemohon',
                 'label' => 'Pemohon',
-                'rules' => 'trim|required|max_length[50]',
-                'errors' => array(
-                    'required' => '%s wajib diisi.',
-                    'max_length' => '%s tidak boleh lebih dari 50 karakter.',
-                ),
-            ),
-            array(
-                'field' => 'kepala_desa',
-                'label' => 'Kepala Desa',
                 'rules' => 'trim|required|max_length[50]',
                 'errors' => array(
                     'required' => '%s wajib diisi.',

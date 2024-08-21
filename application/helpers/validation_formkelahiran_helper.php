@@ -151,24 +151,6 @@ if (!function_exists('kelahiran_validation_rules')) {
                     'max_length' => 'Alamat Rumah tidak boleh lebih dari 50 karakter.'
                 )
             ),
-            array(
-                'field' => 'kecamatan',
-                'label' => 'Kecamatan',
-                'rules' => 'trim|required|max_length[30]',
-                'errors' => array(
-                    'required' => 'Kecamatan wajib diisi.',
-                    'max_length' => 'Kecamatan tidak boleh lebih dari 30 karakter.'
-                )
-            ),
-            array(
-                'field' => 'kab_kota',
-                'label' => 'Kabupaten/Kota',
-                'rules' => 'trim|required|max_length[30]',
-                'errors' => array(
-                    'required' => 'Kabupaten/Kota wajib diisi.',
-                    'max_length' => 'Kabupaten/Kota tidak boleh lebih dari 30 karakter.'
-                )
-            )
         );
     }
 }

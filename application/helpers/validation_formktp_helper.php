@@ -76,63 +76,8 @@ if (!function_exists('formktp_validation_rules')) {
                 )
             ),
             array(
-                'field' => 'kode_pos',
-                'label' => 'Kode Pos',
-                'rules' => 'trim|required|numeric|max_length[5]',
-                'errors' => array(
-                    'required' => 'Kode Pos wajib diisi.',
-                    'numeric' => 'Kode Pos harus berupa angka.',
-                    'max_length' => 'Kode Pos tidak boleh lebih dari 5 digit.'
-                )
-            ),
-            array(
-                'field' => 'kelurahan',
-                'label' => 'Kelurahan',
-                'rules' => 'trim|required|max_length[30]',
-                'errors' => array(
-                    'required' => 'Kelurahan wajib diisi.',
-                    'max_length' => 'Kelurahan tidak boleh lebih dari 30 karakter.'
-                )
-            ),
-            array(
-                'field' => 'kecamatan',
-                'label' => 'Kecamatan',
-                'rules' => 'trim|required|max_length[30]',
-                'errors' => array(
-                    'required' => '%s wajib diisi.',
-                    'max_length' => '%s tidak boleh lebih dari 30 karakter.',
-                ),
-            ),
-            array(
-                'field' => 'kab_kota',
-                'label' => 'Kabupaten/Kota',
-                'rules' => 'trim|required|max_length[30]',
-                'errors' => array(
-                    'required' => '%s wajib diisi.',
-                    'max_length' => '%s tidak boleh lebih dari 30 karakter.',
-                ),
-            ),
-            array(
-                'field' => 'provinsi',
-                'label' => 'Provinsi',
-                'rules' => 'trim|required|max_length[30]',
-                'errors' => array(
-                    'required' => '%s wajib diisi.',
-                    'max_length' => '%s tidak boleh lebih dari 30 karakter.',
-                ),
-            ),
-            array(
                 'field' => 'nama_pemohon',
                 'label' => 'Nama Pemohon',
-                'rules' => 'trim|required|max_length[50]',
-                'errors' => array(
-                    'required' => '%s wajib diisi.',
-                    'max_length' => '%s tidak boleh lebih dari 50 karakter.',
-                ),
-            ),
-            array(
-                'field' => 'kepala_desa',
-                'label' => 'Kepala Desa',
                 'rules' => 'trim|required|max_length[50]',
                 'errors' => array(
                     'required' => '%s wajib diisi.',

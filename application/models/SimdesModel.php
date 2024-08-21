@@ -97,4 +97,13 @@ class SimdesModel extends CI_Model
 
         return $query->result();
     }
+
+    public function kode_pos()
+    {
+        $query = $this->db->query(
+            "SELECT data_aturan FROM pengaturan WHERE aturan = 'Kode Pos'"
+        );
+        
+        return $query->result();
+    }
 }
