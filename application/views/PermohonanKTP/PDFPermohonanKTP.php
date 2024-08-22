@@ -79,7 +79,7 @@
 <div class="content">
     <table class="table table-bordered">
         <tr>
-            <td style="width: 300px;">PEMERINTAH PROVINSI</td>
+            <td style="width: 250px;">PEMERINTAH PROVINSI</td>
             <td style="width: 20px;">:</td>
             <td style="width: 100px;"><?php echo isset($kode_provinsi[0]->data_aturan) ? $kode_provinsi[0]->data_aturan : ''; ?></td>
             <td style="width: 100px;"><?php echo strtoupper($provinsi); ?></td>
@@ -125,9 +125,17 @@
             <td>Alamat</td>
             <td>: <?php echo $alamat; ?></td>
         </tr>
+        <tr>
+            <td>RT / RW</td>
+            <td>: <?php echo $rt . ' / ' . $rw; ?></td>
+        </tr>
+        <tr>
+            <td>Kode Pos</td>
+            <td>: <?php echo $kode_pos; ?></td>
+        </tr>
     </table>
 
-    <table>
+    <!-- <table>
         <tr>
             <td style="padding-left: 28%;">&nbsp;RT</td>
             <td>: <?php echo $rt; ?></td>
@@ -136,41 +144,41 @@
             <td style="padding-left: 10%;">Kode Pos</td>
             <td>: <?php echo $kode_pos; ?></td>
         </tr>
-    </table>
+    </table> -->
 </div>
 
 <div class="footer">
-    <table>
+    <table class="center-table">
         <tr>
             <td class="pas-foto">
-                <p>Pas Foto (3x4)</p>
+                <p style="font-size: 9pt;">Pas Foto (3x4)</p>
             </td>
             <td class="cap-jempol">
-                <p>Cap Jempol</p>
+                <p style="font-size: 9pt;">Cap Jempol</p>
             </td>
             <td class="tanda-tangan">
-                <p>Spesimen Tanda Tangan</p>
+                <p style="font-size: 9pt;">Spesimen Tanda Tangan</p>
             </td>
         </tr>
     </table>
+    <p id="text-center" style="margin-top: 5px; font-size: 9pt;">Ket : Cap Jempol / Tanda Tangan</p>
 
     <table width="100%" style="margin-top: 5%;">
         <tr>
-            <td style="text-align: center;">
+            <td style="text-align: center; font-size: 9pt;">
+                Mengetahui
+            </td>
+            <td style="text-align: center; font-size: 9pt;">
                 <?php echo "Ketringan" . ', ' . date('d-m-Y'); ?>
             </td>
-            <td style="text-align: center;">
-                Mengetahui <br>
-                Kepala Desa Ketringan
-            </td>
         </tr>
         <tr>
-            <td style="text-align: center;">Pemohon</td>
-            <td style="text-align: center;">Kepala Desa</td>
+            <td style="text-align: center; font-size: 9pt">Kepala Desa Ketringan</td>
+            <td style="text-align: center; font-size: 9pt">Pemohon</td>
         </tr>
         <tr>
-            <td id="ttd"><?php echo $nama_pemohon; ?></td>
-            <td id="ttd"><?php echo $kepala_desa; ?></td>
+            <td id="ttd" style="font-size: 9pt;"><?php echo $kepala_desa; ?></td>
+            <td id="ttd" style="font-size: 9pt;"><?php echo $nama_pemohon; ?></td>
         </tr>
     </table>
 </div>
