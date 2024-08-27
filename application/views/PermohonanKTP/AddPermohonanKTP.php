@@ -12,7 +12,7 @@
                     </div>
                 <?php endif; ?>
 
-                <form action="<?php echo base_url('create_permohonanktp'); ?>" method="post">
+                <form id="myForm" action="<?php echo base_url('create_permohonanktp'); ?>" method="post">
                     <div class="form-body">
                         <h3 class="card-title">Input Formulir Permohonan KTP</h3>
                         <small class="form-control-feedback">* Menunjukkan Kolom yang Wajib Diisi</small>
@@ -145,3 +145,16 @@
         </div>
     </div>
 </div>
+
+<script>
+    document.getElementById('myForm').onsubmit = function(e) {
+        var form = this;
+        var hasError = <?php echo validation_errors() ? 'true' : 'false'; ?>;
+
+        if (!hasError) {
+            form.target = '_blank';
+        } else {
+            form.target = '_self'; // Keep it on the same page
+        }
+    };
+</script>

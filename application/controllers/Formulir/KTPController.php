@@ -46,6 +46,26 @@ class KTPController extends CI_Controller
         $this->load->view('Layouts/Footer');
     }
 
+    public function detail_permohonan()
+    {
+        $data = array(
+            'nama_user' => $this->session->userdata('nama_user'),
+            'title' => 'Detail Permohonan KTP',
+            'title_content' => 'Detail Permohonan KTP',
+            'link1' => 'Permohonan KTP',
+            'link2' => 'Detail Permohonan KTP'
+        );
+
+        $id_permohonan = $this->uri->segment(2);
+        $get_detail = $this->KTPModel->detail($id_permohonan);
+
+        $detail['permohonan_ktp'] = $get_detail;
+
+        $this->load->view('Layouts/Header', $data);
+        $this->load->view('PermohonanKTP/DetailPermohonanKTP', $detail);
+        $this->load->view('Layouts/Footer');
+    }
+
     public function page_add()
     {
         $auto_fill = array(
@@ -115,6 +135,71 @@ class KTPController extends CI_Controller
                 redirect('add_permohonanktp');
             }
         }
+    }
+
+    public function page_edit($id_permohonan = null)
+    {
+        $data = array(
+            'nama_user' => $this->session->userdata('nama_user'),
+            'title' => 'Edit Permohonan KTP',
+            'title_content' => 'Edit Permohonan KTP',
+            'link1' => 'Permohonan KTP',
+            'link2' => 'Edit Permohonan KTP',
+        );
+
+        if ($id_permohonan == null) {
+            $id_permohonan = $this->uri->segment(2);
+        }
+
+        $data_permohonanktp = $this->KTPModel->get_edit($id_permohonan);
+
+        $this->load->view('Layouts/Header', $data);
+        $this->load->view('PermohonanKTP/EditPermohonanKTP', $data_permohonanktp);
+        $this->load->view('Layouts/Footer');    
+    }
+
+    public function update_permohonan()
+    {
+        $this->form_validation->set_rules(formktp_validation_rules());
+
+        if ($this->form_validation->run() == FALSE) {
+            $this->page_edit($this->input->post('id_permohonan'));
+        } else {
+            $data = array(
+                'id_permohonan' => $this->input->post('id_permohonan'),
+                'permohonan' => $this->input->post('permohonan'),
+                'nama' => strtoupper($this->input->post('nama')),
+                'nik' => $this->input->post('nik'),
+                'no_kk' => $this->input->post('no_kk'),
+                'alamat' => strtolower(ucwords($this->input->post('alamat'))),
+                'rt' => $this->input->post('rt'),
+                'rw' => $this->input->post('rw'),
+                'kode_pos' => $this->input->post('kode_pos'),
+                'kelurahan' => $this->input->post('kelurahan'),
+                'kecamatan' => $this->input->post('kecamatan'),
+                'kab_kota' => $this->input->post('kab_kota'),
+                'provinsi' => $this->input->post('provinsi'),
+                'nama_pemohon' => strtoupper($this->input->post('nama_pemohon')),
+                'kepala_desa' => $this->input->post('kepala_desa')
+            );
+
+            $kode_desa = array(
+                'kode_kelurahan' => $this->SimdesModel->kode_kelurahan(),
+                'kode_kecamatan' => $this->SimdesModel->kode_kecamatan(),
+                'kode_kab_kota' => $this->SimdesModel->kode_kab_kota(),
+                'kode_provinsi' => $this->SimdesModel->kode_provinsi()
+            );
+
+            if ($this->KTPModel->update($data)) {
+                $data = array_merge($data, $kode_desa);
+                $this->generate_pdf($data);
+                $this->session->set_flashdata('success', 'Data berhasil diubah!');
+                redirect('view_permohonanktp');
+            } else {
+                $this->session->set_flashdata('error', 'Data gagal diubah!');
+                redirect('edit_permohonanktp');
+            }
+        }    
     }
 
     public function delete_permohonan()

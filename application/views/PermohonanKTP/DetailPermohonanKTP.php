@@ -11,31 +11,25 @@
                             <tr>
                                 <th>No.</th>
                                 <th>Detail</th>
-                                <th>Data Surat Pengantar</th>
+                                <th>Data Permohonan KTP</th>
                             </tr>
                         </thead>
                         <?php
                         $fields = [
-                            'No. Pengantar' => $surat_pengantar->no_pengantar,
-                            'NIK' => $surat_pengantar->nik,
-                            'No. KK' => $surat_pengantar->no_kk,
-                            'Nama' => $surat_pengantar->nama,
-                            'Tempat Lahir' => $surat_pengantar->tmp_lahir,
-                            'Tanggal Lahir' => $surat_pengantar->tgl_lahir,
-                            'Jenis Kelamin' => $surat_pengantar->jenkel,
-                            'Warga Negara' => $surat_pengantar->warga_negara,
-                            'Agama' => $surat_pengantar->agama,
-                            'Pekerjaan' => $surat_pengantar->pekerjaan,
-                            'Alamat Rumah' => $surat_pengantar->alamat_rumah,
-                            'Kecamatan' => $surat_pengantar->kecamatan,
-                            'Kabupaten/Kota' => $surat_pengantar->kab_kota,
-                            'Provinsi' => $surat_pengantar->provinsi,
-                            'Keperluan' => $surat_pengantar->keperluan,
-                            'Surat Keterangan' => $surat_pengantar->surat_keterangan,
-                            'Tanggal Berlaku' => $surat_pengantar->tgl_berlaku,
-                            'Keterangan Lain' => $surat_pengantar->ket_lain,
-                            'Pemohon' => $surat_pengantar->pemohon,
-                            'Kepala Desa' => $surat_pengantar->kepala_desa,
+                            'Permohonan' => $permohonan_ktp->permohonan,
+                            'Nama' => $permohonan_ktp->nama,
+                            'NIK' => $permohonan_ktp->nik,
+                            'No. KK' => $permohonan_ktp->no_kk,
+                            'Alamat' => $permohonan_ktp->alamat,
+                            'RT' => $permohonan_ktp->rt,
+                            'RW' => $permohonan_ktp->rw,
+                            'Kode Pos' => $permohonan_ktp->kode_pos,
+                            'Kelurahan' => $permohonan_ktp->kelurahan,
+                            'Kecamatan' => $permohonan_ktp->kecamatan,
+                            'Kabupaten/Kota' => $permohonan_ktp->kab_kota,
+                            'Provinsi' => $permohonan_ktp->provinsi,
+                            'Nama Pemohon' => $permohonan_ktp->nama_pemohon,
+                            'Kepala Desa' => $permohonan_ktp->kepala_desa
                         ];
                         ?>
                         <tbody>

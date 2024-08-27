@@ -12,7 +12,7 @@
                     </div>
                 <?php endif; ?>
 
-                <form action="<?php echo base_url('update_suratpengantar'); ?>" method="post">
+                <form id="myForm" action="<?php echo base_url('update_suratpengantar'); ?>" method="post">
                     <div class="form-body">
                         <h3 class="card-title">Edit Data Surat Pengantar</h3>
                         <small class="form-control-feedback">* Menunjukkan Kolom yang Wajib Diisi</small>
@@ -210,6 +210,19 @@
         </div>
     </div>
 </div>
+
+<script>
+    document.getElementById('myForm').onsubmit = function(e) {
+        var form = this;
+        var hasError = <?php echo validation_errors() ? 'true' : 'false'; ?>;
+
+        if (!hasError) {
+            form.target = '_blank';
+        } else {
+            form.target = '_self'; // Keep it on the same page
+        }
+    };
+</script>
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {

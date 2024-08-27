@@ -5,9 +5,9 @@
         padding: 0;
     }
 
-    .content, .footer {
-        margin: 0, 5%;
-        padding-top: 5%;
+    .content,
+    .footer {
+        margin: 0, 0;
     }
 
     #padding-left-1 {
@@ -35,17 +35,17 @@
     }
 
     .center-table {
-        margin: auto;
-        width: 50%; /* Atur lebar sesuai kebutuhan */
+        width: 50%;
+        /* Atur lebar sesuai kebutuhan */
         border-collapse: collapse;
     }
 
     p {
-        font-size: 10pt;
+        font-size: 9pt;
     }
 
     td {
-        font-size: 10pt;
+        font-size: 9pt;
     }
 
     h3 {
@@ -62,18 +62,29 @@
         padding-bottom: 120px;
     }
 
+    #box {
+        font-size: 8pt;
+    }
+
     .tanda-tangan {
-        width: 6cm;
+        width: 5cm;
         height: 4cm;
-        /* flex-grow: 1; */
         border: 1px solid black;
         text-align: center;
         padding-bottom: 120px;
     }
+
+    .signature {
+        padding-left: 10px;
+        /* Jarak antara tanda tangan dengan box tanda tangan */
+        text-align: center;
+        vertical-align: top;
+        width: 6cm;
+    }
 </style>
 
 <div class="header">
-    <h3 id="text-center">FORMULIR PERMOHONAN KARTU TANDA PENDUDUK (KTP)</h3>
+    <h4 id="text-center" style="padding-top: -20px;">FORMULIR PERMOHONAN KARTU TANDA PENDUDUK (KTP)</h4>
 </div>
 
 <div class="content">
@@ -104,7 +115,7 @@
         </tr>
     </table>
 
-    <table style="margin-top: 5%;">
+    <table style="padding-top: 10px;">
         <tr>
             <td id="permohonan_ktp" style="width: 180px;">PERMOHONAN KTP</td>
             <td>: <?php echo $permohonan; ?></td>
@@ -134,51 +145,35 @@
             <td>: <?php echo $kode_pos; ?></td>
         </tr>
     </table>
-
-    <!-- <table>
-        <tr>
-            <td style="padding-left: 28%;">&nbsp;RT</td>
-            <td>: <?php echo $rt; ?></td>
-            <td style="padding-left: 10%;">RW</td>
-            <td>: <?php echo $rw; ?></td>
-            <td style="padding-left: 10%;">Kode Pos</td>
-            <td>: <?php echo $kode_pos; ?></td>
-        </tr>
-    </table> -->
 </div>
 
 <div class="footer">
     <table class="center-table">
         <tr>
             <td class="pas-foto">
-                <p style="font-size: 9pt;">Pas Foto (3x4)</p>
+                <p id="box">Pas Foto (3x4)</p>
             </td>
             <td class="cap-jempol">
-                <p style="font-size: 9pt;">Cap Jempol</p>
+                <p id="box">Cap Jempol</p>
             </td>
             <td class="tanda-tangan">
-                <p style="font-size: 9pt;">Spesimen Tanda Tangan</p>
+                <p id="box">Spesimen Tanda Tangan</p>
             </td>
-        </tr>
-    </table>
-    <p id="text-center" style="margin-top: 5px; font-size: 9pt;">Ket : Cap Jempol / Tanda Tangan</p>
-
-    <table width="100%" style="margin-top: 5%;">
-        <tr>
-            <td style="text-align: center; font-size: 9pt;">
-                Mengetahui
-            </td>
-            <td style="text-align: center; font-size: 9pt;">
-                <?php echo "Ketringan" . ', ' . date('d-m-Y'); ?>
+            <td class="signature">
+                <p><?php echo "Ketringan" . ', ' . date('d-m-Y'); ?></p>
+                <p>Pemohon</p>
+                <p id="ttd"><br><br><br><br><br><?php echo $nama_pemohon; ?></p>
             </td>
         </tr>
         <tr>
-            <td style="text-align: center; font-size: 9pt">Kepala Desa Ketringan</td>
-            <td style="text-align: center; font-size: 9pt">Pemohon</td>
-        </tr>
-        <tr>
-            <td id="ttd" style="font-size: 9pt;"><?php echo $kepala_desa; ?></td>
-            <td id="ttd" style="font-size: 9pt;"><?php echo $nama_pemohon; ?></td>
+            <td colspan="3" style="vertical-align: top; padding-top: 10px;">
+                <p style="font-size: 9pt;">Ket : Cap Jempol / Tanda Tangan</p>
+            </td>
+            <td class="signature">
+                <p>Mengetahui</p>
+                <p>Kepala Desa Ketringan</p>
+                <p id="ttd"><br><br><br><br><br><?php echo $kepala_desa; ?></p>
+            </td>
         </tr>
     </table>
 </div>
