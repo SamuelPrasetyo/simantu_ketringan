@@ -8,8 +8,8 @@
     <link rel="icon" type="image/png" sizes="16x16" href="<?php base_url() ?>template/assets/images/favicon.png">
     <title>Login</title>
 
-    <link href="<?php base_url() ?>template/ecommerce/dist/css/pages/login-register-lock.css" rel="stylesheet">
-    <link href="<?php base_url() ?>template/ecommerce/dist/css/style.min.css" rel="stylesheet">
+    <link href="<?php base_url() ?>template/eliteadmin/dist/css/pages/login-register-lock.css" rel="stylesheet">
+    <link href="<?php base_url() ?>template/eliteadmin/dist/css/style.min.css" rel="stylesheet">
 
     <style>
         .alert {

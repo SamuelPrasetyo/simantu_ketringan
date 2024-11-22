@@ -86,8 +86,8 @@
                             </a>
                             <ul aria-expanded="false" class="collapse">
                                 <li>
-                                    <a href="view_settings"><i class="mdi mdi-settings"></i> Pengaturan</a>
-                                    <a href="logout"><i class="fa fa-power-off"></i> Logout</a>
+                                    <a href="<?=base_url()?>view_settings"><i class="mdi mdi-settings"></i> Pengaturan</a>
+                                    <a href="<?=base_url()?>logout"><i class="fa fa-power-off"></i> Logout</a>
                                 </li>
                             </ul>
                         </li>
