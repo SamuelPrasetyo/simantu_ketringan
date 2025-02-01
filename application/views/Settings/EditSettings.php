@@ -17,7 +17,7 @@
                         <h3 class="card-title">Edit Data Aturan</h3>
                         <small class="form-control-feedback">* Menunjukkan Kolom yang Wajib Diisi</small>
                         <!-- <hr> -->
-                        <input type="text" name="id_aturan" class="form-control" value="<?php echo set_value('id_aturan', $id_aturan); ?>">
+                        <input type="hidden" name="id_aturan" class="form-control" value="<?php echo set_value('id_aturan', $id_aturan); ?>">
                         <div class="row p-t-30">
                             <div class="col-md-6">
                                 <div class="form-group">
