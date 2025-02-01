@@ -18,8 +18,7 @@ class PendudukModel extends CI_Model
     public function view()
     {
         $query = $this->db->query(
-            "SELECT *, DATE_FORMAT(tgl_lahir, '%d %M %Y') AS tgl_lahir
-                FROM penduduk"
+            "SELECT * FROM penduduk"
         );
 
         return $query->result();
