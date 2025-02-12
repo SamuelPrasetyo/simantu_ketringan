@@ -1,3 +1,13 @@
+<!-- CSS -->
+<link rel="stylesheet" href="template/css/select2.min.css">
+
+<style>
+    .color {
+        background-color: #ffffff !important;
+        color: #000 !important;
+    }
+</style>
+
 <div class="row">
     <div class="col-lg-12">
         <div class="card">
@@ -66,7 +76,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label class="control-label">*Tanggal Lahir</label>
-                                    <input type="text" name="tgl_lahir" class="form-control" id="datepicker" placeholder="Pilih Tanggal" autocomplete="off" value="<?php echo set_value('tgl_lahir', $tgl_lahir); ?>" required>
+                                    <input type="text" name="tgl_lahir" class="form-control color" id="datepicker" placeholder="Pilih Tanggal" autocomplete="off" value="<?php echo set_value('tgl_lahir', $tgl_lahir); ?>" required>
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -132,23 +142,8 @@
                         <div class="row p-t-25">
                             <div class="col-md-6">
                                 <div class="form-goup">
-                                    <label class="control-label">*Kecamatan</label>
-                                    <input type="text" name="kecamatan" class="form-control" placeholder="Masukkan Kecamatan" autocomplete="off" value="<?php echo set_value('kecamatan', $kecamatan); ?>" readonly>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-goup">
-                                    <label class="control-label">*Kabupaten/Kota</label>
-                                    <input type="text" name="kab_kota" class="form-control" placeholder="Masukkan Kabupaten/Kota" autocomplete="off" value="<?php echo set_value('kab_kota', $kab_kota); ?>" readonly>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row p-t-25">
-                            <div class="col-md-6">
-                                <div class="form-goup">
-                                    <label class="control-label">*Provinsi</label>
-                                    <input type="text" name="provinsi" class="form-control" placeholder="Masukkan Provinsi" autocomplete="off" value="<?php echo set_value('provinsi', $provinsi); ?>" readonly>
+                                    <label class="control-label">*Nama Pemohon</label>
+                                    <input type="text" name="pemohon" class="form-control" placeholder="Masukkan Nama Pemohon" autocomplete="off" value="<?php echo set_value('pemohon', $pemohon); ?>" required>
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -169,7 +164,7 @@
                             <div class="col-md-6">
                                 <div class="form-goup">
                                     <label class="control-label">*Tanggal Berlaku</label>
-                                    <input type="text" name="tgl_berlaku" id="dateRange" class="form-control" placeholder="Pilih Tanggal Mulai Berlaku" autocomplete="off" value="<?php echo set_value('tgl_berlaku', $tgl_berlaku); ?>" required>
+                                    <input type="text" name="tgl_berlaku" id="dateRange" class="form-control color" placeholder="Pilih Tanggal Mulai Berlaku" autocomplete="off" value="<?php echo set_value('tgl_berlaku', $tgl_berlaku); ?>" required>
                                 </div>
                             </div>
                         </div>
@@ -183,11 +178,28 @@
                             </div>
                         </div>
 
+                        <hr style="border: 2px solid black; margin-top: 35px;">
+
                         <div class="row p-t-25">
                             <div class="col-md-6">
                                 <div class="form-goup">
-                                    <label class="control-label">*Nama Pemohon</label>
-                                    <input type="text" name="pemohon" class="form-control" placeholder="Masukkan Nama Pemohon" autocomplete="off" value="<?php echo set_value('pemohon', $pemohon); ?>" required>
+                                    <label class="control-label">*Provinsi</label>
+                                    <input type="text" name="provinsi" class="form-control" placeholder="Masukkan Provinsi" autocomplete="off" value="<?php echo set_value('provinsi', $provinsi); ?>" readonly>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-goup">
+                                    <label class="control-label">*Kabupaten/Kota</label>
+                                    <input type="text" name="kab_kota" class="form-control" placeholder="Masukkan Kabupaten/Kota" autocomplete="off" value="<?php echo set_value('kab_kota', $kab_kota); ?>" readonly>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row p-t-25">
+                            <div class="col-md-6">
+                                <div class="form-goup">
+                                    <label class="control-label">*Kecamatan</label>
+                                    <input type="text" name="kecamatan" class="form-control" placeholder="Masukkan Kecamatan" autocomplete="off" value="<?php echo set_value('kecamatan', $kecamatan); ?>" readonly>
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -274,3 +286,5 @@
         });
     });
 </script>
+
+<script src="template/js/select2.min.js"></script>
