@@ -67,7 +67,9 @@ $route['update_permohonanktp'] = 'Formulir/KTPController/update_permohonan';
 $route['delete_permohonanktp/(:any)'] = 'Formulir/KTPController/delete_permohonan';
 $route['pdf_permohonanktp/(:any)'] = 'Formulir/KTPController/cetak_pdf';
 
-
+/* Route Fungsi Tambahan untuk isi Data Otomatis */
+$route['get_penduduk_by_nik'] = 'UtilityController/get_penduduk_by_nik';
+$route['search_nik'] = 'UtilityController/search_nik';
 
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
