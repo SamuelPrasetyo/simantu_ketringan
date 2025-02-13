@@ -1,7 +1,7 @@
 </div>
 </div>
 <footer class="footer">
-    Made with ❤️ by Samuel Prasetyo | Univ. Budi Luhur JAKARTA
+    Made by &copy;Univ. Budi Luhur JAKARTA
 </footer>
 </div>
 
