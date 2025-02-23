@@ -15,13 +15,22 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class UtilityController extends CI_Controller
 {
+    public function __construct()
+    {
+        parent::__construct();
+
+        $this->load->model('UtilityModel');
+    }
+
     public function get_penduduk_by_nik() {
         $nik = $this->input->get('nik');
-        $this->load->model('SuratPengantarModel');
-        $data = $this->SuratPengantarModel->get_penduduk_by_nik($nik);
+        $data = $this->UtilityModel->get_penduduk_by_nik($nik);
     
         if ($data) {
-            echo json_encode(['success' => true, 'data' => $data]);
+            echo json_encode([
+                'status' => true,
+                'data' => $data
+            ]);
         } else {
             echo json_encode(['success' => false]);
         }
@@ -29,8 +38,7 @@ class UtilityController extends CI_Controller
     
     public function search_nik() {
         $search = $this->input->get('search');
-        $this->load->model('SuratPengantarModel');
-        $results = $this->SuratPengantarModel->search_nik($search);
+        $results = $this->UtilityModel->search_nik($search);
         echo json_encode($results);
     }
 }
