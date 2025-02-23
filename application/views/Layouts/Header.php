@@ -19,11 +19,8 @@
     <!-- Time Picker -->
     <link rel="stylesheet" href="<?= base_url() ?>template/assets/node_modules/timepicker/flatpickr.min.css">
 
-    <!-- Popup CSS -->
-    <link href="<?= base_url() ?>template/assets/node_modules/Magnific-Popup-master/dist/magnific-popup.css" rel="stylesheet">
-
     <!-- chartist CSS -->
-    <link href="<?= base_url() ?>template/assets/node_modules/morrisjs/morris.css" rel="stylesheet">
+    <!-- <link href="<?= base_url() ?>template/assets/node_modules/morrisjs/morris.css" rel="stylesheet"> -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <!-- tables CSS -->
     <link rel="stylesheet" type="text/css" href="<?= base_url() ?>template/assets/node_modules/datatables.net-bs4/css/dataTables.bootstrap4.css">

@@ -8,10 +8,6 @@
 <!-- Time Picker -->
 <script src="<?php echo base_url() ?>template/assets/node_modules/timepicker/flatpickr.js"></script>
 
-<!-- Magnific popup Javascript -->
-<script src="<?php echo base_url() ?>template/assets/node_modules/Magnific-Popup-master/dist/jquery.magnific-popup.min.js"></script>
-<script src="<?php echo base_url() ?>template/assets/node_modules/Magnific-Popup-master/dist/jquery.magnific-popup-init.js"></script>
-
 <script src="<?php echo base_url() ?>template/assets/node_modules/jquery/jquery-3.2.1.min.js"></script>
 <!-- Bootstrap tether Core JavaScript -->
 <script src="<?php echo base_url() ?>template/assets/node_modules/popper/popper.min.js"></script>
@@ -37,10 +33,10 @@
 <!-- ============================================================== -->
 <!--morris JavaScript -->
 <script src="<?php echo base_url() ?>template/assets/node_modules/raphael/raphael-min.js"></script>
-<script src="<?php echo base_url() ?>template/assets/node_modules/morrisjs/morris.min.js"></script>
+<!-- <script src="<?php echo base_url() ?>template/assets/node_modules/morrisjs/morris.min.js"></script> -->
 <!--Custom JavaScript -->
 <script src="<?php echo base_url() ?>template/eliteadmin/dist/js/custom.min.js"></script>
-<script src="<?php echo base_url() ?>template/eliteadmin/dist/js/pages/morris-data.js"></script>
+<!-- <script src="<?php echo base_url() ?>template/eliteadmin/dist/js/pages/morris-data.js"></script> -->
 
 
 
