@@ -2,13 +2,6 @@
     #btnAction {
         width: 100%;
     }
-
-    .custom-hover tbody tr:hover {
-        background-color: darkblue !important;
-        /* Warna hover oranye */
-        color: white !important;
-        /* Warna teks putih */
-    }
 </style>
 
 <div class="row">

@@ -2,13 +2,6 @@
     #btnAction {
         width: 100%;
     }
-
-    .custom-hover tbody tr:hover {
-        background-color: darkblue !important;
-        /* Warna hover oranye */
-        color: white !important;
-        /* Warna teks putih */
-    }
 </style>
 
 <div class="row">
@@ -44,7 +37,7 @@
                     </a>
 
                     <!-- Table -->
-                    <table id="myTable" class="table table-hover table-bordered custom-hover" cellspacing="0" width="100%">
+                    <table id="myTable" class="table table-hover table-bordered" cellspacing="0" width="100%">
                         <thead>
                             <tr>
                                 <th>No.</th>
