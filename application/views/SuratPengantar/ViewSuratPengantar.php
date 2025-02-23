@@ -1,3 +1,16 @@
+<style type="text/css">
+    #btnAction {
+        width: 100%;
+    }
+
+    .custom-hover tbody tr:hover {
+        background-color: darkblue !important;
+        /* Warna hover oranye */
+        color: white !important;
+        /* Warna teks putih */
+    }
+</style>
+
 <div class="row">
     <div class="col-12">
         <div class="card">
@@ -31,7 +44,7 @@
                     </a>
 
                     <!-- Table -->
-                    <table id="myTable" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                    <table id="myTable" class="table table-hover table-bordered custom-hover" cellspacing="0" width="100%">
                         <thead>
                             <tr>
                                 <th>No.</th>
@@ -76,19 +89,32 @@
                                     <td>
                                         <?php echo $row->surat_keterangan; ?>
                                     </td>
-                                    <td style="width: 16%;">
-                                        <a class="btn btn-info" href="<?php echo base_url('pdf_suratpengantar/' . $row->id_pengantar); ?>" target="_blank">
-                                            <i class="icon-printer"></i>
-                                        </a>
-                                        <a class="btn btn-info" href="<?php echo base_url('detail_suratpengantar/' . $row->id_pengantar); ?>">
-                                            <i class="mdi mdi-library-books"></i>
-                                        </a>
-                                        <a class="btn btn-warning" href="<?php echo base_url('edit_suratpengantar/' . $row->id_pengantar); ?>">
-                                            <i class="far fa-edit"></i>
-                                        </a>
-                                        <button class="btn btn-danger" onclick="confirmDelete('<?php echo base_url('delete_suratpengantar/' . $row->id_pengantar); ?>')">
-                                            <i class="mdi mdi-delete"></i>
-                                        </button>
+                                    <td style="width: 23%;">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <a class="btn btn-info mt-2" id="btnAction" href="<?php echo base_url('pdf_suratpengantar/' . $row->id_pengantar); ?>" target="_blank">
+                                                    <i class="mdi mdi-printer"></i> Cetak
+                                                </a>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <a class="btn btn-info mt-2" id="btnAction" href="<?php echo base_url('detail_suratpengantar/' . $row->id_pengantar); ?>">
+                                                    <i class="mdi mdi-library-books"></i> Detail
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <a class="btn btn-warning mt-2 mb-2" id="btnAction" href="<?php echo base_url('edit_suratpengantar/' . $row->id_pengantar); ?>">
+                                                    <!-- <i class="far fa-edit"></i> -->
+                                                    <i class="mdi mdi-table-edit"></i> Ubah
+                                                </a>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <button class="btn btn-danger mt-2 mb-2" id="btnAction" onclick="confirmDelete('<?php echo base_url('delete_suratpengantar/' . $row->id_pengantar); ?>')">
+                                                    <i class="mdi mdi-delete"></i> Hapus
+                                                </button>
+                                            </div>
+                                        </div>
                                     </td>
                                 </tr>
                             <?php } ?>

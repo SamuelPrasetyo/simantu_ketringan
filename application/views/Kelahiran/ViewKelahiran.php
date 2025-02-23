@@ -1,3 +1,16 @@
+<style type="text/css">
+    #btnAction {
+        width: 100%;
+    }
+
+    .custom-hover tbody tr:hover {
+        background-color: darkblue !important;
+        /* Warna hover oranye */
+        color: white !important;
+        /* Warna teks putih */
+    }
+</style>
+
 <div class="row">
     <div class="col-12">
         <div class="card">
@@ -60,7 +73,7 @@
                     </div>
 
                     <!-- Table -->
-                    <table id="myTable" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                    <table id="myTable" class="table table-hover table-bordered custom-hover" cellspacing="0" width="100%">
                         <thead>
                             <tr>
                                 <th>No.</th>
@@ -69,9 +82,9 @@
                                 <th style="width: 12%;">Tgl Lahir</th>
                                 <th>Jenkel</th>
                                 <th>Nama Ibu</th>
-                                <th>NIK Ibu</th>
+                                <!-- <th>NIK Ibu</th> -->
                                 <th>Nama Ayah</th>
-                                <th>NIK Ayah</th>
+                                <!-- <th>NIK Ayah</th> -->
                                 <th>Aksi</th>
                             </tr>
                         </thead>
@@ -83,9 +96,9 @@
                                 <th>Tgl Lahir</th>
                                 <th>Jenkel</th>
                                 <th>Nama Ibu</th>
-                                <th>NIK Ibu</th>
+                                <!-- <th>NIK Ibu</th> -->
                                 <th>Nama Ayah</th>
-                                <th>NIK Ayah</th>
+                                <!-- <th>NIK Ayah</th> -->
                                 <th>Aksi</th>
                             </tr>
                         </tfoot>
@@ -111,28 +124,41 @@
                                     <td>
                                         <?php echo $row->nama_ibu; ?>
                                     </td>
-                                    <td>
+                                    <!-- <td>
                                         <?php echo $row->nik_ibu; ?>
-                                    </td>
+                                    </td> -->
                                     <td>
                                         <?php echo $row->nama_ayah; ?>
                                     </td>
-                                    <td>
+                                    <!-- <td>
                                         <?php echo $row->nik_ayah; ?>
-                                    </td>
-                                    <td style="width: 13%;">
-                                        <a class="btn btn-info" href="<?php echo base_url('detail_kelahiran/' . $row->id_kelahiran); ?>">
-                                            <i class="mdi mdi-library-books"></i>
-                                        </a>
-                                        <a class="btn btn-warning" href="<?php echo base_url('edit_kelahiran/' . $row->id_kelahiran); ?>">
-                                            <i class="far fa-edit"></i>
-                                        </a>
+                                    </td> -->
+                                    <td style="width: 23%;">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <a class="btn btn-info mt-2" id="btnAction" href="<?php echo base_url('detail_kelahiran/' . $row->id_kelahiran); ?>">
+                                                    <i class="mdi mdi-library-books"></i> Detail
+                                                </a>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <a class="btn btn-warning mt-2" id="btnAction" href="<?php echo base_url('edit_kelahiran/' . $row->id_kelahiran); ?>">
+                                                    <i class="mdi mdi-table-edit"></i> Ubah
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <button class="btn btn-danger mt-2 mb-2" id="btnAction" onclick="confirmDelete('<?php echo base_url('delete_kelahiran/' . $row->id_kelahiran); ?>')">
+                                                    <i class="mdi mdi-delete"></i> Hapus
+                                                </button>
+                                            </div>
+                                            <div class="col-md-6">
+
+                                            </div>
+                                        </div>
                                         <!-- <a class="btn btn-danger" href="<?php echo base_url('delete_kelahiran/' . $row->id_kelahiran); ?>">
                                             <i class="mdi mdi-delete"></i>
                                         </a> -->
-                                        <button class="btn btn-danger" onclick="confirmDelete('<?php echo base_url('delete_kelahiran/' . $row->id_kelahiran); ?>')">
-                                            <i class="mdi mdi-delete"></i>
-                                        </button>
                                     </td>
                                 </tr>
                             <?php } ?>

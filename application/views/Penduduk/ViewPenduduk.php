@@ -1,3 +1,16 @@
+<style type="text/css">
+    #btnAction {
+        width: 100%;
+    }
+
+    .custom-hover tbody tr:hover {
+        background-color: darkblue !important;
+        /* Warna hover oranye */
+        color: white !important;
+        /* Warna teks putih */
+    }
+</style>
+
 <div class="row">
     <div class="col-12">
         <div class="card">
@@ -60,12 +73,12 @@
                     </div>
 
                     <!-- Table -->
-                    <table id="myTable" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                    <table id="myTable" class="table table-hover table-bordered custom-hover" cellspacing="0" width="100%">
                         <thead>
                             <tr>
                                 <th>No.</th>
                                 <th>NIK</th>
-                                <th>No. KK</th>
+                                <!-- <th>No. KK</th> -->
                                 <th>Nama</th>
                                 <th>Tempat Tgl Lahir</th>
                                 <th>Agama</th>
@@ -79,7 +92,7 @@
                             <tr>
                                 <th>No.</th>
                                 <th>NIK</th>
-                                <th>No. KK</th>
+                                <!-- <th>No. KK</th> -->
                                 <th>Nama</th>
                                 <th>Tempat Tgl Lahir</th>
                                 <th>Agama</th>
@@ -99,9 +112,9 @@
                                     <td>
                                         <?php echo $row->nik; ?>
                                     </td>
-                                    <td>
+                                    <!-- <td>
                                         <?php echo $row->no_kk; ?>
-                                    </td>
+                                    </td> -->
                                     <td>
                                         <?php echo $row->nama; ?>
                                     </td>
@@ -120,18 +133,18 @@
                                     <td>
                                         <?php echo $row->pekerjaan; ?>
                                     </td>
-                                    <td style="width: 15%;">
-                                        <a class="btn btn-info" href="<?php echo base_url('detail_penduduk/' . $row->nik); ?>">
-                                            <i class="mdi mdi-library-books"></i>
+                                    <td style="width: 12%;">
+                                        <a class="btn btn-info mt-2" id="btnAction" href="<?php echo base_url('detail_penduduk/' . $row->nik); ?>">
+                                            <i class="mdi mdi-library-books"></i> Detail
                                         </a>
-                                        <a class="btn btn-warning" href="<?php echo base_url('edit_penduduk/' . $row->nik); ?>">
-                                            <i class="far fa-edit"></i>
+                                        <a class="btn btn-warning mt-2" id="btnAction" href="<?php echo base_url('edit_penduduk/' . $row->nik); ?>">
+                                            <i class="mdi mdi-table-edit"></i> Ubah
                                         </a>
                                         <!-- <a class="btn btn-danger" href="<?php echo base_url('delete_penduduk/' . $row->nik); ?>">
                                             <i class="mdi mdi-delete"></i>
                                         </a> -->
-                                        <button class="btn btn-danger" onclick="confirmDelete('<?php echo base_url('delete_penduduk/' . $row->nik); ?>')">
-                                            <i class="mdi mdi-delete"></i>
+                                        <button class="btn btn-danger mt-2 mb-2" id="btnAction" onclick="confirmDelete('<?php echo base_url('delete_penduduk/' . $row->nik); ?>')">
+                                            <i class="mdi mdi-delete"></i> Hapus
                                         </button>
                                     </td>
                                 </tr>
