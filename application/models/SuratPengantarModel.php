@@ -55,7 +55,7 @@ class SuratPengantarModel extends CI_Model
     public function view()
     {
         $query = $this->db->query(
-            "SELECT * FROM surat_pengantar"
+            "SELECT * FROM surat_pengantar ORDER BY created_at DESC"
         );
 
         return $query->result();
