@@ -16,7 +16,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 class UtilityModel extends CI_Model
 {
     public function get_penduduk_by_nik($nik) {
-        $this->db->select('nik, nama_penduduk, alamat');
+        $this->db->select('*');
         $this->db->from('penduduk');
         $this->db->where('nik', $nik);
         $query = $this->db->get();
