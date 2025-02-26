@@ -1,12 +1,9 @@
-<!-- CSS -->
-<link rel="stylesheet" href="template/css/select2.min.css">
-
-<style>
+<!-- <style>
     .color {
         background-color: #ffffff !important;
         color: #000 !important;
     }
-</style>
+</style> -->
 
 <div class="row">
     <div class="col-lg-12">
@@ -46,7 +43,14 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label class="control-label">*NIK</label>
-                                    <input type="text" name="nik" class="form-control" placeholder="Masukkan NIK" autocomplete="off" value="<?php echo set_value('nik'); ?>" required>
+                                    <div class="row">
+                                        <div class="col-md-9">
+                                            <input type="text" name="nik" class="form-control" placeholder="Masukkan NIK" autocomplete="off" value="<?php echo set_value('nik'); ?>" required>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <button id="search_nik" class="btn btn-info" style="width: 100%;"><i class="fa fa-search"></i> Cari</button>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -222,19 +226,79 @@
 </div>
 
 <script>
-    document.getElementById('myForm').onsubmit = function(e) {
-        var form = this;
-        var hasError = <?php echo validation_errors() ? 'true' : 'false'; ?>;
+    // document.getElementById('myForm').onsubmit = function(e) {
+    //     var form = this;
+    //     var hasError = <?php echo validation_errors() ? 'true' : 'false'; ?>;
 
-        if (!hasError) {
-            form.target = '_blank';
-        } else {
-            form.target = '_self'; // Keep it on the same page
-        }
-    };
-</script>
+    //     if (!hasError) {
+    //         form.target = '_blank';
+    //     } else {
+    //         form.target = '_self'; // Keep it on the same page
+    //     }
+    // };
 
-<script>
+    $(document).ready(function() {
+        $('#search_nik').click(function(e) {
+            e.preventDefault(); // Mencegah form submit otomatis
+
+            let nik = $('input[name="nik"]').val().trim();
+
+            if (nik === '') {
+                // alert('Masukkan NIK terlebih dahulu!');
+                $('input[name="no_kk"]').val('').prop('readonly', false);
+                $('input[name="nama"]').val('').prop('readonly', false);
+                $('input[name="tmp_lahir"]').val('').prop('readonly', false);
+                $('input[name="tgl_lahir"]').val('').prop('disabled', false);
+
+                // Uncheck both radio buttons and enable them
+                $('#laki-laki, #perempuan').prop('checked', false).prop('disabled', false);
+
+                // Reset select dropdowns to default (empty value) and enable them
+                $('select[name="warga_negara"], select[name="agama"]').val('').trigger('change').prop('disabled', false);
+                return;
+            } else if (nik.length < 16) {
+                alert('NIK harus terdiri dari 16 digit angka!');
+                return;
+            }
+
+            $.ajax({
+                url: 'get_penduduk_by_nik',
+                type: 'GET',
+                data: {
+                    nik: nik
+                },
+                dataType: 'json',
+                success: function(response) {
+                    if (response.status === true) {
+                        // Isi form dengan data dari database
+                        $('input[name="no_kk"]').val(response.data.no_kk).prop('readonly', true);
+                        $('input[name="nama"]').val(response.data.nama).prop('readonly', true);
+                        $('input[name="tmp_lahir"]').val(response.data.tmp_lahir).prop('readonly', true);
+                        $('input[name="tgl_lahir"]').val(response.data.tgl_lahir).prop('disabled', true);
+
+                        // Pilih jenis kelamin
+                        if (response.data.jenkel === 'L') {
+                            $('#laki-laki').prop('checked', true).prop('disabled', true);
+                            $('#perempuan').prop('disabled', true);
+                        } else {
+                            $('#perempuan').prop('checked', true).prop('disabled', true);
+                            $('#laki-laki').prop('disabled', true);
+                        }
+
+                        // Set dropdown
+                        $('select[name="warga_negara"]').val(response.data.warga_negara).prop('disabled', true);
+                        $('select[name="agama"]').val(response.data.agama).prop('disabled', true);
+                    } else {
+                        alert('Data tidak ditemukan, silakan isi secara manual.');
+                    }
+                },
+                error: function() {
+                    alert('Terjadi kesalahan saat mengambil data.');
+                }
+            });
+        });
+    });
+
     document.addEventListener('DOMContentLoaded', function() {
         flatpickr("#timepicker", {
             enableTime: true,
@@ -243,9 +307,7 @@
             time_24hr: true // Menggunakan format 24 jam
         });
     });
-</script>
 
-<script>
     document.addEventListener('DOMContentLoaded', function() {
         flatpickr("#datepicker", {
             dateFormat: "d-m-Y", // Format tanggal yang digunakan dalam input text
@@ -284,5 +346,3 @@
         });
     });
 </script>
-
-<script src="template/js/select2.min.js"></script>

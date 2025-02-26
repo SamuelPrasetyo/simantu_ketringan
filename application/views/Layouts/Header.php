@@ -36,6 +36,9 @@
     <link href="<?= base_url() ?>template/assets/node_modules/clockpicker/dist/jquery-clockpicker.min.css" rel="stylesheet">
     <!-- Color picker plugins css -->
     <link href="<?= base_url() ?>template/assets/node_modules/jquery-asColorPicker-master/dist/css/asColorPicker.css" rel="stylesheet">
+
+    <!-- JQUery -->
+    <script src="<?= base_url() ?>template/js/jquery-3.7.1.min.js"></script>
 </head>
 
 <body class="fixed-layout skin-blue">
