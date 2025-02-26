@@ -226,17 +226,6 @@
 </div>
 
 <script>
-    // document.getElementById('myForm').onsubmit = function(e) {
-    //     var form = this;
-    //     var hasError = <?php echo validation_errors() ? 'true' : 'false'; ?>;
-
-    //     if (!hasError) {
-    //         form.target = '_blank';
-    //     } else {
-    //         form.target = '_self'; // Keep it on the same page
-    //     }
-    // };
-
     $(document).ready(function() {
         $('#search_nik').click(function(e) {
             e.preventDefault(); // Mencegah form submit otomatis
@@ -298,6 +287,31 @@
             });
         });
     });
+
+    document.getElementById('myForm').onsubmit = function(e) {
+        var form = this;
+        var hasError = <?php echo validation_errors() ? 'true' : 'false'; ?>;
+
+        // Aktifkan semua input yang disabled agar datanya ikut terkirim
+        var disabledFields = form.querySelectorAll(":disabled");
+        disabledFields.forEach(function(field) {
+            field.removeAttribute("disabled");
+        });
+
+        // Atur target form
+        if (!hasError) {
+            form.target = '_self';
+        } else {
+            form.target = '_self';
+        }
+
+        // (Opsional) Kembalikan field ke disabled setelah submit
+        setTimeout(() => {
+            disabledFields.forEach(function(field) {
+                field.setAttribute("disabled", "true");
+            });
+        }, 1000);
+    };
 
     document.addEventListener('DOMContentLoaded', function() {
         flatpickr("#timepicker", {
