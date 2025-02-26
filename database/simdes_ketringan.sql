@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 22 Nov 2024 pada 02.06
+-- Waktu pembuatan: 26 Feb 2025 pada 14.35
 -- Versi server: 10.4.28-MariaDB
 -- Versi PHP: 8.3.8
 
@@ -54,6 +54,15 @@ CREATE TABLE `kelahiran` (
   `kab_kota` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data untuk tabel `kelahiran`
+--
+
+INSERT INTO `kelahiran` (`id_kelahiran`, `no_ket_lahir`, `nama_bayi`, `hari`, `tgl_lahir`, `jam`, `jenkel`, `jenis_kelahiran`, `anak_ke`, `usia_gestasi`, `berat_lahir`, `panjang_badan`, `lingkar_kepala`, `tempat_lahiran`, `alamat_lahiran`, `nama_ibu`, `umur_ibu`, `nik_ibu`, `nama_ayah`, `nik_ayah`, `pekerjaan`, `alamat_rumah`, `kecamatan`, `kab_kota`) VALUES
+(19, '1/KB/2024', 'MUHAMMAD DEVANO FEBRIANSYAH', 'Rabu', '14-2-2024', '16:10:00', 'L', 'Tunggal', '1', '29', '3000', '49', '22', 'Puskesmas', 'Jl. Raya Blora, Cepu', 'Ika Purwati', '23', '3316076111000001', 'Tn. Suripan', '3316151909000000', 'Petani', 'Ketringan 9/1', 'Jiken', 'Blora'),
+(20, '2/KB/2024', 'ANISA PUTRI PRATAMA', 'Jumat', '7-6-2024', '12:00:00', 'P', 'Tunggal', '2', '29', '3500', '53', '24', 'Rumah Sakit', 'Jl. Raya Blora, Jiken', 'Ratna Dewi Kusuma', '25', '3174091301970001', 'Ahmad Subagyo', '3174091301970003', 'Guru', 'Ketringan 10/2', 'Jiken', 'Blora'),
+(21, '3/KB/2024', 'BUDI SANTOSO WIJAYA', 'Sabtu', '8-6-2024', '17:00:00', 'L', 'Tunggal', '3', '32', '2800', '50', '21', 'Rumah Bersalin', 'Jl. Raya Blora, Jiken', 'Siti Nurhayati', '22', '3174091301970002', 'Budi Hartono', '3174091301970004', 'Buruh', 'Ketringan 12/1', 'Jiken', 'Blora');
+
 -- --------------------------------------------------------
 
 --
@@ -67,7 +76,7 @@ CREATE TABLE `penduduk` (
   `no_urut_kk` varchar(2) NOT NULL,
   `jenkel` char(1) NOT NULL,
   `tmp_lahir` varchar(20) NOT NULL,
-  `tgl_lahir` date NOT NULL,
+  `tgl_lahir` varchar(10) NOT NULL,
   `gol_darah` char(10) NOT NULL,
   `agama` varchar(10) NOT NULL,
   `status_nikah` varchar(25) NOT NULL,
@@ -86,7 +95,9 @@ CREATE TABLE `penduduk` (
 --
 
 INSERT INTO `penduduk` (`nik`, `no_kk`, `nama`, `no_urut_kk`, `jenkel`, `tmp_lahir`, `tgl_lahir`, `gol_darah`, `agama`, `status_nikah`, `status_keluarga`, `pendidikan`, `pekerjaan`, `nama_ayah`, `nama_ibu`, `rt`, `rw`, `warga_negara`) VALUES
-('1234567890123456', '1234567890123456', 'Sam', '3', 'L', 'Jakarta', '0000-00-00', 'B', 'Islam', 'Kawin Tidak Tercatat', 'Kepala Keluarga', 'TAMAT SD / SEDERAJAT', 'Petani', 'Ayah', 'Ibu', '001', '001', 'WNI');
+('1234567890112230', '1234567890112230', 'Testing', '2', 'P', 'Lol', '15-02-2024', 'A', 'Islam', 'Belum Kawin', 'Anak', 'TAMAT SD / SEDERAJAT', 'Belum Bekerja', 'Lll', 'Ooo', '001', '002', 'WNI'),
+('1234567890112231', '1234567890112230', 'Test Lagi', '2', 'L', 'Lol', '7-6-2024', 'A', 'Islam', 'Kawin Tercatat', 'Anak', 'SLTP / SEDERAJAT', 'Belum Bekerja', 'Lll', 'Ooo', '001', '002', 'WNI'),
+('1234567890112232', '1234567890112230', 'Halo', '2', 'L', 'Lol', '8-6-2024', 'A', 'Islam', 'Kawin Tidak Tercatat', 'Anak', 'BELUM MENGISI', 'Belum Bekerja', 'Lll', 'Ooo', '001', '002', 'WNI');
 
 -- --------------------------------------------------------
 
@@ -140,6 +151,13 @@ CREATE TABLE `permohonan_ktp` (
   `kepala_desa` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data untuk tabel `permohonan_ktp`
+--
+
+INSERT INTO `permohonan_ktp` (`id_permohonan`, `permohonan`, `nama`, `nik`, `no_kk`, `alamat`, `rt`, `rw`, `kode_pos`, `kelurahan`, `kecamatan`, `kab_kota`, `provinsi`, `nama_pemohon`, `kepala_desa`) VALUES
+(26012025001, 'Baru', 'SUGI', '1234567890123456', '1234567890123456', 'jl. suka maju', '01', '02', '58372', 'Ketringan', 'Jiken', 'Blora', 'Jawa Tengah', 'SUGI', 'WAHONO');
+
 -- --------------------------------------------------------
 
 --
@@ -158,7 +176,7 @@ CREATE TABLE `surat_pengantar` (
   `warga_negara` varchar(3) NOT NULL,
   `agama` varchar(10) NOT NULL,
   `pekerjaan` varchar(30) NOT NULL,
-  `alamat_rumah` varchar(50) NOT NULL,
+  `alamat_rumah` varchar(255) NOT NULL,
   `kecamatan` varchar(30) NOT NULL,
   `kab_kota` varchar(30) NOT NULL,
   `provinsi` varchar(30) NOT NULL,
@@ -167,8 +185,18 @@ CREATE TABLE `surat_pengantar` (
   `tgl_berlaku` varchar(25) NOT NULL,
   `ket_lain` varchar(255) DEFAULT NULL,
   `pemohon` varchar(50) NOT NULL,
-  `kepala_desa` varchar(50) NOT NULL
+  `kepala_desa` varchar(50) NOT NULL,
+  `created_at` datetime DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `surat_pengantar`
+--
+
+INSERT INTO `surat_pengantar` (`id_pengantar`, `no_pengantar`, `nik`, `no_kk`, `nama`, `tmp_lahir`, `tgl_lahir`, `jenkel`, `warga_negara`, `agama`, `pekerjaan`, `alamat_rumah`, `kecamatan`, `kab_kota`, `provinsi`, `keperluan`, `surat_keterangan`, `tgl_berlaku`, `ket_lain`, `pemohon`, `kepala_desa`, `created_at`) VALUES
+(23022025003, '7878', '1212121212121212', '1212121212121212', 'SILVESTER SAMUEL PRASETYO', 'Jakarta', '05-11-2003', 'L', 'WNI', 'Katolik', 'Staf Junior Programmer', 'Jl. Garuda Perumahan Puri Kristal No. 24, Ciputat, Tangerang Selatan', 'Jiken', 'Blora', 'Jawa Tengah', 'Pinjaman Bank', 'SURAT KETERANGAN PINJAMAN', '23-02-2025 to 28-02-2025', 'keterangan lain', 'SAMUEL PRASETYO', 'WAHONO', '2025-02-23 21:31:04'),
+(26012025002, '123', '1234567890123456', '1234567890123456', 'SUGI', 'Blora', '01-01-2022', 'L', 'WNI', 'Islam', 'Guru', 'Jl. Hindia', 'Jiken', 'Blora', 'Jawa Tengah', 'Mutasi', 'PERPINDAHAN KERJA', '', '-', 'SUGI', 'WAHONO', '2025-01-26 21:31:04'),
+(26022025004, '888', '1234567890112230', '1234567890112230', 'TESTING', 'Lol', '15-02-2024', 'P', 'WNI', 'Islam', 'Haha', 'Haha', 'Jiken', 'Blora', 'Jawa Tengah', 'Haha', 'HAHA', '26-02-2025 to 28-02-2025', 'haha', 'HAHA', 'WAHONO', '2025-02-26 21:31:04');
 
 -- --------------------------------------------------------
 
@@ -240,13 +268,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT untuk tabel `kelahiran`
 --
 ALTER TABLE `kelahiran`
-  MODIFY `id_kelahiran` bigint(19) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id_kelahiran` bigint(19) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT untuk tabel `permohonan_ktp`
 --
 ALTER TABLE `permohonan_ktp`
-  MODIFY `id_permohonan` bigint(19) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20082024002;
+  MODIFY `id_permohonan` bigint(19) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26012025002;
 
 --
 -- AUTO_INCREMENT untuk tabel `users`
