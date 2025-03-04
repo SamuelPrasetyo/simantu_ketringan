@@ -1,3 +1,9 @@
+<style>
+    .btn {
+        width: 10%;
+    }
+</style>
+
 <div class="row">
     <div class="col-lg-12">
         <div class="card">
@@ -5,9 +11,16 @@
                 <h4 class="m-b-0 text-white">Detail</h4>
             </div>
             <div class="card-body">
+                <a class="btn btn-warning mt-2 mb-3" href="<?php echo base_url('edit_suratpengantar/' . $surat_pengantar->id_pengantar); ?>">
+                    <i class="mdi mdi-table-edit"></i> Ubah
+                </a>
+                <a class="btn btn-dark ml-3 mt-2 mb-3" href="<?php echo base_url('pdf_suratpengantar/' . $surat_pengantar->id_pengantar); ?>" target="_blank">
+                    <i class="mdi mdi-printer"></i> Cetak
+                </a>
+
                 <div class="table-responsive">
                     <table class="table table-bordered">
-                        <thead>
+                        <thead style="background-color: lightgray;">
                             <tr>
                                 <th>No.</th>
                                 <th>Detail</th>

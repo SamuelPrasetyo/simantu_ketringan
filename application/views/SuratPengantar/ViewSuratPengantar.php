@@ -85,7 +85,7 @@
                                     <td style="width: 23%;">
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <a class="btn btn-info mt-2" id="btnAction" href="<?php echo base_url('pdf_suratpengantar/' . $row->id_pengantar); ?>" target="_blank">
+                                                <a class="btn btn-dark mt-2" id="btnAction" href="<?php echo base_url('pdf_suratpengantar/' . $row->id_pengantar); ?>" target="_blank">
                                                     <i class="mdi mdi-printer"></i> Cetak
                                                 </a>
                                             </div>
