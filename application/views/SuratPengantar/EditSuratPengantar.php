@@ -228,15 +228,27 @@
         var form = this;
         var hasError = <?php echo validation_errors() ? 'true' : 'false'; ?>;
 
-        if (!hasError) {
-            form.target = '_blank';
-        } else {
-            form.target = '_self'; // Keep it on the same page
-        }
-    };
-</script>
+        // Aktifkan semua input yang disabled agar datanya ikut terkirim
+        var disabledFields = form.querySelectorAll(":disabled");
+        disabledFields.forEach(function(field) {
+            field.removeAttribute("disabled");
+        });
 
-<script>
+        // Atur target form
+        if (!hasError) {
+            form.target = '_self';
+        } else {
+            form.target = '_self';
+        }
+
+        // (Opsional) Kembalikan field ke disabled setelah submit
+        setTimeout(() => {
+            disabledFields.forEach(function(field) {
+                field.setAttribute("disabled", "true");
+            });
+        }, 1000);
+    };
+
     document.addEventListener('DOMContentLoaded', function() {
         flatpickr("#timepicker", {
             enableTime: true,
@@ -245,9 +257,7 @@
             time_24hr: true // Menggunakan format 24 jam
         });
     });
-</script>
-
-<script>
+    
     document.addEventListener('DOMContentLoaded', function() {
         flatpickr("#datepicker", {
             dateFormat: "d-m-Y", // Format tanggal yang digunakan dalam input text
@@ -286,5 +296,3 @@
         });
     });
 </script>
-
-<script src="template/js/select2.min.js"></script>

@@ -123,9 +123,10 @@ class SuratPengantarController extends CI_Controller
             );
 
             if ($this->SuratPengantarModel->insert($data)) {
-                $this->generate_pdf($data);
-                $this->session->set_flashdata('success', 'Data berhasil ditambahkan!');
-                redirect('view_suratpengantar');
+                redirect('detail_suratpengantar'. '/' . $data['id_pengantar']);
+                // $this->generate_pdf($data);
+                // $this->session->set_flashdata('success', 'Data berhasil ditambahkan!');
+                // redirect('view_suratpengantar');
             } else {
                 $this->session->set_flashdata('error', 'Data gagal ditambahkan!');
                 redirect('add_suratpengantar');
@@ -186,9 +187,10 @@ class SuratPengantarController extends CI_Controller
             );
 
             if ($this->SuratPengantarModel->update($data)) {
-                $this->generate_pdf($data);
-                $this->session->set_flashdata('success', 'Data berhasil diubah!');
-                redirect('view_suratpengantar');
+                redirect('detail_suratpengantar'. '/' . $data['id_pengantar']);
+                // $this->generate_pdf($data);
+                // $this->session->set_flashdata('success', 'Data berhasil diubah!');
+                // redirect('view_suratpengantar');
             } else {
                 $this->session->set_flashdata('error', 'Data gagal diubah!');
                 redirect('edit_suratpengantar');
