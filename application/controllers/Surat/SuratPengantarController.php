@@ -120,6 +120,7 @@ class SuratPengantarController extends CI_Controller
                 'ket_lain' => $this->input->post('ket_lain'),
                 'pemohon' => strtoupper($this->input->post('pemohon')),
                 'kepala_desa' => strtoupper($this->input->post('kepala_desa')),
+                'created_at' => date('Y-m-d H:i:s')
             );
 
             if ($this->SuratPengantarModel->insert($data)) {
@@ -184,6 +185,7 @@ class SuratPengantarController extends CI_Controller
                 'ket_lain' => $this->input->post('ket_lain'),
                 'pemohon' => strtoupper($this->input->post('pemohon')),
                 'kepala_desa' => strtoupper($this->input->post('kepala_desa')),
+                'updated_at' => date('Y-m-d H:i:s')
             );
 
             if ($this->SuratPengantarModel->update($data)) {
