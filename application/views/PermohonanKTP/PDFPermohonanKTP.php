@@ -177,3 +177,100 @@
         </tr>
     </table>
 </div>
+
+<!-- 2 -->
+
+<div class="header" style="margin-top: 12%;">
+    <h4 id="text-center" style="padding-top: -20px;">FORMULIR PERMOHONAN KARTU TANDA PENDUDUK (KTP)</h4>
+</div>
+
+<div class="content">
+    <table class="table table-bordered">
+        <tr>
+            <td style="width: 250px;">PEMERINTAH PROVINSI</td>
+            <td style="width: 20px;">:</td>
+            <td style="width: 100px;"><?php echo isset($kode_provinsi[0]->data_aturan) ? $kode_provinsi[0]->data_aturan : ''; ?></td>
+            <td style="width: 100px;"><?php echo strtoupper($provinsi); ?></td>
+        </tr>
+        <tr>
+            <td>PEMERINTAH KABUPATEN/KOTA</td>
+            <td>:</td>
+            <td><?php echo isset($kode_kab_kota[0]->data_aturan) ? $kode_kab_kota[0]->data_aturan : ''; ?></td>
+            <td><?php echo strtoupper($kab_kota); ?></td>
+        </tr>
+        <tr>
+            <td>KECAMATAN</td>
+            <td>:</td>
+            <td><?php echo isset($kode_kecamatan[0]->data_aturan) ? $kode_kecamatan[0]->data_aturan : ''; ?></td>
+            <td><?php echo strtoupper($kecamatan); ?></td>
+        </tr>
+        <tr>
+            <td>KELURAHAN/DESA</td>
+            <td>:</td>
+            <td><?php echo isset($kode_kelurahan[0]->data_aturan) ? $kode_kelurahan[0]->data_aturan : ''; ?></td>
+            <td><?php echo strtoupper($kelurahan); ?></td>
+        </tr>
+    </table>
+
+    <table style="padding-top: 10px;">
+        <tr>
+            <td id="permohonan_ktp" style="width: 180px;">PERMOHONAN KTP</td>
+            <td>: <?php echo $permohonan; ?></td>
+        </tr>
+        <tr>
+            <td>Nama Lengkap</td>
+            <td>: <?php echo $nama; ?></td>
+        </tr>
+        <tr>
+            <td>No. KK</td>
+            <td>: <?php echo $no_kk; ?></td>
+        </tr>
+        <tr>
+            <td>NIK</td>
+            <td>: <?php echo $nik; ?></td>
+        </tr>
+        <tr>
+            <td>Alamat</td>
+            <td>: <?php echo $alamat; ?></td>
+        </tr>
+        <tr>
+            <td>RT / RW</td>
+            <td>: <?php echo $rt . ' / ' . $rw; ?></td>
+        </tr>
+        <tr>
+            <td>Kode Pos</td>
+            <td>: <?php echo $kode_pos; ?></td>
+        </tr>
+    </table>
+</div>
+
+<div class="footer">
+    <table class="center-table">
+        <tr>
+            <td class="pas-foto">
+                <p id="box">Pas Foto (3x4)</p>
+            </td>
+            <td class="cap-jempol">
+                <p id="box">Cap Jempol</p>
+            </td>
+            <td class="tanda-tangan">
+                <p id="box">Spesimen Tanda Tangan</p>
+            </td>
+            <td class="signature">
+                <p><?php echo "Ketringan" . ', ' . date('d-m-Y'); ?></p>
+                <p>Pemohon</p>
+                <p id="ttd"><br><br><br><br><br><?php echo $nama_pemohon; ?></p>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3" style="vertical-align: top; padding-top: 10px;">
+                <p style="font-size: 9pt;">Ket : Cap Jempol / Tanda Tangan</p>
+            </td>
+            <td class="signature">
+                <p>Mengetahui</p>
+                <p>Kepala Desa Ketringan</p>
+                <p id="ttd"><br><br><br><br><br><?php echo $kepala_desa; ?></p>
+            </td>
+        </tr>
+    </table>
+</div>

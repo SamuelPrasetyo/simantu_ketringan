@@ -247,7 +247,11 @@ class KTPController extends CI_Controller
 
         // Load library mPDF dari Composer
         require_once FCPATH . 'vendor/autoload.php';
-        $mpdf = new \Mpdf\Mpdf();
+        $mpdf = new \Mpdf\Mpdf([
+            // 'format' => 'legal',
+            'format' => [210, 330], // Width 210mm (21cm), Height 330mm (33cm)
+            'orientation' => 'P' // P for portrait, L for landscape
+        ]);
 
         // Load view template surat pengantar dan isi dengan data yang baru disimpan
         $html = $this->load->view('PermohonanKTP/PDFPermohonanKTP', $data, TRUE);
