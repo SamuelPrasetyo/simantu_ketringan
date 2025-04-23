@@ -43,14 +43,22 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label class="control-label">*NIK</label>
-                                    <div class="row">
+                                    <div class="input-group">
+                                        <input type="search" name="nik" class="form-control" placeholder="Masukkan NIK" autocomplete="off" value="<?php echo set_value('nik', $nik); ?>" required>
+                                        <div class="input-group-append">
+                                            <!-- <button type="button" id="search_nik" class="btn waves-effect waves-light btn-secondary"><i class="fas fa-times"></i></button> -->
+                                            <button type="button" id="search_nik" class="btn waves-effect waves-light btn-info"><i class="fa fa-search"></i> Cari</button>
+                                        </div>
+                                    </div>
+
+                                    <!-- <div class="row">
                                         <div class="col-md-9">
                                             <input type="text" name="nik" class="form-control" placeholder="Masukkan NIK" autocomplete="off" value="<?php echo set_value('nik', $nik); ?>" required>
                                         </div>
                                         <div class="col-md-3">
                                             <button id="search_nik" class="btn btn-info" style="width: 100%;"><i class="fa fa-search"></i> Cari</button>
                                         </div>
-                                    </div>
+                                    </div> -->
                                 </div>
                             </div>
                             <div class="col-md-6">
