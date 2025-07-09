@@ -89,12 +89,12 @@
 </div>
 
 <div class="header">
-    <h4 id="text-center">SURAT KETERANGAN PENGANTAR</h4>
+    <h4 id="text-center"><u>SURAT KETERANGAN</u></h4>
     <p id="text-center" style="padding-top: -15px;">No : <?php echo $no_pengantar; ?></p>
 </div>
 
 <div class="content">
-    <p id="text-center">Yang bertanda tangan dibawah ini menandakan bahwa :</p>
+    <p id="text-center">Yang bertanda di bawah ini:</p>
     <table>
         <tr>
             <td>1.</td>
@@ -188,12 +188,36 @@
         <tr>
             <td style="width: 50%;"></td>
             <td style="text-align: center;">
-                <?php echo "Ketringan" . ', ' . date('d-m-Y'); ?>
+                <?php
+                    // Array bulan dalam Bahasa Indonesia
+                    $bulan = [
+                        '01' => 'Januari',
+                        '02' => 'Februari',
+                        '03' => 'Maret',
+                        '04' => 'April',
+                        '05' => 'Mei',
+                        '06' => 'Juni',
+                        '07' => 'Juli',
+                        '08' => 'Agustus',
+                        '09' => 'September',
+                        '10' => 'Oktober',
+                        '11' => 'November',
+                        '12' => 'Desember'
+                    ];
+
+                    // Ambil tanggal hari ini
+                    $tanggal = date('d');
+                    $bulan_angka = date('m');
+                    $tahun = date('Y');
+
+                    // Format dan tampilkan
+                    echo "Keterangan, " . $tanggal . ' ' . $bulan[$bulan_angka] . ' ' . $tahun;
+                ?>
             </td>
         </tr>
         <tr>
             <td style="text-align: center;">Pemohon</td>
-            <td style="text-align: center;">Kepala Desa</td>
+            <td style="text-align: center;">Kepala Desa Ketringan</td>
         </tr>
         <tr>
             <td id="ttd"><?php echo $pemohon; ?></td>

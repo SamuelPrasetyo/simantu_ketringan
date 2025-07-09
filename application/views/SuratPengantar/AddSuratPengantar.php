@@ -5,6 +5,17 @@
     }
 </style> -->
 
+<style>
+    .close-btn {
+        background-color: red;
+    }
+
+    .search-btn {
+        /* background-color: #DCDCDC; */
+        background-color: blue;
+    }
+</style>
+
 <div class="row">
     <div class="col-lg-12">
         <div class="card">
@@ -46,8 +57,9 @@
                                     <div class="input-group">
                                         <input type="search" name="nik" class="form-control" placeholder="Masukkan NIK" autocomplete="off" value="<?php echo set_value('nik'); ?>" required>
                                         <div class="input-group-append">
-                                            <!-- <button type="button" id="search_nik" class="btn waves-effect waves-light btn-secondary"><i class="fas fa-times"></i></button> -->
-                                            <button type="button" id="search_nik" class="btn waves-effect waves-light btn-info"><i class="fa fa-search"></i> Cari</button>
+                                            <button type="button" id="search_nik" class="btn waves-effect waves-light btn-dark"><i class="fa fa-search"></i> Cari</button>
+                                            <button type="button" id="search_nik" class="btn waves-effect waves-light close-btn"><i class="fas fa-times" style="color: white;"></i></button>
+                                            <!-- <button type="button" id="search_nik" class="btn waves-effect waves-light btn-secondary"><img src="assets\ic_close.png" alt="Close"></button> -->
                                         </div>
                                     </div>
                                     
