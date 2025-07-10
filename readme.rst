@@ -17,10 +17,12 @@ Langkah-Langkah Clone dan Setup Project
 ***************************************
 
 1. Clone repository ini ke folder htdocs komputer kamu: git clone https://github.com/SamuelPrasetyo/simantu_ketringan.git
-2. Lalu akses melalui localhost
-3. Enjoy! 😊
+2. Import DB melalui File SQL di Folder Database
+3. Lalu akses melalui localhost
+4. Enjoy! 😊
 
 Demo
 ****
-username : user
-password : user@123
+Username : user
+
+Password : user@123
