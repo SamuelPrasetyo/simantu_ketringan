@@ -26,6 +26,7 @@ class SuratPengantarController extends CI_Controller
         $this->load->model('SuratPengantarModel');
         $this->load->model('SimdesModel');
         $this->load->helper(array('form', 'validation_formsuratpengantar'));
+        $this->load->library('core');
     }
 
     public function index()
@@ -59,6 +60,11 @@ class SuratPengantarController extends CI_Controller
         $id_pengantar = $this->uri->segment(2);
         $get_detail = $this->SuratPengantarModel->detail($id_pengantar);
 
+        // Konversi tgl_berlaku
+        if (isset($get_detail->tgl_berlaku)) {
+            $get_detail->tgl_berlaku = $this->core->convertTanggal($get_detail->tgl_berlaku);
+        }
+
         $detail['surat_pengantar'] = $get_detail;
 
         $this->load->view('Layouts/Header', $data);
@@ -81,7 +87,8 @@ class SuratPengantarController extends CI_Controller
             'title_content' => 'Tambah Surat Pengantar',
             'link1' => 'Surat Pengantar',
             'link2' => 'Add Surat Pengantar',
-            'id_pengantar' => $this->SuratPengantarModel->generate_new_id()
+            'id_pengantar' => $this->SuratPengantarModel->generate_new_id(),
+            'tgl_berlaku' => (new DateTime())->modify('+30 days')->format('d-m-Y') // Atur tanggal berlaku 30 hari ke depan
         );
 
         $data = array_merge($data, $auto_fill);
@@ -232,6 +239,11 @@ class SuratPengantarController extends CI_Controller
     {
         $id_pengantar = $this->uri->segment(2);
         $data = $this->SuratPengantarModel->detail($id_pengantar);
+
+        // Konversi tgl_berlaku
+        if (isset($data->tgl_berlaku)) {
+            $data->tgl_berlaku = $this->core->convertTanggal($data->tgl_berlaku);
+        }
 
         // Load library mPDF dari Composer
         require_once FCPATH . 'vendor/autoload.php';

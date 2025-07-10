@@ -171,8 +171,8 @@
         </tr>
         <tr>
             <td>15.</td>
-            <td>Tanggal Berlaku</td>
-            <td>: <?php echo substr_replace($tgl_berlaku, 's/d', 11, 2); ?></td>
+            <td>Berlaku sampai</td>
+            <td>: <?php echo $tgl_berlaku; ?></td>
         </tr>
         <tr>
             <td>16.</td>

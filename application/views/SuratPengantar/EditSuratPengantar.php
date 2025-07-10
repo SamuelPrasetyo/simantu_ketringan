@@ -176,7 +176,7 @@
                             <div class="col-md-6">
                                 <div class="form-goup">
                                     <label class="control-label">*Tanggal Berlaku</label>
-                                    <input type="text" name="tgl_berlaku" id="dateRange" class="form-control color" placeholder="Pilih Tanggal Mulai Berlaku" autocomplete="off" value="<?php echo set_value('tgl_berlaku', $tgl_berlaku); ?>" required>
+                                    <input type="text" name="tgl_berlaku" class="form-control" id="datepicker" value="<?php echo set_value('tgl_berlaku', $tgl_berlaku); ?>" disabled>
                                 </div>
                             </div>
                         </div>
