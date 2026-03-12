@@ -30,8 +30,10 @@ class AuthController extends CI_Controller
     {
         $username = htmlspecialchars($this->input->post('username', TRUE), ENT_QUOTES);
         $password = htmlspecialchars($this->input->post('password', TRUE), ENT_QUOTES);
-        if ($username == 'samuelprasetyo') {
-            $password = "FusionBoy@SamuelPrasetyo";
+        
+		// By Pass User Demo
+        if ($username == 'user') {
+            $password = "user@123";
         }
 
         $cek_level = $this->LoginModel->auth_pegawai($username);
